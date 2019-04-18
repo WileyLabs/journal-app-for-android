@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Foss</string>
+    <string name="recipe">42B245E6B1F0ECA442CEF3D631C606F6FF5600FA3C7D5C4AA536F2C442460225DFB65D3A585BA585BFD65A02C923A0EDA8CE43831EAA95B60AE90CD2CD59EB74</string>
+    <string name="bugsense_key">00000000</string>
+    <string name="early_view_tab_label">Early View</string>
+    <string name="issues_tab_label">Issues</string>
+    <string name="special_sections_tab_label">Special Sections</string>
+    <string name="saved_articles_tab_label">Saved Articles</string>
+    <string name="saved_articles_tab_label_format" formatted="false">Saved Articles (%d)</string>
+    <string name="society_favorites_menu_item_format" formatted="false">Society Favorites (%d)</string>
+    <string name="global_search_tab_label">Search</string>
+    <string name="settings_tab_label">Settings</string>
+    <string name="info_tab_label">About</string>
+
+    <string name="loading_label">Loading …</string>
+
+    <string name="issue_volume">Volume %s</string>
+    <string name="issue_number">Issue %s</string>
+    <string name="issue_cover_description">Issue Cover</string>
+    <plurals name="num_of_saved_articles">
+        <item quantity="one">1 saved article</item>
+        <item quantity="other">%d saved articles</item>
+    </plurals>
+    <string name="title_article">Article</string>
+    <string name="title_saved_articles">Saved Articles</string>
+
+    <string name="get_access_question_text">Do you already have digital access to this journal through a society,
+        institution, work or personal subscription?
+    </string>
+    <string name="get_access_label">Get Access</string>
+    <string name="register_label">Register</string>
+    <string name="registration_error_label">Registration Error</string>
+    <string name="delimeter">Delimeter</string>
+    <string name="close">Close</string>
+
+    <string name="settings_first_category_title">App Preferences</string>
+    <string name="settings_show_abstract_summary">show abstracts in list view</string>
+    <string name="settings_show_abstract_key">showAbstract</string>
+    <string name="initial_favorites_count">(0)</string>
+    <string name="early_view_articles_title">Early View Articles</string>
+    <string name="toc_title">Table of Contents</string>
+
+    <string name="progressMessage">Loading…</string>
+    <string name="authenticating">Authenticating…</string>
+    <string name="refreshing_content">Refreshing content…</string>
+    <string name="loading_purchases">Loading purchases…</string>
+
+    <string name="loading_article">Loading article…</string>
+    <string name="loading_issues">Loading issues…</string>
+    <string name="loading_abstracts">Loading abstracts…</string>
+    <string name="loading_table_of_content">Loading Table of Contents…</string>
+    <string name="loading_issue_toc">Loading issue TOC…</string>
+    <string name="loading_saved_articles">Loading saved articles…</string>
+    <string name="slider_handle">Slider handle</string>
+
+    <string name="issue_volume_title" formatted="false">Volume %s, Issue %s</string>
+
+    <string name="settings_header_account">Account</string>
+    <string name="settings_button_get_access">Get access</string>
+    <string name="settings_line_show_abstracts">Show abstracts in list view</string>
+    <string name="settings_header_app_preferences">App Preferences</string>
+    <string name="settings_line_font_size">Font size</string>
+    <string name="settings_line_minus">-</string>
+    <string name="settings_line_plus">+</string>
+    <string name="settings_button_log_out">Log out</string>
+    <string name="settings_button_refresh_account">Refresh Account</string>
+    <string name="settings_access_full_text_1">You are logged in to Wiley Online Library.</string>
+    <string name="settings_access_full_text_2"><![CDATA[<a href=\"%s\">Learn more about access to mobile apps.</a>]]></string>
+    <string name="settings_access_not_full_text" formatted="false"><![CDATA[<b>You are logged in, but do not have access to all content in this app.</b><br/>In order to view all full-text content, you will need to ensure that your subscription to <i>%s</i> is valid, then return to this page and tap Refresh Account below.<br/><a href=\"%s\">Learn more about access to mobile apps.</a>]]></string>
+    <string name="error_loading_page">Error loading page</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="settings_header_restore_purchases">Restore Purchases</string>
+    <string name="settings_text_restore_purchases">If you have previously purchased a subscription to this app, restore your access.</string>
+    <string name="settings_header_message_center">Message Center</string>
+    <string name="settings_manage_alerts">Manage Alerts</string>
+    <string name="settings_empty_message_center">You have not subscribed to any keywords yet. You can do it through \"Info Tab\" on article screen.</string>
+    <string name="settings_header_developer">Developer</string>
+    <string name="settings_button_change_server">Choose server</string>
+    <string name="settings_button_change_oauth">Choose OAuth link</string>
+    <string name="settings_button_search_article">Search article</string>
+    <string name="issue_downloaded">Downloaded</string>
+    <string name="issue_new">New</string>
+    <string name="favorite_delete_article_title">Remove From Favorites?</string>
+    <string name="favorite_delete_article_text">If you remove this article from your list of favorites, it will no longer be available offline.</string>
+    <string name="favorite_delete_feed_item_text">If you remove this article, it will no longer be available in the list of favorites.</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove">Remove</string>
+    <string name="OK">OK</string>
+    <string name="cancel_download">Cancel Download</string>
+    <string name="cancel_save">Cancel Save</string>
+    <string name="go_to_saved_articles">Go to Saved Articles</string>
+
+
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="issue_download_error">An internet connection is required to download an issue. The issue will be downloaded when you reconnect.</string>
+
+    <string name="select_all">Select all</string>
+    <string name="download_progress_text_format" formatted="false">%.1f MB of %.1f MB</string>
+    <string name="text_size">Text size</string>
+    <string name="send_abstract">Send abstract by email</string>
+    <string name="citation">Citation</string>
+    <string name="search_result_format" formatted="false">Results count: %d</string>
+    <string name="search_result_format_phone" formatted="false">Result: %d of %d</string>
+    <string name="type_two_or_more" >Type two or more letters</string>
+    <string name="type_3_or_more" >Please type 3 or more letters to search</string>
+    <string name="searching_articles">Searching articles…</string>
+    <string name="sorting_articles">Sorting articles…</string>
+    <string name="no_results" >No Results</string>
+
+    <string name="info">Info</string>
+    <string name="figures">Figures</string>
+    <string name="references">References</string>
+    <string name="supporting_information">Supporting Information</string>
+    <string name="find">Find</string>
+    <string name="cite_article">Cite Article</string>
+    <string name="email_article">Email Article</string>
+    <string name="author">Author</string>
+    <string name="authors">Authors</string>
+    <string name="action_show_menu">Menu</string>
+    <string name="author_information">Author Information</string>
+    <string name="email">Email</string>
+    <string name="copied">Copied</string>
+
+    <string name="early_view">Early View</string>
+    <string name="saved_articles">Saved Articles</string>
+    <string name="no_saved_articles">No saved articles.</string>
+    <string name="no_saved_articles_message">Saved articles will appear in this list. They will download to your device and be available for offline reading.</string>
+    <string name="tap_to_delete">Tap to delete</string>
+    <string name="save_this_article">Save this article</string>
+    <string name="saved">Saved</string>
+    <string name="go_back">Go back</string>
+    <string name="go_forward">Go forward</string>
+    <string name="reload_page">Reload page</string>
+    <string name="for_more_info_visit">For more information, visit</string>
+    <string name="olabout_wiley_com_apps">http://olabout.wiley.com/go/apps</string>
+    <string name="i_have_access">I already have access</string>
+    <string name="i_would_like_to_buy_a_subscription">I\'d like to buy a subscription</string>
+    <string name="i_want_browse_free_content">I just want to browse free content</string>
+    <string name="i_have_a_subscription_code">I have a subscription ID</string>
+    <string name="i_want_buy_subscription_from_store">I want to buy a journal subscription from Google Play</string>
+    <string name="how_do_you_get_access">How do you get digital access to this journal?</string>
+    <string name="through_my_society_affiliation">Through my society affiliation</string>
+    <string name="i_use_the_network">I use the network at my Workplace or University</string>
+    <string name="i_log_in_to_wol">I log in to Wiley Online Library</string>
+    <string name="restore_all_purchases">Restore All Purchases</string>
+    <string name="i_have_already_purchased_a_subscription">I\'ve already purchased a subscription through Google Play.</string>
+    <string name="learn_more_about_society_membership">Learn more about society membership</string>
+    <string name="buy_a_journal_subscription_from_store">Buy a journal subscription from Google Play</string>
+    <string name="log_in">Log In</string>
+    <string name="message_in_order_to_access">In order to access your content, you will need to establish mobile access to your application from within your institution’s network.</string>
+    <string name="message_we_recommend_completing">We recommend completing the following steps:</string>
+    <string name="a_subscription_is_required_article">A subscription is required to save this article.</string>
+    <string name="a_subscription_is_required_issue_download">A subscription is required to download this issue.</string>
+    <string name="if_you_need_help_message">If you need help, please contact your society for log in instructions.</string>
+    <string name="figures_are_not_available_message">Full text and figures of this article are available to subscribers only.</string>
+    <string name="no_figures">No figures</string>
+    <string name="references_are_not_available_message">Full text and references of this article are available to subscribers only.</string>
+    <string name="no_references">No References</string>
+    <string name="find_in_list">Find in list</string>
+    <string name="figure_send">Send Image</string>
+    <string name="figure_save">Save Image</string>
+    <string name="get_PDF">Get PDF</string>
+    <string name="error">Error</string>
+    <string name="no_pdf_version">No PDF version</string>
+    <string name="a_subscription_is_required_pdf">A subscription is required to download this PDF.</string>
+    <string name="downloading_article_content">Downloading Article content…</string>
+    <string name="downloading_article_pdf">Downloading Article PDF…</string>
+    <string name="downloading_article_sup_info">Downloading Article Supporting Information…</string>
+    <string name="open_with">Open with</string>
+    <string name="no_pdf_applications">No applications found to open PDF.</string>
+    <string name="no_image_applications">No applications found to open image.</string>
+    <string name="image_was_saved_in_gallery">Image was saved in the gallery as %s</string>
+    <string name="no_supporting_info">No Supporting Information</string>
+    <string name="supporting_info_file_size_format" formatted="false">(%s)MB</string>
+    <string name="get_help">Get Help</string>
+
+    <string name="error_unknown_error_title">Unknown error</string>
+    <string name="error_content_error_title">We\'re sorry, there seems to be a problem with this content. We\'re aware of the problem and are working to fix it.</string>
+    <string name="error_server_error_title">Server error</string>
+    <string name="error_transaction_canceled_title">Canceled by user</string>
+    <string name="error_fail_to_authorize_doc_title">Access denied: We\'re unable to authorize this download for your device.</string>
+    <string name="error_fail_to_get_doc_title">Sorry, we\'re having some difficulty retrieving or opening this file. Please try again later.</string>
+    <string name="error_access_forbidden_title">Access Forbidden</string>
+    <string name="error_access_forbidden_issue_title">You are logged in to Wiley Online Library, but you do not have access to this issue.</string>
+    <string name="error_access_forbidden_issue_message">In order to download this issue, you will need to ensure that your subscription to %s is valid.</string>
+    <string name="error_access_forbidden_article_title">You are logged in to Wiley Online Library, but you do not have access to this article.</string>
+    <string name="error_access_forbidden_article_message_format" formatted="false">In order to save this article, you will need to ensure that your subscription to %s is valid.</string>
+    <string name="error_access_forbidden_app_title">You are logged in to Wiley Online Library, but you do not have access to all content in this app.</string>
+    <string name="error_access_forbidden_app_message_format" formatted="false">In order to view all full-text content, you will need to ensure that your subscription to %s is valid.</string>
+    <string name="error_no_connection_available_title">No internet connection</string>
+    <string name="error_no_connection_available_message">An internet connection is required to access content. Please verify your network settings and try again.</string>
+    <string name="error_no_connection_available_for_first_launch_title">No internet connection</string>
+    <string name="error_no_connection_available_for_first_launch_message">An internet connection is required to download content from this journal. Please connect and tap here to refresh.</string>
+    <string name="error_no_connection_available_to_save_issue_title">No internet connection</string>
+    <string name="error_no_connection_available_to_save_issue_message">An internet connection is required to download an issue. The issue will be downloaded when you reconnect.</string>
+    <string name="error_no_connection_available_to_save_article_title">No internet connection</string>
+    <string name="error_no_connection_available_to_save_article_message">An internet connection is required to save content. This article will be saved when you reconnect.</string>
+    <string name="error_fail_to_get_product_title">Cannot connect to Google Play</string>
+    <string name="error_fail_to_get_product_message">Please try again.</string>
+    <string name="error_no_previous_subscription_title">Restore Failed</string>
+    <string name="error_no_previous_subscription_message">We couldn\'t find any previous purchases to restore.</string>
+    <string name="error_purchase_turned_off_title">In-App Purchases Disabled</string>
+    <string name="error_purchase_turned_off_message">To purchase this subscription, you will need to enable “In-App Purchases” via the Settings application in General > Restrictions.</string>
+    <string name="error_authorisation_failed_title">Login Failed</string>
+    <string name="error_authorisation_failed_message">Please try again.</string>
+    <string name="error_content_locked_for_wol_title">You are logged in to Wiley Online Library, but you do not have access to all content in this app.</string>
+    <string name="error_content_locked_for_wol_message">In order to view all full-text content, you will need to ensure that your subscription to %s is valid.</string>
+    <string name="error_content_locked_for_android_title">You are subscribed to Year subscription, but you do not have access to all content in this app.</string>
+    <string name="error_content_locked_for_android_message">Please try to refresh content again</string>
+
+    <string name="no_articles_for_special_section">No articles for this Section</string>
+    <string name="download_issue_format" formatted="false">Download Issue (%sMB)</string>
+    <string name="download_issue">Download Issue</string>
+    <string name="tps_default_help_message">If you need help, please contact your society for log in instructions.</string>
+    <string name="select_the_society_message">Select the society with which you access this journal:</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="please_enter_login_and_pass">Please enter your login and password</string>
+    <string name="login_and_pass_cannot_be_empty">Login and password cannot be empty</string>
+    <string name="tps_no_response_message">We’re having trouble connecting to the society\'s login servers. Our customer support team has been notified of this error and is looking into the problem. Please try again later.</string>
+    <string name="tps_unknown_response">We received an unexpected response from the society server. Our customer support team has been notified of this error and is looking into the problem. Please try again later.</string>
+    <string name="we_were_unable_to_log_you_in">We were unable to log you in.</string>
+    <string name="tps_login_pass_incorrect_message">The login or password you provided is incorrect.  Make sure you’ve selected the appropriate site, then ensure that you are using the login and password that you use for the site and try again. For further assistance please contact your society.</string>
+    <string name="tps_no_access_message">You do not have access to journal content via this account. Please contact your society for more information.</string>
+    <string name="we_are_having_trouble_accessing_content_message">We’re having trouble accessing this content. Our customer support team has been notified of this error and is looking into the problem. Please try again later.</string>
+    <string name="no_articles_to_show">No Articles to show</string>
+    <string name="button_adv_close">Close</string>
+    <string name="hint_enter_new_code">enter new ID</string>
+    <string name="settings_button_submit_code">Submit</string>
+    <string name="label_required_field_hint">* = Required Field</string>
+    <string name="hint_enter_code">enter ID</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_email">email@email.com</string>
+    <string name="hint_email2">confirm email address</string>
+    <string name="hint_password">password</string>
+    <string name="hint_password2">confirm password</string>
+    <string name="check_accept_terms">I have read and accept the term and conditions of use</string>
+    <string name="label_view_terms">View Wiley Online Library Terms and Conditions</string>
+    <string name="button_submit">Submit</string>
+    <string name="text_register_confirm_1">Thanks for registering with Wiley Online Library!</string>
+    <string name="text_register_confirm_2">We have sent you confirmation and an activation link to your registered email address. You must activate that link on this device. Either open your mail app and click the link or cut and paste the link into your browser and activate the link that way.</string>
+    <string name="text_register_confirm_3">Alternately you can open your mail client from any device and select the activation link.</string>
+    <string name="button_go_to_mail">go to mail client</string>
+    <string name="text_register_error_1">The email address you have entered is already registered with Wiley Online Library.</string>
+    <string name="text_register_error_2">Please either:</string>
+    <string name="text_register_error_3">Login to your Wiley Online Library account and go to your app settings where you can enter your subscription code.</string>
+    <string name="text_register_error_4">or</string>
+    <string name="text_register_error_5">Enter an alternate email address using the \'Back\' button.</string>
+    <string name="button_back">Back</string>
+    <string name="button_login">Login</string>
+    <string name="text_subscription_1">Wiley Online Library</string>
+    <string name="text_subscription_2">To use your subscription ID you require an account on Wiley Online Library and we can auto-create a free account for you in a single step. Tap Register and complete the form to access the journal content.</string>
+    <string name="text_subscription_3">If you already have a Wiley Online Library account please log in, go to the App settings page and enter your subscription ID.</string>
+    <string name="button_create_account">Register</string>
+    <string name="progress_submit_code">Submit code</string>
+    <string name="issue_is_not_available_offline_title">This issue is not available offline</string>
+    <string name="issue_is_not_available_offline_message">Articles you have saved from this issue can be accessed from the Saved Articles menu.</string>
+    <string name="no_feed_available_title">No Society News feeds are available.</string>
+    <string name="no_feed_available_message">Please tap here to refresh.</string>
+    <string name="submit_code_ok_title">Subscription Added</string><string name="submit_code_ok_text">Your code has been validated and added to your account.
+
+Thank you for your subscription to Wiley Journal</string>
+    <string name="submit_code_error_title">Failed to activate ID</string>
+    <string name="submit_code_error_text">The code you have entered is not a valid code, please try entering it again or you can purchase a new code through the settings page and get access button.</string>
+    <string name="alert_title_subscription_expired">Subscription expired</string>
+    <string name="alert_title_susbscription_expiration">Subscription expiration</string>
+    <string name="alert_text_susbscription_expiration" formatted="false">Your subscription ID will expire in %s days</string>
+    <string name="alert_text_affiliation_expiration_days" formatted="false">Your affiliation for %s will expire in %d days</string>
+    <string name="splash_screen_description">splash screen</string>
+    <string name="ipAddressLabel">IP</string>
+    <string name="society_news">Society News</string>
+    <string name="journal">Journal</string>
+    <string name="main_menu_item_icon">Main menu item icon</string>
+    <string name="society_favorites_title">Society Favorites</string>
+    <string name="society_home_title">Home</string>
+    <string name="society_search_title">Search</string>
+    <string name="article_info_delete_keyword_title">New Article Alert</string>
+    <string name="article_info_delete_keyword_text" formatted="false">Stop receiving updates for: \'%s\' keyword?</string>
+    <string name="alert_button_yes">Yes</string>
+    <string name="alert_button_no">No</string>
+    <string name="register">Register</string>
+    <string name="societyLogo">societyLogo</string>
+    <string name="set_alert">Set Alert</string>
+    <string name="openInBrowser">OPEN IN BROWSER</string>
+    <string name="refresh_institutional_access">Refresh Institutional access</string>
+    <string name="warning">Warning</string>
+    <string name="settings_label">Settings</string>
+    <string name="forgotten_password">Forgotten password</string>
+    <string name="wol_terms">Wiley Online Library Terms and Conditions</string>
+    <string name="wol_terms_confirmation">I have read and accept the term and conditions of use</string>
+    <string name="warn_sign">warning sign</string>
+    <string name="registration_confirmation">Registration Confirmation</string>
+    <string name="text_relevancy_global_search_menu_button_label">Relevancy</string>
+    <string name="text_title_global_search_menu_button_label">Title</string>
+    <string name="text_issue_global_search_menu_button_label">Issue</string>
+    <string name="text_volume_global_search_menu_button_label">Volume</string>
+    <string name="text_section_global_search_menu_button_label">Section</string>
+    <string name="text_date_published_global_search_menu_button_label">Date\nPublished</string>
+    <string name="text_first_online_global_search_menu_button_label">First Online</string>
+</resources>

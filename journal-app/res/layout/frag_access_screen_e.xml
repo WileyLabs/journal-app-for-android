@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GetAccessScreenRoot"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/get_access_learn_more_about_society_membership"
+        style="@style/GetAccessBlueButton"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/learn_more_about_society_membership" />
+
+    <TextView
+        android:id="@+id/get_access_society_info"
+        style="@style/GetAccessText"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorLink="@color/get_access_link_color" />
+
+    <!--unused-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:background="@color/get_access_hor_line" />
+
+    <!--unused-->
+    <Button
+        android:id="@+id/get_access_i_want_buy_subscription_from_store"
+        style="@style/GetAccessBlueButton"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="@string/buy_a_journal_subscription_from_store" />
+
+</LinearLayout>

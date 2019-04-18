@@ -1,0 +1,411 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/* Setting up the font */
+body {
+	font-family:  "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 15px 40px 44px 20px;
+	color:#333333;
+    -webkit-text-size-adjust:none;
+}
+
+.abstract {
+    -webkit-hyphens: auto;
+    word-wrap: break-word;
+}
+
+#article_main, .abstract_class {
+	line-height: 1.4;
+    font-family:  "Times New Roman", Times, Baskerville,Palatino, serif;
+}
+#article_main {
+	width: 100%;
+	vertical-align: top;
+}
+.article_class,.article {
+	word-wrap:break-word;
+    padding: 0;
+}
+
+#article_title {
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	font-size:120%;
+	line-height:130%;
+	margin: 0px 0px 10px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+table.section_heading, table.heading_table_class {
+	border:none;
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:10pt;
+}
+table.section_heading td, table.heading_table_class td {
+	vertical-align:middle;
+}
+table.section_heading tr td:first-child, table.heading_table_class tr td:first-child {
+	font-weight:bold;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 120%;
+  margin:0.5em 0;
+}
+
+ul.bullet {
+    font-family:sans-serif;
+    font-size:70%
+}
+
+h3 {
+    font-size:90%
+}
+
+h4 {
+	font-size:80%;
+}
+
+h5 {
+	font-size:70%;
+}
+
+.highlighted_text {
+	color: #333;
+	background: #c4c5c6;
+}
+
+.highlighted_text.highlight {
+    color: #333;
+    background: #e8e84f;
+}
+
+.notesHeading {
+  font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight:bold;
+  line-height:120%;
+  margin:0.5em 0;
+  font-size:90%
+}
+
+/* Abbreviation list */
+.listPairedTitle {
+    font-weight: bold;
+}
+dt {
+    float: left;
+    clear: left;
+    font-weight: bold;
+    padding-right: 0.2em;
+}
+dd:before {
+    content: "- ";
+}
+dd p {
+    display: inline;
+}
+
+
+/* styles from WOL fullText.css */
+.smallCaps {font-variant:small-caps;text-transform:lowercase}
+.fixed-roman {font-variant:small-caps;font-style:normal}
+
+/* Keeps sup and sub from causing extra line-height */ sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    white-space:nowrap;
+}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+div.figure {margin:1.75em 0;padding:0;}
+div.figure p{font-size:80%; font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+div.image {text-align: center;margin:10px 0;}
+
+div.metadata {border-top: 1px solid darkgrey;}
+
+span.label {font-weight: bold;}
+
+
+
+/* Tables (mostly swiped from WOL css) */
+div.table {margin-bottom:0;overflow-x:auto;overflow-y:hidden}
+div.table table {margin:0 auto .5em auto;text-align:left;width:99.5%;margin-bottom:.5em}
+
+table {
+    border-collapse: collapse;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+table.main_table_class, table.main_table, table.heading_table_class {
+	border:none;
+}
+
+thead > tr {
+    border-bottom: 1px solid black;
+}
+tfoot > tr {
+    border-top: 1px solid black;
+}
+
+div.table table .graphic{margin:0;width:100%} div.table table .graphic img{margin:0 auto;display:block} div.table table .vTop{vertical-align:top} div.table table .vMiddle{vertical-align:middle} div.table table .vBottom{vertical-align:bottom} div.table table .hLeft{text-align:left} div.table table .hRight{text-align:right} div.table table .hCenter,div.table table .hChar{text-align:center} div.table table .hJustify{text-align:justify}
+
+thead,tbody,tfoot,tr,th,td{vertical-align:inherit;text-align:inherit}
+table.hCenter thead,table.hChar thead,table.hCenter thead tr,table.hChar thead tr,table.hCenter thead tr td,table.hChar thead tr td,table.hCenter thead tr th,table.hChar thead tr th{text-align:center}
+thead{vertical-align:bottom}
+tbody{vertical-align:top}
+div.table table p{margin:0}
+div.table table caption{font-family:  "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; text-align:left;padding:0 0 1.5em 0;}
+caption .label{padding:0 .5em 0 0;font-weight:bold;}
+caption .tTitle{display:block;/*line-height:1.75em*/}
+caption .tTitle *{font-weight:bold!important}
+div.table table thead,div.table table tbody{padding:0}
+div.table table thead th{font-weight:bold;padding:.3em 0}
+div.table table thead th *{font-weight:bold}
+div.table table thead td img.titleImage{display:block;margin:0 auto}
+div.table table tbody th{font-weight:bold;padding:.3em 0}
+div.table table thead th,div.table table tfoot td,div.table table tbody td{padding:.3em .5em;}
+div.table table span.smallText{font-size:10px}
+.tableFootnote {margin-left:10px;margin-right:10px;}
+
+.noteLink {
+    vertical-align: super;
+    font-size: 80%;
+}
+
+
+/* lists, also swiped from WOL */
+ul li,ol li{line-height:1.5em}
+ul li p,ol li p{text-indent:0;margin:0 0 .5em 0} ul li p.indent,ol li p.indent{text-indent:2em} ul.plain{list-style-type:none;margin:1em 0 1em 2.8em;overflow:hidden} ul.plain li{text-indent:-1.6em;padding-left:1.6em;margin-bottom:.5em}
+ul.compact li{margin-bottom:0}
+ul.plain li p{margin-left:-1.6em}
+ul.bullet,ol.numbered,ol.upperAlpha,ol.lowerAlpha,ol.upperRoman,ol.lowerRoman{list-style-position:outside;margin:0 0 1em 2.7em}
+ul.bullet{list-style-type:disc;margin:0 0 1em 2.8em}
+ol.custom {-webkit-padding-start:0;}
+ol.innerNumbered,ol.numbered{list-style-type:decimal}
+ol.numbered li{list-style:inherit}
+ol.numbered li{list-style:inherit}
+ol.innerUpperAlpha,ol.upperAlpha{list-style-type:upper-alpha}
+ol.innerLowerAlpha,ol.lowerAlpha{list-style-type:lower-alpha}
+ol.innerUpperRoman,ol.upperRoman{list-style-type:upper-roman}
+ol.innerLowerRoman,ol.lowerRoman{list-style-type:lower-roman}
+ul.bullet li{list-style:inherit}
+.custom{list-style-type:none;margin:0 0 1em 0;overflow:hidden} ul li ul.bullet{margin-bottom:0;font-size:1em}
+.custom li{text-indent:0;padding-left:0;clear:left}
+.custom li input, .custom li span.bullet {float:left; min-width:1em; display:block; text-align:left; overflow:visible}
+.custom li input{margin:.3em 0 0 .5em}
+.custom li img.bullet{margin:.4em 0 0 1em;float:left;display:block;text-align:right}
+.custom li div.text,.custom li p.text,.custom li span.text{display:block;margin:0 0 0 1.5em} .custom li label{display:block;margin:0 0 0 2.6em} ol.custom li div.text span,.custom li div.text label{margin:0} div.section div.para ul.custom li ul.custom{font-size:1em;margin-left:.8em}
+div.section div.para ul.custom li ul.custom div.text{width:62em;float:right;margin-left:0}
+ol.innerNumbered,ol.innerUpperAlpha,ol.innerLowerAlpha,ol.innerUpperRoman,ol.innerLowerRoman{list-style-position:outside;margin:0 0 0 2.7em} ul.innerBullet{list-style-type:disc;list-style-position:outside;margin:0 0 0 2.7em} ul.innerPlain{margin:0 0 0 2.7em} ul.plain li ul.innerBullet{margin:0 0 0 .9em} ul.plain li ul.innerBullet li{text-indent:0;padding-left:0;margin:0}
+ul.plain li ul.innerBullet li p{padding-left:1.6em} ul.plain li ul.innerCustomList li .text{text-indent:0} .innerCustomList{list-style-type:none}
+.innerCustomList li{text-indent:0;padding-left:0;clear:left}
+.innerCustomList li span.bullet{float:left;min-width:2em;display:block;text-align:right}
+.innerCustomList li img.bullet{margin:.4em 0 0 1em;float:left;display:block} .innerCustomList li input{margin:.3em 0 0 .5em;float:left;min-width:2em;display:block}
+div.text .innerCustomList li label,div.text .innerCustomList li div.text,.innerCustomList li label,.innerCustomList li div.text{display:block;margin:0 0 0 2.7em}
+
+
+/* more stuff from WOL */
+.computerCode .lineatedText .line{line-height:1.5em;font-family:monospace,Monaco,"Andale Mono","Lucida Console","Bitstream Vera Sans Mono","Courier New";margin:0;white-space:nowrap} .dialogue{width:80%;margin:0 auto 1em auto} .dialogue ol{list-style-type:decimal;margin:0 0 0 1.5em} .dialogue p{margin:0 0 1em 2em} .dialogue .speaker{font-weight:bold;color:#5d5d5d;margin:0 1em 0 -2em} .graphic{width:80%;margin:0 auto 1em auto;overflow:auto} .para .displayedItemText li{overflow:auto} .poetry{width:80%;margin:0 auto 1em auto} .poetry p{margin:0;text-align:center} .poetry ol{list-style-type:decimal;list-style-position:inside}
+.poetry ol li{text-align:center}
+blockquote.quote{width:80%;margin:0 auto 1em auto} blockquote.quote .source{font-style:italic;margin:-1em 0 0 0} blockquote.quote p .source{font-style:italic;padding:0 0 0 .5em} .signature .title{font-weight:bold} .signature p{margin:0}
+
+.underlined{text-decoration:underline}
+.doubleUnderlined{text-decoration:underline;border-bottom:1px solid #000} .overlined{text-decoration:overline}
+.struck{text-decoration:line-through}
+.monospace{font-family:monospace,monospace;font-size:1em}
+.sans-serif{font-family:sans-serif}
+.serif{font-family:serif}
+
+/* "Fixes" for peculiarities */
+.authorNote p {display:inline;}
+ul, li{
+	list-style:none;
+	padding:0;
+}
+ul.custom li {list-style-type: none; text-indent: 0; padding-left:0; }
+ul.custom span.bullet {display:block; float:left; min-width:3em; overflow:visible; text-align:right;}
+ul.custom div.text {display:block; margin:0 0 0 3.8em;}
+
+.inlineGraphic{vertical-align:middle;float:none;margin:0;}
+
+tfoot span.bullet{float:left;min-width:0.5em;display:block;text-align:left;overflow:visible;font-weight:bold;}
+tfoot div.text{display:block;margin:0 0 0 0}
+
+div.tFooter {padding-bottom:1em;}
+div.tFooter div.text p {display:block;margin:0px;}
+
+hr {
+	clear: both;
+	height: 1px;
+	padding: 0px;
+	border: 0px none;
+	margin: 34px 0px;
+	background-color: #cdd0d4;
+}
+
+span.level1_heding_class
+{
+    color:#96a8bd;
+}
+
+span.level2_heding_class
+{
+    color:#60758e;
+}
+
+span.heading_divider_class
+{
+    color:#bdbdbd;
+}
+
+/* Box messages */
+
+.box {
+    display: table;
+    position: relative;
+    padding: 10px 20px;
+    margin: 7px 3px;
+	border-radius: 4px;
+	background-color: #e4eef8;
+	-webkit-box-sizing: border-box;
+	font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.box_button {
+ 	color: #157efb;
+	text-align: center;
+	border-radius: 10px;
+	background: #f9f9f9;
+	white-space: nowrap;
+    border: 1px solid #157efb;
+    margin-top: 8px;
+    padding: 9px 10px;
+}
+
+.box_title {
+    font-weight:bold;
+    padding-right: 10px;
+}
+
+.box_message {
+    padding: 0 10px 0 30px;
+}
+
+.box_title, .box_message {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.box_close {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+}
+
+.box_icon {
+    display: table-cell;
+    min-width: 30px;
+    vertical-align: middle;
+}
+
+.box .box {
+    padding-top: 10px;
+    margin: 0;
+}
+
+div.article_section_info_class
+{
+    font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:13px;
+	font-weight: bold;
+	padding:0;
+	margin:0;
+	color:#222;
+}
+
+.feed-items-list-thumbnail {
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+.article_item_element_class.odd .feed-items-list-thumbnail {
+    float: right;
+    margin-left: 10px;
+}
+
+.article_item_element_class.even .feed-items-list-thumbnail {
+    float: left;
+    margin-right: 10px;
+}
+
+/* iPhone */
+@media only screen and (min-width : 320px) and (max-width : 568px)
+{
+    .article_section_info_class
+    {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        padding: 0 0 5px 0 !important;
+        min-height: 27px;
+    }
+    .box {
+        padding: 8px 17px 14px 17px;
+    }
+}
+
+/* iPad */
+@media only screen and (min-width : 600px) and (max-width : 1024px)
+{
+    .box_buttons {
+        display: table-cell !important;
+        vertical-align: middle;
+        margin-top: 0;
+    }
+    .box_button {
+        margin-top: 0;
+    }
+    .box_message
+    {
+        display: table-cell;
+    }
+}
+
+.para .box {
+    background: #f3f3f3;
+    padding: 1px 10px;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+    font: 20px "Times New Roman", Times, Baskerville, Palatino, serif;
+}
+
+.restrictedArticle .lock_icon{
+    display: inline;
+}
+
+.openArticle .lock_icon{
+    display: none;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    style="@style/GetAccessScreenRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/get_access_desc_message_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/GetAccessText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/message_in_order_to_access"/>
+
+        <TextView
+            style="@style/GetAccessText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/message_we_recommend_completing"/>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/get_access_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/get_access_log_in_to_wol"
+            style="@style/GetAccessBlueButton"
+            android:singleLine="true"
+            android:text="@string/log_in"/>
+
+        <Space
+            android:id="@+id/get_access_buttons_spacer"
+            android:layout_width="24dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/register_in_wol"
+            style="@style/GetAccessBlueButton"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:text="@string/register"/>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/get_access_more_info_block"
+        layout="@layout/get_access_more_info_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

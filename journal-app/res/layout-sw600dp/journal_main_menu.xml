@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_menu"
+    android:layout_width="@dimen/left_bar_menu_width"
+    android:layout_height="match_parent"
+    android:background="?mainColor"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_main">
+
+    <Button
+        android:id="@+id/early_view_tab"
+        style="@style/left_bar_menu_tab_titled"
+        android:drawableTop="@drawable/early_view_tab_icon_selector"
+        android:tag="@string/early_view_tab_label"
+        android:text="@string/early_view_tab_label" />
+
+    <Button
+        android:id="@+id/issues_tab"
+        style="@style/left_bar_menu_tab_titled"
+        android:drawableTop="@drawable/issues_tab_icon_selector"
+        android:tag="@string/issues_tab_label"
+        android:text="@string/issues_tab_label" />
+
+    <Button
+        android:id="@+id/special_sections_tab"
+        style="@style/left_bar_menu_tab_titled"
+        android:drawableTop="@drawable/special_sections_tab_icon_selector"
+        android:tag="@string/special_sections_tab_label"
+        android:text="@string/special_sections_tab_label" />
+
+    <Button
+        android:id="@+id/saved_articles_tab"
+        style="@style/left_bar_menu_tab_titled"
+        android:drawableTop="@drawable/saved_articles_tab_icon_selector"
+        android:tag="@string/saved_articles_tab_label"
+        android:text="@string/saved_articles_tab_label" />
+
+    <Button
+        android:id="@+id/global_search_tab"
+        style="@style/left_bar_menu_tab_titled"
+        android:drawableTop="@drawable/global_search_tab_icon_selector"
+        android:tag="@string/global_search_tab_label"
+        android:text="Search" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_transparency" />
+
+    <LinearLayout
+        android:id="@+id/horizontal_buttons_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/left_bar_menu_button_padding"
+        android:weightSum="100">
+
+        <ImageButton
+            android:id="@+id/settings_tab"
+            style="@style/left_bar_menu_tab_not_titled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:scaleType="fitCenter"
+            android:src="@drawable/settings_tab_icon_selector"
+            android:tag="@string/settings_tab_label" />
+
+        <ImageButton
+            android:id="@+id/info_tab"
+            style="@style/left_bar_menu_tab_not_titled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:scaleType="fitCenter"
+            android:src="@drawable/info_tab_icon_selector"
+            android:tag="@string/info_tab_label" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:scaleType="fitCenter"
+            android:src="?logoBottomLeft" />
+    </FrameLayout>
+
+</LinearLayout>

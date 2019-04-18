@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="left_menu_button_bg">#80000000</color>
+    <color name="black_transparency">#80000000</color>
+    <color name="white_transparency">#80FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="article_bar_background">#a5a6ad</color>
+    <color name="article_bar_divider">@color/black_transparency</color>
+    <color name="main_window_content_background">#ffffffff</color>
+    <color name="get_access_screen_background">#ffffffff</color>
+    <color name="issues_list_year_separator_txt_color">#ffffffff</color>
+    <color name="issue_txt">#80000000</color>
+    <color name="background">#55000000</color>
+    <color name="slider_panel_bg">#fff9f9f9</color>
+    <color name="settings_summary">#ff444444</color>
+    <color name="article_view_center_menu_background">#f5f6f7</color>
+    <color name="article_view_content_cover_background">#55000000</color>
+    <color name="search_no_results_text">#aaaaaa</color>
+    <color name="authors_info_title">#ffffff</color>
+    <color name="light_grey">#d9d9d9</color>
+    <color name="saved_articles_editor_delete_back">#ff3b30</color>
+
+    <color name="get_access_hor_line">#cdd0d4</color>
+    <color name="get_access_title">#a1a1a1</color>
+    <color name="get_access_text">#4f4f4f</color>
+    <color name="get_access_warn_message_back">#E4EEFF</color>
+    <color name="get_access_link_color">#1271c9</color>
+    <color name="no_internet_connection_back">#E4EEF8</color>
+
+    <color name="blue_button_main">#157efb</color>
+    <color name="blue_button_accent">#d3e6f9</color>
+    <color name="red_button_main">#ff0000</color>
+    <color name="red_button_accent">#ffcccc</color>
+    <color name="grey_button_main">#808080</color>
+    <color name="grey_button_accent">#c0c0c0</color>
+
+    <color name="issue_toc_info_background">#cbcbcb</color>
+    <color name="issue_toc_sections_background">#A3A8AC</color>
+    <color name="issue_toc_section_item_selected">#414344</color>
+    <color name="issue_toc_section_separator">#666666</color>
+
+    <color name="special_sections_side_letters">#007aff</color>
+    <color name="global_search_sort_view_background">#efefef</color>
+    <color name="global_search_menu_button_background_checked">#A3A8AC</color>
+    <color name="global_search_menu_button_title_enabled">#0D80FE</color>
+    <color name="global_search_menu_button_title_disabled">#808080</color>
+
+    <color name="blue_light">#ff33b5e5</color>
+    <color name="list_article_header_title_color">#fff3f3f3</color>
+    <color name="list_article_header_title_color_dark">#e6727374</color>
+</resources>

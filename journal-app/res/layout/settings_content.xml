@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/settingsScrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ScrollViewSize">
+
+        <LinearLayout
+            android:id="@+id/settings_layout_account"
+            style="@style/Settings.Group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SettingsText.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_header_account"/>
+            <LinearLayout
+                style="@style/Settings.Group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_get_access"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_button_get_access"/>
+
+                <TextView
+                    android:id="@+id/label_full_access_1"
+                    style="@style/SettingsText.Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="@string/settings_access_full_text_1"/>
+
+                <TextView
+                    android:id="@+id/label_full_access_2"
+                    style="@style/SettingsText.Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:gravity="center_horizontal"
+                    android:text="@string/settings_access_full_text_2"/>
+
+                <TextView
+                    android:id="@+id/label_not_full_access"
+                    style="@style/SettingsText.Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:gravity="center_horizontal"
+                    android:text="@string/settings_access_not_full_text"/>
+
+                <Button
+                    android:id="@+id/button_refresh_account"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_button_refresh_account"/>
+
+                <Button
+                    android:id="@+id/button_logout"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_button_log_out"/>
+
+                <Button
+                    android:id="@+id/button_refresh_affiliation_info"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/refresh_institutional_access"/>
+
+                <include layout="@layout/access_code_settings_layout"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/SettingsDivider" />
+
+            <TextView
+                android:id="@+id/subscription_code_expipation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:id="@+id/subscription_code_expipation_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/SettingsDivider" />
+
+            <TextView
+                android:id="@+id/mobile_affiliation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:id="@+id/affiliation_info_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/SettingsDivider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_layout_preferences"
+            style="@style/Settings.Group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SettingsText.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_header_app_preferences"/>
+
+            <include layout="@layout/include_settings_app_preferences" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/SettingsDivider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_layout_restore_purchases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Settings.Group"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SettingsText.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_header_restore_purchases"/>
+
+            <LinearLayout
+                android:id="@+id/settings_group_restore_purchases"
+                style="@style/Settings.Group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_restore_purchases"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/restore_all_purchases"/>
+
+                <TextView
+                    style="@style/SettingsText.Line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_text_restore_purchases"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/SettingsDivider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_layout_message_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Settings.Group"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_header_message_center"
+                style="@style/SettingsText.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_header_message_center"/>
+
+            <TextView
+                android:id="@+id/message_center_alert"
+                style="@style/SettingsText.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@string/settings_manage_alerts"/>
+
+            <FrameLayout
+                android:id="@+id/settings_group_message_center"
+                style="@style/Settings.Group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/settings_keywords_message_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/settings_empty_message_center"
+                    style="@style/SettingsText.Line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_empty_message_center"/>
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/message_center_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                style="@style/SettingsDivider" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settings_layout_developer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_header_developer"
+                style="@style/SettingsText.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_header_developer"/>
+
+            <LinearLayout
+                android:id="@+id/settings_group_developer"
+                style="@style/Settings.Group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/change_ip_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ipAddressLabel"/>
+
+                    <EditText
+                        android:id="@+id/debug_ip"
+                        style="@style/BlueEditText"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="text|textNoSuggestions"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button_change_server"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_button_change_server"/>
+
+                <Button
+                    android:id="@+id/button_change_oauth"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_button_change_oauth"/>
+
+                <Button
+                    android:id="@+id/button_search_article"
+                    style="@style/SettingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_button_search_article"/>
+
+                <!-- feature: google drive -->
+                <TextView
+                    android:id="@+id/text_google_drive_connection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/text_google_drive_saved_articles_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/text_google_drive_read_articles_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/text_google_drive_keywords_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/text_google_drive_saved_society_news_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/text_google_drive_ua_device_token"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

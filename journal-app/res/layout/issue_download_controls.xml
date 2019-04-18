@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/download_issue_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/download_progress_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/download_state_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:paddingBottom="20dp"
+                android:singleLine="false"
+                android:text="@string/loading_label"
+                android:textColor="@color/issue_txt"
+                android:textSize="8sp" />
+
+            <ProgressBar
+                android:id="@+id/download_progress"
+                style="@style/ActionBarHorizontalProgressStyle"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:max="100" />
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/download_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:focusable="true"
+            android:background="@null"
+            android:src="@drawable/download_cancel" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/download_issue"
+        style="@style/BlueButton"
+        android:padding="0dp"
+        android:visibility="gone"
+        android:layout_margin="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="14sp" />
+
+</FrameLayout>

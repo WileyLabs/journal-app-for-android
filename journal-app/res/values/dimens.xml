@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="left_bar_menu_width">60dp</dimen>
+    <dimen name="left_bar_menu_button_height">60dp</dimen>
+    <dimen name="left_bar_menu_button_padding">20dp</dimen>
+    <dimen name="left_bar_menu_button_padding_margin">1dp</dimen>
+    <dimen name="left_bar_menu_settings_info_width">30dp</dimen>
+    <dimen name="left_bar_menu_settings_info_padding">5dp</dimen>
+    <dimen name="left_bar_menu_button_divider">-60dp</dimen>
+    <dimen name="lef_bar_menu_item_text_size">7sp</dimen>
+    <dimen name="lef_bar_menu_item_padding_top">5dp</dimen>
+
+    <dimen name="right_bar_menu_offset">48dp</dimen>
+    <dimen name="right_bar_menu_shadow_width">8dp</dimen>
+
+    <dimen name="article_bar_divider_bottom">-95dp</dimen>
+    <dimen name="issues_list_year_separator_txt_size">16sp</dimen>
+    <dimen name="issues_list_year_separator_padding">10dp</dimen>
+    <dimen name="issues_list_year_separator_padding_vertical">5dp</dimen>
+    <dimen name="article_bar_content_width">300dp</dimen>
+    <dimen name="issues_list_issue_padding_top">10dp</dimen>
+    <dimen name="issues_list_issue_padding_bottom">10dp</dimen>
+    <dimen name="article_list_header_padding_left">9dp</dimen>
+
+    <dimen name="issue_cover_width">102dp</dimen>
+    <dimen name="issue_cover_height">135dp</dimen>
+    <dimen name="issue_cover_width_sections">150dp</dimen>
+    <dimen name="issue_cover_height_sections">200dp</dimen>
+    <dimen name="issue_no_cover_width">160dp</dimen>
+    <dimen name="issue_no_cover_height">120dp</dimen>
+    <dimen name="free_issue_cover_width">102dp</dimen>
+    <dimen name="free_issue_cover_height">135dp</dimen>
+    <dimen name="issue_list_padding_top">20dp</dimen>
+    <dimen name="issue_list_padding_right">5dp</dimen>
+    <dimen name="issue_list_padding_bottom">20dp</dimen>
+    <dimen name="issue_list_padding_left">5dp</dimen>
+    <dimen name="issue_free_sample_text">22sp</dimen>
+    <dimen name="issue_text_size">14sp</dimen>
+    <dimen name="issue_saved_articles_size">10sp</dimen>
+
+    <dimen name="top_bar_menu_height">45dp</dimen>
+    <dimen name="top_menu_favorites_button_width">55dp</dimen>
+    <dimen name="top_bar_menu_title_size">18sp</dimen>
+
+    <dimen name="article_side_menu_width">70dp</dimen>
+    <dimen name="article_side_menu_button_width">70dp</dimen>
+    <dimen name="article_side_menu_button_height">70dp</dimen>
+    <dimen name="article_center_menu_width">380dp</dimen>
+    <dimen name="article_center_menu_content_width">250dp</dimen>
+    <dimen name="article_center_menu_images_height">150dp</dimen>
+    <dimen name="article_side_menu_button_icon_width">30dp</dimen>
+    <dimen name="article_side_menu_button_icon_height">30dp</dimen>
+    <dimen name="article_side_menu_button_label_text_size">10sp</dimen>
+    <dimen name="article_side_menu_divider_height">1dp</dimen>
+
+    <dimen name="article_authors_info_view_width">300dp</dimen>
+    <dimen name="article_authors_info_view_height">300dp</dimen>
+
+    <dimen name="article_authors_info_view_phone_height">250dp</dimen>
+
+    <dimen name="get_access_dialog_width">320dp</dimen>
+    <dimen name="get_access_dialog_height">480dp</dimen>
+    <dimen name="alert_dialog_width">320dp</dimen>
+    <dimen name="alert_dialog_height">240dp</dimen>
+    <dimen name="alert_dialog_title_text_size">22sp</dimen>
+    <dimen name="alert_dialog_title_padding">16dp</dimen>
+
+    <dimen name="action_bar_title_padding_left">50dp</dimen>
+
+    <dimen name="figures_image_caption_height">90dp</dimen>
+    <dimen name="announcements_show_hide_button_padding_right">20dp</dimen>
+
+    <dimen name="global_search_menu_button_height">44dp</dimen>
+    <dimen name="global_search_menu_button_text_size">13sp</dimen>
+
+</resources>

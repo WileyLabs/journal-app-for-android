@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="left_bar_menu_width">150dp</dimen>
+    <dimen name="left_bar_menu_button_height">90dp</dimen>
+    <dimen name="left_bar_menu_button_divider">-90dp</dimen>
+    <dimen name="lef_bar_menu_item_text_size">16sp</dimen>
+    <dimen name="lef_bar_menu_item_padding_top">15dp</dimen>
+
+    <dimen name="issue_text_size">16sp</dimen>
+    <dimen name="issue_free_sample_text">25sp</dimen>
+    <dimen name="issue_saved_articles_size">10sp</dimen>
+    <dimen name="issues_list_year_separator_txt_size">16sp</dimen>
+    <dimen name="issues_list_year_separator_padding">10dp</dimen>
+    <dimen name="issues_list_year_separator_padding_vertical">10dp</dimen>
+    <dimen name="issues_list_issue_padding_top">20dp</dimen>
+    <dimen name="issues_list_issue_padding_bottom">5dp</dimen>
+    <dimen name="article_list_header_padding_left">25dp</dimen>
+
+
+    <dimen name="issue_cover_width">102dp</dimen>
+    <dimen name="issue_cover_height">135dp</dimen>
+    <dimen name="issue_no_cover_width">160dp</dimen>
+    <dimen name="issue_no_cover_height">120dp</dimen>
+    <dimen name="free_issue_cover_width">180dp</dimen>
+    <dimen name="free_issue_cover_height">240dp</dimen>
+    <dimen name="issue_list_padding_top">30dp</dimen>
+    <dimen name="issue_list_padding_right">10dp</dimen>
+    <dimen name="issue_list_padding_bottom">30dp</dimen>
+    <dimen name="issue_list_padding_left">10dp</dimen>
+
+    <dimen name="issue_section_panel_width">220dp</dimen>
+
+    <dimen name="article_side_menu_width">95dp</dimen>
+    <dimen name="article_side_menu_button_width">95dp</dimen>
+    <dimen name="article_side_menu_button_height">95dp</dimen>
+    <dimen name="article_side_menu_button_icon_width">45dp</dimen>
+    <dimen name="article_side_menu_button_icon_height">45dp</dimen>
+    <dimen name="article_side_menu_button_label_text_size">12sp</dimen>
+    <dimen name="article_side_menu_divider_height">1dp</dimen>
+
+    <dimen name="get_access_dialog_width">450dp</dimen>
+    <dimen name="get_access_dialog_height">500dp</dimen>
+    <dimen name="alert_dialog_width">450dp</dimen>
+    <dimen name="alert_dialog_height">225dp</dimen>
+
+
+	<dimen name="figures_image_caption_height">128dp</dimen>
+    <dimen name="special_sections_side_bar_letter_size">14sp</dimen>
+    <dimen name="announcements_show_hide_button_padding_right">70dp</dimen>
+
+    <dimen name="global_search_menu_button_text_size">14sp</dimen>
+
+    <dimen name="article_authors_info_view_width">200dp</dimen>
+    <dimen name="article_authors_info_view_height">200dp</dimen>
+
+</resources>

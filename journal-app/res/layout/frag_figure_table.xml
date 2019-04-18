@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.wiley.android.journalApp.components.CustomWebView xmlns:android="http://schemas.android.com/apk/res/android"
+    mime_type="text/html"
+    encoding="utf-8"
+    android:id="@+id/table"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

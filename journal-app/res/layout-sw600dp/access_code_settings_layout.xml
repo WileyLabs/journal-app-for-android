@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/access_code_group"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:baselineAligned="false" >
+
+    <EditText
+        android:id="@+id/access_code_text"
+        style="@style/BlueEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="8dp"
+        android:hint="@string/hint_enter_new_code"
+        android:background="@drawable/red_edit_text_selector"
+        android:singleLine="true"
+        android:inputType="text|textNoSuggestions"/>
+
+    <ImageView
+        android:id="@+id/access_code_status"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/status_crossmark"/>
+
+    <ProgressBar
+        android:id="@+id/access_code_progress"
+        style="@android:style/Widget.Holo.ProgressBar.Large"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="6dp"
+        android:indeterminate="true"
+        android:indeterminateOnly="true"/>
+
+    <Button
+        android:id="@+id/access_code_submit"
+        style="@style/SettingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="@string/settings_button_submit_code"/>
+
+</LinearLayout>

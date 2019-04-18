@@ -1,0 +1,506 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+body {
+    color: #333;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.article_body {
+    /* margin-left: 85px; */
+    word-wrap: break-word;
+}
+
+#article_main cite {
+    font-style: normal;
+}
+
+#article_main .journalTitle {
+    font-style: italic;
+}
+
+#article_main .vol {
+    font-weight: bold;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+    word-wrap: break-word;
+}
+
+a:link {color:#1271c9; text-decoration:none;}
+a:visited {color:#1271c9; text-decoration:none;}
+a:hover {color:#3e9bf2; text-decoration:none;}
+a:active {color:#3e9bf2; text-decoration:none;}
+
+a.disabled_class {
+    pointer-events: none;
+    cursor: default;
+}
+a.disabled_class:link {color:#222; text-decoration:none;}
+a.disabled_class:visited {color:#222; text-decoration:none;}
+a.disabled_class:hover {color:#222; text-decoration:none;}
+a.disabled_class:active {color:#222; text-decoration:none;}
+
+.main_table {
+    padding: 30px 20px 44px 20px;
+}
+
+#copyright {
+	color: #999;
+	font-size: 70%;
+}
+
+#loading_div {
+	clear: both;
+	width: 100%;
+	height: 0px;
+}
+
+#offline_div {
+	width: 100%;
+	padding: 0px;
+	text-align: center;
+	font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#loading_error_message_div {
+	width: 100%;
+	padding: 0px;
+	text-align: center;
+	font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#article_left_meta {
+	/*background: #aaa;*/
+	vertical-align: top;
+	padding-right: 36px;
+	min-width: 230px;
+	max-width: 230px;
+}
+
+#article_top_meta {
+	margin-bottom: 34px;
+}
+
+#article_top_meta hr {
+    margin-top: 24px;
+}
+
+.highlighted_abstract {
+    background-color: #f3f3f3; /* Box color: see ".para .box" (WOL Site color is #E9EFF0) */
+}
+
+.highlighted_abstract .abstract {
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wholeWidthImg {
+    max-width: 636;
+}
+
+.halfWidthImg {
+    max-width: 300px; 
+    margin: 10px 10px 10px 24px;
+}
+
+.halfWidthImg.pull-left {
+    margin-left: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.access_denied {
+    padding: 20px;
+	-webkit-box-sizing: border-box;
+	font: 13px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.highlighted_text {
+	color: #333;
+	background: #c4c5c6;
+}
+
+.highlighted_text.highlight {
+    color: #333;
+    background: #e8e84f;
+}
+
+.article_favorite_icon {
+    position:absolute; 
+    left:-46px;
+}
+
+#favorite_icon {
+    margin-top:1pt; 
+    margin-right:10px; 
+    margin-left:10px;
+}
+
+#article_section_info {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 30px 0 10px 0;
+}
+
+.article_section_info_logo {
+    text-align: right;
+    margin: 0 auto;
+    width: auto;
+}
+
+.article_meta_info_item_label {
+    font-family:  "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+	font-weight: bold;
+	padding: 0;
+	margin: 10px 0 0 0;
+	color: #222;
+}
+
+.article_meta_info_item_value {
+	font-weight: normal;
+	color: #444;
+	padding: 0;
+	margin: 0;
+}
+
+#article_left_meta .article_meta_info_item_value {
+	margin: 4px 0 0 0;
+	display:block;
+}
+
+#article_full_content_div {
+    max-width:100%;
+    padding-right:10px;
+}
+
+.article_meta_info_item_value p {
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+}
+
+.no_internet_connection_box {
+    padding: 20px;
+    max-width: 660px;
+    color: #333;
+    border-radius: 4px;
+    background-color: #e4eef8;
+    text-align: center;
+}
+.no_internet_connection_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color:#222;
+}
+
+.imageTable img{
+    display: block;
+    margin: 0 auto;
+}
+
+.table {
+    position: relative;
+}
+
+/* ================ */
+/* NEW TABLE MARKUP */
+/* ================ */
+
+.table, .tCaption, .tFooter {
+    font-size:80%;
+}
+
+.tWrapper {
+    margin: 0px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #d2d0d0;
+    text-align: center;
+}
+
+.tblLeftAlign {
+    margin: 0px auto 0px 0px;
+}
+
+.tWrapper .tBody {
+    padding: 10px 10px 0 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.tWrapper .tCaption {
+    padding: 10px 10px 0 10px;
+    text-align: left;
+}
+
+.tWrapper .tFooter {
+    text-align: left;
+}
+
+.tWrapper .tFooter div.text, .tWrapper .tFooter p.text, .tWrapper .tFooter span.text {
+    display:block; margin:0 0 0 1em;
+}
+
+.references {
+    padding: 0px 10px 10px 10px;
+    font-size: 80%;
+}
+
+.tWrapper .tFooter span.bullet {
+    float:left;
+    min-width:1em;
+    font-weight:bold;
+    display:block;
+    text-align:left;
+    overflow:visible; 
+}
+
+.tWrapper table {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+    background: #fff;
+}
+
+.tWrapper tbody, .tWrapper thead {
+    border-bottom: 1px solid black;
+    background-color: #ffffff;
+}
+
+.tWrapper tfoot > tr {
+    border-bottom: 0;
+}
+
+.table-end-block {
+
+    margin-top: 10px;
+    margin-bottom:5px;
+    position: absolute; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
+    width: 30px; 
+    background-color: #c0c0c0;
+}
+
+.table-end-arrow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: -15px;
+    top: 50%;
+    color: #fff;
+    text-align: center;
+}
+
+/* ======================= */
+/* END OF NEW TABLE MARKUP */
+/* ======================= */
+
+.table-arrow-right, .table-arrow-left {
+    position: absolute;
+    width: 40px;
+    top: 0;
+    bottom: 0;
+}
+
+.table-arrow-right {
+    right: 0;
+    margin-right: -20px;
+    margin-left: 20px;
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%,rgba(255,255,255,1)), color-stop(0%,rgba(255,255,255,0)));
+}
+
+.table-arrow-left {
+    left: 0;
+    display: none;
+    margin-left: -20px;
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+}
+
+/* iPhone */
+@media only screen and (min-width : 320px) and (max-width : 504px)
+{
+    .abstract_thumbnail {
+        padding: 10px 10px 0 10px;
+    }
+    .abstract_thumbnail + div div {
+        padding-top: 0 !important;
+    }
+    .article_body {
+        padding: 12px 8px 24px 8px;
+        margin-left: auto;
+    }
+    #article_title {
+        font-size:90%;
+        margin:0 0 5px 0;
+        line-height:110%;
+    }
+    #article_section_info {
+        padding: 0;
+        margin-bottom: 0;
+        background-color: #f1f1f1;
+    }
+    .article_section_info_logo {
+        text-align: left;
+        padding: 3px 8px;
+        width: auto;
+    }
+    #article_top_meta {
+        margin-bottom: 15px;
+    }
+    #article_top_meta hr {
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    .article_meta_info_item_value {
+        padding-top: 5px;
+        font-size: 80%;
+        line-height: normal;
+    }
+    .article_favorite_icon {
+        float: right;
+        position: relative;
+        left: auto;
+        right: auto;
+        margin-left: 3px;
+    }
+    #favorite_icon {
+        padding: 0;
+        margin: 0;
+    }
+    #article_full_content_div {
+        padding-right: 0;
+    }
+    .firstColumn, .lastColumn {
+        display:none;
+    }
+    .access_button {
+        display: block;
+    }
+    .access_denied {
+        padding: 12px 17px 10px 17px;
+    }
+    .iPad {
+        display: none;
+    }
+    
+    .equation {
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        padding: 10px;
+    }
+
+    .equation img {
+        vertical-align: middle;
+        max-width: none;
+    }
+
+    .equation .number {
+        margin-left: 40px;
+    }
+    
+    .eq-end-block {
+        position: absolute;
+        top: 0; 
+        bottom: 0;
+        background-color: #c0c0c0;
+    }
+    
+    .eq-end-arrow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-top: -15px;
+        top: 50%;
+        color: #fff;
+        text-align: center;
+    }
+    
+    .eqWrapper {
+        margin: 15px 0;
+        background-color: #d2d0d0;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .equations .equation {
+        padding: 0;
+    }
+    
+    .equations .equation .number {
+        display: block;
+        float: right;
+        margin-left: 0;
+    }
+    
+    .equations .equation img {
+        vertical-align: middle;
+        max-width: 90%;
+    }
+    
+    .highlighted_abstract .abstract {
+        margin: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/* iPhone (portrait) */
+@media only screen and (min-width : 320px) and (max-width : 504px) and (orientation : portrait) {
+    .box_message {
+        display: block;
+        width: auto;
+        padding: 0;
+        margin: 0 0 0 30px;
+    }
+}
+
+/* iPad */
+@media only screen and (min-width : 505px)
+{
+    .iPhone {
+        display: none;
+    }
+
+    .equation {
+        margin: 25px 60px;
+    }
+
+    .equation .number {
+        display:block;
+        float:right;
+    }
+
+    .equation img {
+        vertical-align: middle;
+        max-width: 90%;
+    }
+}

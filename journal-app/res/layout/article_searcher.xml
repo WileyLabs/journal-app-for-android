@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/slider_panel_bg"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_search" />
+
+        <EditText
+            android:id="@+id/searcher_edit_text"
+            style="@style/SearchEditText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:inputType="text|textNoSuggestions"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                style="@style/SearchButton"
+                android:id="@+id/searcher_find_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/searcher_prev"/>
+
+            <ImageButton
+                style="@style/SearchButton"
+                android:id="@+id/searcher_find_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/searcher_next" />
+
+            <ImageButton
+                android:id="@+id/searcher_hide"
+                style="@style/SearchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/searcher_close" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/searcher_status"
+        style="@style/SearchStatusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/type_two_or_more" />
+</LinearLayout>

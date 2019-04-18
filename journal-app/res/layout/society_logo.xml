@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@android:color/white"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mainColorStub"
+        android:minHeight="1dp"/>
+
+    <ImageView
+        android:id="@+id/society_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_margin="2dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo_bottom"
+        android:contentDescription="@string/societyLogo"/>
+
+</LinearLayout>

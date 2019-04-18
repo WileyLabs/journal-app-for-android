@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GetAccessScreenRoot"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/GetAccessText.Title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_subscription_1"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp" />
+
+    <TextView
+        style="@style/GetAccessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:text="@string/text_subscription_2" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp" />
+
+    <TextView
+        style="@style/GetAccessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:text="@string/text_subscription_3" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/create_an_account"
+            style="@style/GetAccessBlueButton"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/button_create_account" />
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/login"
+            style="@style/GetAccessBlueButton"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/button_login" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/forgotten_password"
+        style="@style/GetAccessText.Link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_gravity="right"
+        android:text="@string/forgotten_password" />
+
+    <include
+        layout="@layout/get_access_more_info_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

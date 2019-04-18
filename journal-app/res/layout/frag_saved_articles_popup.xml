@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_back_rounded"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/saved_articles_editor_fav_status_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/saved_articles_editor_fav_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/favorite_normal_selector"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/save_this_article"
+            android:textColor="#157efb"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black_transparency" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/swipe_list_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/saved_articles"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black_transparency" />
+
+    </LinearLayout>
+
+    <com.fortysevendeg.swipelistview.SwipeListView xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/swipe_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:listSelector="@android:color/transparent"
+        swipe:swipeBackView="@+id/list_item_back"
+        swipe:swipeCloseAllItemsWhenMoveList="true"
+        swipe:swipeFrontView="@+id/list_item_front"
+        swipe:swipeMode="both"
+        swipe:swipeOpenOnLongPress="false" />
+
+    <LinearLayout
+        android:id="@+id/saved_articles_list_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/no_saved_articles"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/no_saved_articles_message"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

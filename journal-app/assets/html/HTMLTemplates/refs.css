@@ -1,0 +1,135 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+* {
+    -webkit-user-select: none;
+}
+
+body {
+    background: #f5f6f6;
+    margin: 0px;
+    padding: 0px 5px;
+    font: 13px Helvetica;
+}
+
+hr {
+    margin: 0 15px;
+    border: none;
+    border-top: 1px solid #cdd0d4;
+}
+
+.refContainer {
+    padding: 20px 15px;
+}
+
+.refCell {
+    box-shadow: 1px 1px 3px 1px #ddd;
+    background: #fff;
+    width: 100%;
+    margin: 5px 0px;
+    box-sizing: border-box;
+}
+
+.refText {
+    padding: 0;
+    max-width: 100px;
+    word-wrap: break-word;
+}
+
+.citText {
+    margin-top: 20px;
+}
+
+.citText:first-child {
+    margin-top: 0px;
+}
+
+.refLabel {
+    padding: 0;
+    font-weight: bold;
+    vertical-align: top;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.openOnBtn {
+    margin-top: 12px;
+    text-align: center;
+    vertical-align: center;
+    padding: 8px 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@-webkit-keyframes highlight {
+    from {background: #fff;}
+    to {background: #999;}
+}
+
+@-webkit-keyframes dehighlight {
+    from {background: #999;}
+    to {background: #fff;}
+}
+
+
+/* phone */
+@media only screen and (min-width : 0px)
+{
+    .openOnBtn {
+        border-radius: 9px;
+        border: 1px solid #157efb;
+        background: #f9f9f9;
+    }
+
+    /* touch start state */
+    .onOpenBtnTS {
+        background: #d3e6f9;
+    }
+
+    /* touch end state */
+    .onOpenBtnTE {
+        background: #f9f9f9;
+    }
+
+    .openOnBtnTitle {
+        color: #157efb;
+    }
+}
+
+/* tablet */
+@media only screen and (width : 250px) /* the width of the center article view menu */
+{
+    .openOnBtn {
+        font-weight: bold;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        background: -webkit-linear-gradient(270deg, #f9f9f9, #dfdfdf);
+    }
+    
+    /* touch start state */
+    .onOpenBtnTS {
+        background: -webkit-linear-gradient(270deg, #f3f3f3, #d3d3d3);
+    }
+
+    /* touch end state */
+    .onOpenBtnTE {
+        background: -webkit-linear-gradient(270deg, #f9f9f9, #dfdfdf);
+    }
+    
+    .openOnBtnTitle {
+        color: #000;
+    }
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_back_rounded"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/citation_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/citation"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/citation_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_transparency" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <ScrollView
+            android:id="@+id/citation_scroll"
+            android:layout_width="match_parent"
+            android:overScrollMode="never"
+            android:layout_height="120dp">
+
+            <TextView
+                android:id="@+id/citation_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/citation_email_button"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/citation_scroll"
+            android:text="@string/email" />
+
+        <Button
+            android:id="@+id/citation_copy_button"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/citation_scroll"
+            android:text="@android:string/copy" />
+    </RelativeLayout>
+</LinearLayout>

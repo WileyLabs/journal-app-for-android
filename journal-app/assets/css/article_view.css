@@ -1,0 +1,231 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+@media only screen and (orientation: portrait) {
+    .body {
+        width: 550px;
+    }
+
+    div.image > img {
+        max-width: 550px;
+    }
+
+    div.table {
+        width: 540px;
+        overflow-y: scroll;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .body {
+        width: 800px;
+    }
+
+    div.image > img {
+        max-width: 800px;
+    }
+
+    div.table {
+        width: 800px;
+        overflow-y: scroll;
+    }
+}
+
+.body {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.table table {
+    /* Table scroll hack*/
+    border-right: solid 5px transparent;
+
+    margin-bottom: 30px;
+}
+
+body {
+    font-family: "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.4em;
+}
+
+.header {
+    width: 100%;
+}
+
+.header .logo {
+    text-align: right;
+}
+
+.header .logo img {
+    width: 159px;
+    height: 53px;
+}
+
+.header .headings {
+    font-family: Arial, sans-serif;
+    font-size: 70%;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+}
+
+.header .headings .first {
+    color: #96a8bd;
+}
+
+.header .headings .separator {
+    color: #bdbdbd;
+}
+
+.header .headings .second {
+    color: #60758e;
+}
+
+.header .favorite {
+    position: relative;
+    left: -35px;
+    width: 0;
+    height: 0;
+}
+
+.header .favorite img {
+    width: 27px;
+    height: 27px;
+}
+
+.header .title {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 130%;
+    line-height: 1.4em;
+    margin: 0 0 10px 0;
+}
+
+.header .authors {
+    color: #0871d6;
+    font-size: 80%;
+}
+
+.footer .copyright {
+    color: #999;
+    font-size: 70%;
+}
+
+.access_denied {
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    font: 13px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.box {
+    display: table;
+    position: relative;
+    padding: 10px 20px;
+    margin: 7px 3px;
+    border-radius: 4px;
+    background-color: #e4eef8;
+    -webkit-box-sizing: border-box;
+    font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.box_icon {
+    display: table-cell;
+    min-width: 30px;
+    vertical-align: middle;
+}
+
+.box_title {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.box_message {
+    padding: 0 10px 0 30px;
+}
+
+.box_title, .box_message {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.box_button {
+    color: #157efb;
+    text-align: center;
+    border-radius: 10px;
+    background: #f9f9f9;
+    white-space: nowrap;
+    border: 1px solid #157efb;
+    margin-top: 8px;
+    padding: 9px 10px;
+}
+
+.access_button {
+    display: block;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+h4,
+table > caption,
+table > caption span.label {
+    font-size: 23px;
+    text-align: left;
+}
+
+table > caption {
+    padding-bottom: 30px;
+}
+
+thead {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+table tr:last-child > td {
+    border-bottom: 1px solid black;
+}
+
+table > caption > span.label {
+    font-weight: bold;
+}
+
+div.tableFootnote {
+    text-align: center;
+}
+
+div.caption {
+    padding-bottom: 10px;
+}
+
+div.caption > p {
+    font-size: 17px;
+}
+
+span.label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div.image {
+    text-align: center;
+}

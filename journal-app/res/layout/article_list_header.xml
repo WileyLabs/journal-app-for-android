@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="25dp"
+    android:layout_span="@integer/num_of_issues_per_line"
+    android:background="?mainColor"
+    android:gravity="center_vertical"
+    android:paddingLeft="25dp"
+    android:textColor="@color/issues_list_year_separator_txt_color"
+    android:textSize="@dimen/issues_list_year_separator_txt_size" />

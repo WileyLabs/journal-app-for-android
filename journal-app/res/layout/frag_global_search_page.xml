@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/root"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/slider_panel_bg"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_search"/>
+
+            <LinearLayout
+                android:id="@+id/searcher_focus_dummy_journal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="0px"
+                android:layout_height="0px" />
+
+            <EditText
+                android:id="@+id/searcher_edit_text_journal"
+                style="@style/SearchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textNoSuggestions"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:id="@+id/global_search_menu_scroll_layout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:background="@color/global_search_sort_view_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/global_search_menu_spacer"
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"/>
+
+                    <LinearLayout
+                        android:id="@+id/global_search_menu_items_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:divider="@drawable/separator"
+                        android:dividerPadding="3dp"
+                        android:orientation="horizontal"
+                        android:showDividers="middle">
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/relevancy_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/relevancy_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_relevancy_global_search_menu_button_label"/>
+                            </LinearLayout>
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/title_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/title_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_title_global_search_menu_button_label"/>
+                            </LinearLayout>
+
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/issue_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/issue_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_issue_global_search_menu_button_label"/>
+                            </LinearLayout>
+
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/volume_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/volume_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_volume_global_search_menu_button_label"/>
+                            </LinearLayout>
+
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/section_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/section_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_section_global_search_menu_button_label"/>
+                            </LinearLayout>
+
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/date_published_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/date_published_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_date_published_global_search_menu_button_label"/>
+                            </LinearLayout>
+
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+                            android:id="@+id/first_online_global_search_sort_menu_button"
+                            style="@style/GlobalSearchSortMenuButton">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/first_online_global_search_menu_button_label"
+                                    style="@style/GlobalSearchSortMenuButtonLabel"
+                                    android:text="@string/text_first_online_global_search_menu_button_label"/>
+                            </LinearLayout>
+
+                        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="100">
+
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.wiley.android.journalApp.components.CustomWebView
+                        android:id="@+id/global_search_content_view_journal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_black_transparent_rect"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="gone">
+
+                    <ProgressBar
+                        style="@android:style/Widget.Holo.ProgressBar.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/sorting_articles"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        layout="@layout/article_view_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minWidth="300dp"/>
+</FrameLayout>
+

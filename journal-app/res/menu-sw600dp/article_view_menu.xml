@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/article_view_set_alert"
+        android:icon="@drawable/icon_alert"
+        android:showAsAction="always|withText"
+        android:title="@string/set_alert" />
+
+    <item
+        android:id="@+id/article_view_change_text_size"
+        android:icon="@drawable/icon_font_size"
+        android:showAsAction="always"
+        android:title="@string/text_size" />
+
+    <item
+        android:id="@+id/article_view_send_email"
+        android:icon="@drawable/icon_email"
+        android:showAsAction="always"
+        android:title="@string/send_abstract" />
+
+    <item
+        android:id="@+id/article_view_citation"
+        android:icon="@drawable/icon_citation"
+        android:showAsAction="always"
+        android:title="@string/citation" />
+
+    <item
+        android:id="@+id/article_view_edit_saved"
+        android:icon="@drawable/icon_button_favorites"
+        android:showAsAction="always|withText"
+        android:title="" />
+</menu>

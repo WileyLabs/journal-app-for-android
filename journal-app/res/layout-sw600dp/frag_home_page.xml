@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/announcement_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.wiley.android.journalApp.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/announcement_frame"
+            android:layout_marginBottom="60dp">
+
+            <com.wiley.android.journalApp.components.CustomWebView
+                android:id="@+id/home_page_content_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.wiley.android.journalApp.widget.SwipeRefreshLayout>
+
+        <include layout="@layout/society_logo"/>
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/error_message_layout"
+        android:visibility="gone"
+        layout="@layout/error_message_layout"/>
+
+    <LinearLayout
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_black_transparent_rect"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/progress_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</FrameLayout>

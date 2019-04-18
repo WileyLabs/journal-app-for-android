@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GetAccessScreenRoot"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/access_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true" >
+
+        <EditText
+            android:id="@+id/access_code_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_enter_code"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="text|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/access_code_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+
+        <ProgressBar
+            android:id="@+id/access_code_progress"
+            style="@android:style/Widget.Holo.ProgressBar.Large"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:indeterminate="true"
+            android:indeterminateOnly="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true" >
+
+        <EditText
+            android:id="@+id/first_name_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_first_name"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textPersonName|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/first_name_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true">
+
+        <EditText
+            android:id="@+id/last_name_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_last_name"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textPersonName|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/last_name_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/get_access_hor_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true" >
+
+        <EditText
+            android:id="@+id/email_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_email"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textEmailAddress|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/email_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true" >
+
+        <EditText
+            android:id="@+id/email2_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_email2"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textEmailAddress|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/email2_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true" >
+
+        <EditText
+            android:id="@+id/password_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_password"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textPassword|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/password_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="true" >
+
+        <EditText
+            android:id="@+id/password2_text"
+            style="@style/BlueEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:hint="@string/hint_password2"
+            android:background="@drawable/red_edit_text_selector"
+            android:singleLine="true"
+            android:gravity="left"
+            android:inputType="textPassword|textNoSuggestions"/>
+
+        <ImageView
+            android:id="@+id/password2_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/status_crossmark"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/term_and_conditions_link"
+        style="@style/GetAccessText.Link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_view_terms"/>
+
+    <Button
+        android:id="@+id/button_submit"
+        style="@style/BlueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button_submit"/>
+
+    <include
+        layout="@layout/get_access_more_info_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

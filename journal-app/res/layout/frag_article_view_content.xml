@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <com.wiley.android.journalApp.components.CustomWebView
+            android:id="@+id/article_content"
+            app:encoding="UTF-8"
+            app:mime_type="text/html"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <com.wiley.android.journalApp.widget.CircleIndexIndicator
+            android:id="@+id/index_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_gravity="right|center_vertical"
+            android:orientation="vertical"
+            app:backgroundWidth="18dp"
+            app:radiusSelected="6dp"
+            app:radiusNormal="4dp"
+            />
+
+    <com.wiley.android.journalApp.widget.IndexPopupHost
+            android:id="@+id/index_popup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:background="@drawable/index_popup_background"
+                android:gravity="left|center_vertical"/>
+
+    </com.wiley.android.journalApp.widget.IndexPopupHost>
+
+    <LinearLayout
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_black_transparent_rect"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/loading_article" />
+
+    </LinearLayout>
+
+    <com.wiley.android.journalApp.components.FloatingStar
+            android:id="@+id/article_floating_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:visibility="gone"
+            android:padding="10dp"/>
+
+</FrameLayout>

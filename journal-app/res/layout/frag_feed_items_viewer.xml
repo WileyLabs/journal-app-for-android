@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/abs__screen_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <include layout="@layout/abs__screen_action_bar"/>
+    </LinearLayout>
+
+    <com.wiley.android.journalApp.widget.TouchRefreshLayout
+        android:id="@+id/touch_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/abs__screen_action_bar">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/feed_items_viewer_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+    </com.wiley.android.journalApp.widget.TouchRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/quick_link_menu_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:gravity="center|bottom">
+
+        <include layout="@layout/quick_link_menu" />
+    </LinearLayout>
+</RelativeLayout>

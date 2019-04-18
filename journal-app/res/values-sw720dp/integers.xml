@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="num_of_issues_per_line">4</integer>
+    <integer name="num_of_issues_per_line_no_cover">3</integer>
+</resources>

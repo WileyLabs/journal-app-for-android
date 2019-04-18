@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/scroller"
+        android:layout_marginTop="9dip"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popup_back_rounded"
+        android:scrollbars="none">
+        <include layout="@layout/expandable_menu"/>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/arrow_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/popup_top_arrow" />
+
+</RelativeLayout>

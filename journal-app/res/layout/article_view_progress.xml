@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/article_progress"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minWidth="200dp"
+        android:background="@drawable/rounded_transparent_black"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ProgressBar
+            android:id="@+id/article_progress_circle"
+            style="@android:style/Widget.Holo.ProgressBar.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/article_progress_horizontal_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/article_progress_horizontal"
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:max="100" />
+
+            <ImageView
+                android:id="@+id/article_progress_cancel"
+                android:padding="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/download_cancel"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/article_progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</FrameLayout>

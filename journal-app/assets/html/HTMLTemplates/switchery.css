@@ -1,0 +1,33 @@
+.switchery {
+  height: 20px;
+  width: 56px;
+
+  background-color: #cbcbcb;
+  border: 1px solid #dfdfdf;
+  border-radius: 1px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.switchery > small {
+  background-color: #cbcbcb;
+  background: #cbcbcb;
+  border-radius: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  height: 20px;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}

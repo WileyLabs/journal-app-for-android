@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/GetAccessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/for_more_info_visit" />
+
+    <TextView
+        android:id="@+id/get_access_more_info_link"
+        style="@style/GetAccessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/olabout_wiley_com_apps"
+        android:textColor="@color/get_access_link_color" />
+</LinearLayout>

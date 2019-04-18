@@ -1,0 +1,99 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+body {
+    font-family:  "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.feed-items {
+    margin: 0;
+}
+
+.feed-heading {
+	word-wrap: break-word;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+    height: 25px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0;
+    padding: 0px 0px 0px 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0.75;
+}
+
+.feed-item {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+	overflow:hidden;
+    display: table;
+    width: 100%;
+}
+
+.feed-item:last-child {
+    border-bottom: 0;
+}
+
+.feed-favorites {
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+}
+
+.feed-favorites-btn {
+    padding: 16px;
+}
+
+.feed-body {
+    display: table-cell;
+    vertical-align: top;
+    padding: 16px 16px 16px 0px;
+    line-height: 1.4;
+    font-family:  "Times New Roman", Times, Baskerville,Palatino, serif;
+    width: 100%;
+}
+
+.feed-title {
+    font-size: 90%;
+	margin: 0 0 5px 0;
+	font-weight: bold;
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 110%;
+}
+
+.feed-thumbnail {
+    float: left;
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.feed-description {
+    color: #444;
+}
+
+.feed-link {
+    margin: 7px 0;
+}
+
+.feed-link a {
+    text-decoration: none;
+}

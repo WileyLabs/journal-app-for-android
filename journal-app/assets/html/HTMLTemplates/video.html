@@ -1,0 +1,54 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <meta name="viewport" content="width=100%; initial-scale=1.00; maximum-scale=1.00; user-scalable=0;" />
+            <script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+            <style type="text/css">
+                .video {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: @@width@@px;
+                    height: @@height@@px;
+                    margin-left: -@@margin-left@@px;
+                    margin-top: -@@margin-top@@px;
+                }
+            </style>
+        </head>
+        
+        <div class="video">
+            <object class="BrightcoveExperience training" id="myExperience">
+                <param value="#FFFFFF" name="bgcolor" />
+                <param value="@@width@@" name="width" />
+                <param value="@@height@@" name="height" />
+                <param value="@@playerID@@" name="playerID" />
+                <param value="@@playerKey@@" name="playerKey" />
+                <param value="true" name="isVid" />
+                <param value="true" name="isUI" />
+                <param value="true" name="dynamicStreaming" />
+                <param value="true" name="videoSmoothing" />
+                <param value="@@videoPlayer@@" name="@videoPlayer" />
+            </object>
+            <script type="text/javascript">brightcove.createExperiences();</script>
+        </div>
+        
+    </body>
+</html>

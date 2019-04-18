@@ -1,0 +1,82 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+body {
+    font-family: helvetica;
+    font-size: 13px;
+    margin: 0px;
+    color: #333;
+    background-color: #f9f9fa;
+}
+
+img {
+    max-width: 100%;
+}
+
+hr {
+    clear: both;
+    height: 1px;
+    padding: 0px;
+    border: 0px none;
+    margin: 34px 0px;
+    background-color: #cdd0d4;				
+}
+
+p {
+    margin:0px;
+    padding:0px;
+}
+
+ol.institutions {
+    padding-left:20px;
+}
+
+a:link {color:#1271c9; text-decoration:none;}
+a:visited {color:#1271c9; text-decoration:none;}
+a:hover {color:#3e9bf2; text-decoration:none;}
+a:active {color:#3e9bf2; text-decoration:none;}
+
+.contact {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: solid 1px #cdd0d4;
+}
+
+.corresponding_institution {
+    margin-top: 15px;
+}
+
+/* iPhone */
+@media only screen and (min-width : 320px), not screen and (width : 334px)
+{
+    body {
+        padding: 0 8px 10px 8px;
+    }
+}
+
+/* iPad */
+@media only screen and (width : 284px), screen and (width : 334px)
+{
+    body {
+        padding: 20px 30px 20px 20px;
+    }
+
+    .affiliationBlock:before {
+        content: 'Author Information';
+        font: bold 15px helvetica;
+        margin-bottom: 15px;
+    }
+}

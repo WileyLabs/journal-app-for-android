@@ -1,0 +1,64 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<body>
+    <div id="open_on_wol" class="button" style="margin:15px 7px;">
+        <div class="buttonTitle">Open on <span class="wol">Wiley Online Library</span></div>
+    </div>
+    <div class="cell" style="display:@@keywords_list_display@@">
+        <h1>Keywords</h1>
+        @@article_keywords_list@@
+    </div>
+    <div class="cell">
+        <h1>DOI</h1>
+        @@article_doi@@
+    </div>
+    <div class="cell" style="display:@@article_reference_display@@;">
+        <h1>Reference</h1>
+        <h2>Volume:</h2> @@article_volume_number@@<br />
+        <div style="display:@@issue_number_display@@">
+            <h2>Issue:</h2> @@article_issue_number@@<br />
+        </div>
+        <div style="display:@@references_pages_display@@">
+            <h2>Page:</h2> @@article_reference_pages@@<br />
+        </div>
+    </div>
+    <div class="cell" style="display:@@publication_history_display@@">
+        <h1>Publication History</h1>
+        <div style="display:@@first_online_date_display@@">
+            Article first published online:<br />
+            @@article_first_online_date@@<br />
+        </div>
+        <div style="display:@@history_delim_display@@"><br /></div>
+        <div style="display:@@manuscript_received_date_display@@">
+            Manuscript Received:<br />
+            @@article_manuscript_received_date@@
+        </div>
+    </div>
+    <div class="cell" style="display:@@funding_info_display@@">
+        <h1>Funding Information</h1>
+        @@article_funding_info@@
+    </div>
+    <div class="cell" style="display:@@index_terms_display@@">
+        <h1>Index Terms</h1>
+        @@article_index_terms@@
+    </div>
+    <div class="cell" style="display:@@copyright_display@@">
+        @@copyright_text@@
+    </div>
+</body>

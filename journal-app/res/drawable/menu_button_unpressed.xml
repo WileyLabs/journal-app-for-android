@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/menu_button_blue" android:left="6dp" android:right="6dp"/>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="5dp"/>
+            <stroke
+                android:width="1dp"
+                android:color="@color/blue_button_main" />
+            <solid android:color="@color/transparent"/>
+        </shape>
+    </item>
+</layer-list>

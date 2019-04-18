@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/GetAccessScreenRoot"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/GetAccessText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/how_do_you_get_access" />
+
+        <Button
+            android:id="@+id/get_access_through_society_affiliation"
+            style="@style/GetAccessBlueButton"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/through_my_society_affiliation" />
+
+        <Button
+            android:id="@+id/get_access_via_network"
+            style="@style/GetAccessBlueButton"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/i_use_the_network" />
+
+        <Button
+            android:id="@+id/get_access_log_in_to_wol"
+            style="@style/GetAccessBlueButton"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/i_log_in_to_wol" />
+
+        <LinearLayout
+            android:id="@+id/get_access_group_restore_purchases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/GetAccessText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/i_have_already_purchased_a_subscription" />
+
+            <Button
+                android:id="@+id/get_access_restore_purchases"
+                style="@style/GetAccessBlueButton"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/restore_all_purchases" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/get_access_more_info_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>
+

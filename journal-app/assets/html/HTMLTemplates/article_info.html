@@ -1,0 +1,42 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.00, maximum-scale=1.00, user-scalable=0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/article_info.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/article_info_!device!.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/switchery.css@@" media="screen" />
+		
+        <script type="text/javascript" src="@@!HTMLTemplates/jquery-1.8.3.min.js@@"></script>
+		<script type="text/javascript" src="@@!HTMLTemplates/utils.js@@"></script>
+        <script type="text/javascript" src="@@!HTMLTemplates/switchery.min.js@@"></script>
+	</head>
+    <body>
+        @@article_info_body@@
+        <script type="text/javascript" src="@@!HTMLTemplates/keywords.js@@"></script>
+        <script type="text/javascript">
+            function onOpenOnWOLTouch() {
+                window.location.href = '@@article_wol_link@@';
+            }
+        </script>
+    </body>
+</html>

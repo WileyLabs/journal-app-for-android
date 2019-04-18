@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="@dimen/left_bar_menu_button_divider" android:drawable="@drawable/left_menu_item_bg_shape" />
+    <item android:drawable="@color/black_transparency" />
+</layer-list>

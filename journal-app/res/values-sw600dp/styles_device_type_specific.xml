@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GetAccessContentBackground" >
+        <item name="android:layout_width">@dimen/get_access_dialog_width</item>
+        <item name="android:layout_height">@dimen/get_access_dialog_height</item>
+        <item name="android:background">@drawable/white_rounded_rect</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="GetAccessScreenRoot" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">50dp</item>
+        <item name="android:paddingRight">50dp</item>
+    </style>
+
+    <style name="GetAccessBlueButton" parent="BlueButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">300dp</item>
+    </style>
+
+    <style name="GetAccessEditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+</resources>

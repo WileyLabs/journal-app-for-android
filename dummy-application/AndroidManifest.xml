@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="0.1"
+          package="com.wiley.android.journalApp">
+
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="14"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <!-- Required for Push -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- Required for the Urban Airship library -->
+    <uses-permission android:name="com.wiley.jas.appPrefix.permission.UA_DATA"/>
+
+    <!-- This app has permission to register with GCM and receive message -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.wiley.jas.appPrefix.permission.C2D_MESSAGE"/>
+
+    <!--
+        <permission android:name="com.wiley.jas.appPrefix.permission.UA_DATA" android:protectionLevel="signature"/>
+        <permission android:name="com.wiley.jas.appPrefix.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+        -->
+
+    <application android:icon="@drawable/application_icon" android:label="@string/app_name"
+                 android:name="com.wiley.android.journalApp.MainApplication" android:theme="@style/AppBaseTheme"
+                 android:debuggable="true">
+
+        <meta-data android:name="com.google.android.gms.version"
+                   android:value="@integer/google_play_services_version"/>
+
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:configChanges="orientation|screenSize"
+                  android:launchMode="singleTask"
+                  android:name="com.wiley.android.journalApp.base.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="jas.appPrefix.activation"
+                    android:scheme="http" />
+
+                <data
+                    android:host="jas.appPrefix.activation"
+                    android:scheme="https" />
+
+            </intent-filter>
+        </activity>
+
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.OauthAuthorizationActivity">
+        </activity>
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.WebBrowserActivity"/>
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.VideoBrowserActivity"/>
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.AlertDialogActivity"
+                  android:theme="@style/DialogActivityTheme" />
+        <activity android:name="com.wiley.android.journalApp.activity.PdfViewActivity"/>
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.FeedListActivity"/>
+        <activity android:configChanges="orientation|screenSize"
+                  android:name="com.wiley.android.journalApp.activity.FeedItemDetailsActivity"/>
+
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        <activity android:name="com.wiley.android.journalApp.activity.SponsoredPromoActivity"
+                  android:theme="@style/PromoActivityTheme"/>
+        <activity android:configChanges="orientation|screenSize"
+                  android:launchMode="singleTask"
+                  android:name="com.wiley.android.journalApp.activity.UpdateOperationActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <receiver android:name="com.wiley.wol.client.android.journalApp.receiver.CustomBroadcastReceiverImpl"/>
+        <receiver android:name="com.wiley.wol.client.android.journalApp.receiver.AffiliationReceiver"/>
+
+        <!-- URBAN AIRSHIP: Required for Push Notification -->
+
+        <service
+            android:name="com.urbanairship.push.PushService"
+            android:label="Push Notification Service" />
+        <service
+            android:name="com.urbanairship.analytics.EventService"
+            android:label="Event Service" />
+        <service android:name="com.urbanairship.actions.ActionService" />
+        <service android:name="com.urbanairship.richpush.RichPushUpdateService" />
+        <service
+            android:name="com.urbanairship.location.LocationService"
+            android:label="Segments Service" />
+        <service
+            android:name="com.urbanairship.push.UAInstanceIDListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:authorities="com.wiley.android.journalApp.urbanairship.provider"
+            android:exported="true"
+            android:multiprocess="true"
+            android:name="com.urbanairship.UrbanAirshipProvider"
+            android:permission="com.wiley.jas.appPrefix.permission.UA_DATA"/>
+
+        <receiver android:name="com.urbanairship.CoreReceiver"
+            android:exported="false">
+
+            <intent-filter android:priority="-999">
+                <action android:name="com.urbanairship.push.OPENED" />
+                <category android:name="com.wiley.jas.appPrefix" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.urbanairship.push.GCMPushReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.wiley.jas.appPrefix" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.wiley.android.journalApp.receiver.IntentReceiver"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.urbanairship.push.CHANNEL_UPDATED" />
+                <action android:name="com.urbanairship.push.OPENED" />
+                <action android:name="com.urbanairship.push.DISMISSED" />
+                <action android:name="com.urbanairship.push.RECEIVED" />
+                <category android:name="com.wiley.jas.appPrefix" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

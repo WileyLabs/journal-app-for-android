@@ -1,0 +1,94 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+* {
+    -webkit-user-select: none;
+}
+
+body {
+    margin: 0px;
+    padding: 0px 5px;
+    background: #f5f6f7;
+    font: 12px Helvetica;
+}
+
+a:link {color:#1271c9; text-decoration:none;}
+a:visited {color:#1271c9; text-decoration:none;}
+a:hover {color:#3e9bf2; text-decoration:none;}
+a:active {color:#3e9bf2; text-decoration:none;}
+
+.cell {
+    width: 100%;
+    background: #fff;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px 1px #ddd;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline;
+}
+
+.button {
+    padding: 5px;
+    text-align: center;
+}
+
+.keywords-item {
+    display: table;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.keyword-title {
+    width: 100%;
+}
+
+.keyword-title, .keyword-status {
+    display: table-cell;
+}
+
+.keyword-btn {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 1px 10px;
+    white-space: nowrap;
+}
+
+.keyword-btn.subscribed {
+    background: #cccccc;
+    color: #fff !important;
+}
+
+.keyword-btn.unsubscribed {
+    background: #4ea1ab;
+    color: #fff !important;
+}

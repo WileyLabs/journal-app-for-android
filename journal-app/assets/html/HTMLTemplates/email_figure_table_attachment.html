@@ -1,0 +1,113 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			html {
+				height:100%;
+			}
+			
+			body {
+				font-family: arial;
+				font-size: @@font_size@@px;
+				padding: 10px 20px;
+			}
+			
+			#article_main img {
+				display: none;
+				max-width: 100%;
+			}
+            
+            span.label {
+                font-weight: bold;
+            }
+			
+			#article_main {
+				/*background: #bbb;*/
+				width: 100%;
+				vertical-align: top;
+			}
+			
+			.article_meta_info_item_label {
+				font-size: 13px;
+				font-weight: bold;
+				padding: 0px 0px 0px 0px;
+				margin: 20px 0px 0px 0px;
+				color: #000;
+			}
+			
+			.article_meta_info_item_value {
+				font-size: 90%;
+				font-weight: normal;
+				padding: 0px 0px 0px 0px;
+				margin: 0px 0px 0px 0px;
+			}
+			
+			.article_meta_info_item_value p {
+				-webkit-margin-before: 0px;
+				-webkit-margin-after: 0px;
+			}
+            
+            ul, li{ list-style:none;padding:0;}
+            .custom li div.text,.custom li p.text,.custom li span.text{display:block;margin:0 0 0 3.8em}
+            .custom li span.bullet{float:left;min-width:3em;display:block;text-align:right;overflow:visible}
+            a.disabled_class {
+                pointer-events: none;
+                cursor: default;
+            }
+            a.disabled_class:link {color:#222; text-decoration:none;}
+            a.disabled_class:visited {color:#222; text-decoration:none;}
+            a.disabled_class:hover {color:#222; text-decoration:none;}
+            a.disabled_class:active {color:#222; text-decoration:none;}
+			
+		</style>
+	</head>
+	<body>
+        <br />
+        <br />
+		<div id="article_main">
+			<div class="article_meta_info_item_label">
+				Journal
+				<div class="article_meta_info_item_value"><a href="http://onlinelibrary.wiley.com/journal/@@journal_doi_placeholder@@">@@journal_name_placeholder@@</a></div>
+				<div class="article_meta_info_item_value" style="display:@@journal_numbers_display@@;">Volume @@article_volume_number@@, Issue @@article_issue_number@@</div>
+			</div>
+			
+			<div class="article_meta_info_item_label">
+				Article Title
+				<div class="article_meta_info_item_value"><a href="@@article_wol_link@@">@@article_title@@</a></div>
+			</div>
+            
+			<div class="article_meta_info_item_label" style="display:@@article_citation_display@@;">
+				Citation
+				<div class="article_meta_info_item_value">@@article_citation@@</div>
+			</div>
+            
+            <div class="article_meta_info_item_label">
+				@@article_permissions_request_info@@
+			</div>
+            
+            <div class="article_meta_info_item_label" style="display:@@article_abstract_display@@;">
+				<div class="article_meta_info_item_value">
+					@@article_abstract@@
+				</div>
+			</div>
+		</div>
+		<div style="clear:both;">&nbsp;</div>
+	</body>
+</html>

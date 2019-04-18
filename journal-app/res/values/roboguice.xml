@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="roboguice_modules">
+        <item>com.wiley.android.journalApp.bean.RoboguiceModule</item>
+        <item>com.wiley.wol.client.android.data.xml.loader.asset.AssetBasedFeedLoaderModule</item>
+        <!--<item>com.wiley.wol.client.android.data.xml.loader.http.HtppBasedFeedLoaderModule</item>-->
+    </string-array>
+</resources>

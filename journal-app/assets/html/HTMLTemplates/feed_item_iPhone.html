@@ -1,0 +1,35 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<div class="article_class">
+    <div style="float: right; font-size: medium;" onclick="return false;" ontouchend="window.location.href='favoriteaction://@@_id_placeholder_@@';">
+        <img class="is_favorite_icon_class" align="middle" src="@@_bookmark_placeholder_@@" id="article_bookmark_element_id_@@_id_placeholder_@@" width="28px" height="28px"/>
+    </div>
+    
+    <div class="in_list_article_content_class" onclick="javascript:openArticle(event, '@@_id_placeholder_@@')" data-article-index="@@_id_placeholder_@@">
+        <p class="article_title_class">
+            <span style="font-weight:@@article_title_font_weight@@;">@@_title_placeholder_@@</span>
+        </p>
+        @@thumbnail@@
+        <div class="abstract_class">
+            <div class="abstract">
+                <para>@@description@@</para>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="list_item_divider_class" style="display:block;" />

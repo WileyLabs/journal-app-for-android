@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="left_bar_menu_width">150dp</dimen>
+
+    <dimen name="article_side_menu_width">95dp</dimen>
+    <dimen name="article_side_menu_button_width">95dp</dimen>
+    <dimen name="article_side_menu_button_height">95dp</dimen>
+    <dimen name="article_side_menu_button_icon_width">45dp</dimen>
+    <dimen name="article_side_menu_button_icon_height">45dp</dimen>
+    <dimen name="article_side_menu_button_label_text_size">12sp</dimen>
+    <dimen name="article_side_menu_divider_height">1dp</dimen>
+
+    <dimen name="article_authors_info_view_width">350dp</dimen>
+    <dimen name="article_authors_info_view_height">250dp</dimen>
+
+    <dimen name="get_access_dialog_width">500dp</dimen>
+    <dimen name="get_access_dialog_height">550dp</dimen>
+    <dimen name="alert_dialog_width">500dp</dimen>
+    <dimen name="alert_dialog_height">250dp</dimen>
+
+</resources>

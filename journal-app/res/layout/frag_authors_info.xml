@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/authors_info_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/authors_info_slider_root"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/article_authors_info_view_phone_height"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/authors_info_title_back"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?mainColor">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/author_information"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/authors_info_title" />
+
+            <ImageView
+                android:id="@+id/article_authors_close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|right"
+                android:paddingRight="15dp"
+                android:src="@drawable/close_button_light_selector" />
+        </RelativeLayout>
+
+        <WebView
+            android:id="@+id/authors_info_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+    </LinearLayout>
+
+</AbsoluteLayout>

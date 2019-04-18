@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GetAccessScreenRoot"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/GetAccessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:text="@string/text_register_confirm_1" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp" />
+
+    <TextView
+        style="@style/GetAccessText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:text="@string/text_register_confirm_2" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp" />
+
+    <include
+        layout="@layout/get_access_more_info_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

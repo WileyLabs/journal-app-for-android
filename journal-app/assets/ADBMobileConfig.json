@@ -1,0 +1,14 @@
+{
+    "version" : "1.0",
+    "analytics" : {
+        "rsids" : "wileyjournalapps",
+        "server" : "wileypublishing.112.2o7.net",
+        "charset" : "UTF-8",
+        "ssl" : false,
+		"offlineEnabled" : true,
+        "lifecycleTimeout" : 300,
+        "batchLimit" : 0,
+        "privacyDefault" : "optedin",
+		"poi" : []
+    }
+}

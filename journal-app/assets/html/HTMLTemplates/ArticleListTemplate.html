@@ -1,0 +1,156 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta name="viewport" content="width=100 initial-scale=1.00 maximum-scale=1.00 user-scalable=0" />
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8"/>
+		<meta http-equiv="Content-Style-Type" content="text/css"/>
+		<title></title>
+        <script type="text/javascript" src="@@!HTMLTemplates/smooth_scroll.js@@"></script>
+        <script type="text/javascript" src="@@!HTMLTemplates/utils.js@@"></script>
+        <script type="text/javascript" src="@@!HTMLTemplates/jquery-1.8.3.min.js@@"></script>
+        <script type="text/javascript" src="@@!HTMLTemplates/jquery.scrollTo.js@@"></script>
+        <script language=javascript type='text/javascript'>
+
+            function posY(elm)
+            {
+				var test = elm, top = 0;
+				
+				while(!!test && test.tagName.toLowerCase() !== "body") {
+					top += test.offsetTop;
+					test = test.offsetParent;
+				}
+				
+				return top;
+			}
+			
+            function isVisibleElementWithID( element_id )
+            {
+                var elm = document.getElementById( element_id );
+                
+                var h = elm.offsetHeight;
+                
+				var vpH = viewPortHeight(), // Viewport Height
+				st = scrollY(), // Scroll Top
+				y = posY(elm);
+				
+                return (y <= st+vpH && y+h >= st ) + " y=" + y + " h=" + h + " st=" + st + " VPh=" + vpH;
+			}
+            
+            function setDisplayOptionForClass (class_name, display_option)
+            {
+                var allItems = document.getElementsByClassName(class_name);
+                for(var i=0; i<allItems.length; i++)
+                {
+                    allItems[i].style.display = display_option;
+                }
+            }
+			
+			function addTouchEventsToArticles()
+			{
+                var allItems = document.getElementsByClassName("in_list_article_content_class");
+                for(var i = 0; i < allItems.length; ++i)
+                {
+					if (allItems[i].wwlClickListener === undefined)
+					{
+						allItems[i].wwlClickListener = true;
+						allItems[i].addEventListener('click', function (e) {
+							var elm = e.target;
+							while (elm.tagName != 'BODY') {
+                                if (elm.tagName == 'A')
+									return;
+								if (elm.className.indexOf('touchable_element') != -1)
+									return;
+								if (elm.tagName == 'DIV' && elm.className.indexOf('in_list_article_content_class') != -1) {       
+									e.preventDefault();
+									e.stopPropagation();
+									window.location.href = 'openarticle://' + elm.getAttribute('data-article-index');
+								}
+								elm = elm.parentNode;
+							}
+						}, true);
+					}
+                }
+			}
+            
+            function openArticle(e, id) {
+                var elm = e.target;
+                
+                while (elm.tagName != 'BODY') {
+                    if (elm.tagName == 'A' && elm.innerHTML == 'Watch') {
+                        e.preventDefault();
+                        window.location.href = 'openvideo://' + elm.href.substr(7);
+                        return false;
+                    }
+                    if (elm.tagName == 'A' && e.target.href != undefined) {
+                        e.preventDefault();
+                        window.location.href = e.target.href;
+                        return false;
+                    }
+                    elm = elm.parentNode;
+                }
+                window.location.href='openarticle://' + id;
+            }
+        
+        </script>
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/global.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/toc_!device!.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTML/target.css@@" media="screen" />
+        <style type="text/css">
+            body{
+                font-size:@@_list_font_size_@@px;
+            }
+            div.section_heading_class,
+            div.first_section_heading_class
+            {
+                background: #@@_main_color_@@ !important;
+            }
+        </style>
+	</head>
+	<body class="@@_abstracts_@@ @@_theme_class_@@">
+        @@_list_heading_placeholder_@@
+        <div id="loading_top_element" class="loading_class" width="100%" style="display:none;">
+            @@_loading_top_placeholder_@@
+        </div>
+        
+        @@_no_internet_connection_placeholder_@@
+        
+        @@_no_article_placeholder_@@
+        <div id="article_ref_list">@@_article_ref_list_@@</div>
+        <div id="loading_bottom_element" class="loading_class" width="100%">
+            @@_loading_bottom_placeholder_@@
+        </div>
+		<script type="text/javascript">
+            window.location.href = 'onready://';
+            
+            $(document).ready(function() {
+                var height = document.body.clientHeight;
+                var _timer = setInterval(function() {
+                    if (height !== document.body.clientHeight) {
+                        height = document.body.clientHeight;
+                    }
+                    else {
+                        clearInterval(_timer);
+                        window.location.href = 'onload://';
+                    }
+                }, 200);
+            });
+		</script>
+	</body>
+</html>

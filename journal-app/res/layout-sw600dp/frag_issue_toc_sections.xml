@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/issue_toc_sections_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/issue_toc_info_background"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/issue_toc_sections_list"
+        android:background="@color/issue_toc_sections_background"
+        android:divider="@color/issue_toc_section_separator"
+        android:dividerHeight="1dp"
+        android:choiceMode="singleChoice"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+</LinearLayout>

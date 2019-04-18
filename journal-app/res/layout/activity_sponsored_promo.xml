@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <include layout="@layout/article_view_ad_container"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/promo_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_margin="10dp"
+        android:background="@drawable/icon_background"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/button_adv_close"
+        android:textColor="@color/action_button_text_color" />
+
+    <include layout="@layout/article_view_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

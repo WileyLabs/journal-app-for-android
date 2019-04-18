@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:background="@color/article_bar_background">
+
+    <LinearLayout
+        android:id="@+id/tab_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarInfoButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_info_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_info" />
+
+                <TextView
+                    android:id="@+id/article_bar_info_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/info" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarFiguresButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_figures_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_figures" />
+
+                <TextView
+                    android:id="@+id/article_bar_figures_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/figures" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarReferencesButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_refs_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_references" />
+
+                <TextView
+                    android:id="@+id/article_bar_refs_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/references" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarSupportingInformationButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_support_info_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_supporting_information" />
+
+                <TextView
+                    android:id="@+id/article_bar_support_info_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/supporting_information" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarSearchButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_find_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_search" />
+
+                <TextView
+                    android:id="@+id/article_bar_find_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/find" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarCitationButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_citation_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_citation" />
+
+                <TextView
+                    android:id="@+id/article_bar_citation_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/cite_article" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarEmailButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_email_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_email" />
+
+                <TextView
+                    android:id="@+id/article_bar_email_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_below="@+id/article_bar_info_img"
+                    android:layout_gravity="center"
+                    android:text="@string/email_article" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+        <com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout
+            android:id="@+id/articleBarPdfButton"
+            style="@style/ArticleSideMenuButtonBack">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/article_bar_pdf_img"
+                    style="@style/ArticleSideMenuButtonIcon"
+                    android:src="@drawable/article_bar_get_pdf" />
+
+                <TextView
+                    android:id="@+id/article_bar_pdf_text"
+                    style="@style/ArticleSideMenuButtonLabel"
+                    android:layout_gravity="center"
+                    android:text="@string/get_PDF" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/article_side_menu_divider_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/article_bar_divider"/>
+
+        </com.wiley.android.journalApp.components.checkable.CheckableRelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

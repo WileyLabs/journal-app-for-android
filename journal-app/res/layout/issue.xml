@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wiley.android.journalApp.components.IssueView xmlns:android="http://schemas.android.com/apk/res/android"
+    showDownloadButton="false"
+    android:id="@+id/issue_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/issue_back_selector"
+    android:gravity="center_horizontal|top"
+    android:layout_gravity="center_horizontal"
+    android:paddingBottom="@dimen/issues_list_issue_padding_bottom"
+    android:paddingTop="@dimen/issues_list_issue_padding_top">
+
+    <RelativeLayout
+        android:id="@+id/issue_cover_substrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/issue_state"
+            style="@style/IssueStateText"
+            android:layout_centerHorizontal="true"
+            android:text="New"
+            android:gravity="center"/>
+
+        <FrameLayout
+            android:layout_width="@dimen/issue_cover_width"
+            android:layout_height="@dimen/issue_cover_height"
+            android:layout_below="@+id/issue_state"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/issue_shadow">
+
+            <ImageView
+                android:id="@+id/cover"
+                android:layout_width="@dimen/issue_cover_width"
+                android:layout_height="@dimen/issue_cover_height"
+                android:clickable="true"
+                android:contentDescription="@string/issue_cover_description"
+                android:longClickable="true" />
+
+        </FrameLayout>
+
+        <ProgressBar
+            android:id="@+id/issue_progress"
+            style="@android:style/Widget.Holo.Light.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/issuedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/issue_cover_substrate"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/issue_txt"
+        android:textSize="@dimen/issue_text_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/issuedAt"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/issue_txt"
+        android:textSize="@dimen/issue_text_size" />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/volume"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/issue_txt"
+        android:textSize="@dimen/issue_text_size" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp">
+
+        <TextView
+            android:id="@+id/numOfSavedArticles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="6dp"
+            android:drawableLeft="@drawable/saved_articles_star"
+            android:drawablePadding="4dp"
+            android:textColor="@color/issue_txt"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/issue_saved_articles_size" />
+
+        <include
+            layout="@layout/issue_download_controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:visibility="visible" />
+
+    </FrameLayout>
+</com.wiley.android.journalApp.components.IssueView>

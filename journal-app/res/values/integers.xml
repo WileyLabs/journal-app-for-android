@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="num_of_issues_per_line">2</integer>
+    <integer name="num_of_issues_per_line_no_cover">2</integer>
+    <integer name="splash_screen_timeout_in_millis">1000</integer>
+    <integer name="web_view_width_change">310</integer>
+    <integer name="article_list_header_height">25</integer>
+</resources>

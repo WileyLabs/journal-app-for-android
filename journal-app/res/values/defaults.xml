@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_circle_indicator_color_normal">#88888888</color>
+    <color name="default_circle_indicator_color_selected">#FF888888</color>
+    <color name="default_circle_indicator_color_background">#4cbfbfbf</color>
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <dimen name="default_circle_indicator_radius_normal">5dp</dimen>
+    <dimen name="default_circle_indicator_radius_selected">10dp</dimen>
+    <dimen name="default_circle_indicator_inner_padding">50dp</dimen>
+    <dimen name="default_circle_indicator_background_width">30dp</dimen>
+    <bool name="default_circle_indicator_snap">false</bool>
+    <array name="default_circle_indicator_items">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+    </array>
+    <dimen name="special_sections_side_bar_letter_size">9sp</dimen>
+</resources>

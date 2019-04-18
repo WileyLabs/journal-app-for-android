@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include layout="@layout/article_view_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:id="@+id/abs__screen_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/abs__screen_action_bar"/>
+        </FrameLayout>
+        <LinearLayout
+            android:id="@+id/article_view_base_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.wiley.android.journalApp.layout.LeftMenu
+                android:id="@+id/menu"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <include layout="@layout/activity_article_view_content"/>
+
+                <FrameLayout
+                    android:id="@+id/menu_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/article_view_center_menu_background"
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:id="@+id/menu_handle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@drawable/slider_handle"
+                    android:visibility="gone"/>
+
+                <FrameLayout
+                    android:id="@+id/menu_side"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </com.wiley.android.journalApp.layout.LeftMenu>
+
+            <FrameLayout
+                android:id="@+id/page_indicator_host"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/article_view_dimmer"
+        android:foreground="@drawable/dimmable_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.wiley.android.journalApp.components.popup.PopupHost
+        android:id="@+id/article_popup_host"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/article_popup_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.wiley.android.journalApp.components.popup.PopupHost>
+
+    <include layout="@layout/article_view_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

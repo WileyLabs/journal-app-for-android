@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:id="@+id/main_menu"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <include layout="@layout/expandable_menu"/>
+
+    <RelativeLayout
+        android:id="@+id/early_view_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/issues_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/special_sections_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/saved_articles_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/global_search_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/info_tab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        android:src="?logoBottomRight"/>
+</LinearLayout>

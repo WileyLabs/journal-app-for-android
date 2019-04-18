@@ -1,0 +1,107 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="viewport" content="width=100%, initial-scale=1.00, maximum-scale=5.00, user-scalable=1" />
+        
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/global.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/article.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTML/target.css@@" media="screen" />
+        <script type="text/javascript" src="@@!HTMLTemplates/jquery-1.8.3.min.js@@"></script>
+        <script type="text/javascript" src="@@!HTMLTemplates/utils.js@@"></script>
+        <script type="text/javascript">
+            bodyMoved = false;
+			bodySleeped = false;
+			bodyScrolled = false;
+			bodyScrollTimer = null;
+			bodySleepedTimer = null;
+            toggleMenu = null;
+            
+            document.addEventListener('DOMContentLoaded', recalcTablesWidth);
+            
+            document.addEventListener('DOMContentLoaded', function () {
+                document.documentElement.addEventListener('touchstart', function (e) {
+                    bodyMoved = false;
+                    bodySleeped = false;
+                    if (bodySleepedTimer) {
+                        clearInterval(bodySleepedTimer);
+                        bodySleepedTimer = null;
+                    }
+                    bodySleepedTimer = window.setInterval('window.bodySleeped = true; bodySleepedInterval = null;', 500);
+                }, true);
+                                      
+               
+                          
+                document.documentElement.addEventListener('touchmove', function (e) {
+                    bodyMoved = true;
+                }, true);
+
+                document.addEventListener('scroll', function (e) {
+                    if (bodyScrollTimer) {
+                        clearInterval(bodyScrollTimer);
+                        bodyScrollTimer = null;
+                    }
+                    bodyScrolled = true;
+					hostCallbacks.setExtraBool("bodyScrolled", true);
+                    bodyScrollTimer = window.setInterval('bodyScrolled = false; hostCallbacks.setExtraBool("bodyScrolled", false); bodyScrollInterval = null;', 300);
+                });
+				$(".table").scroll( function() {
+					if (bodyScrollTimer) {
+						clearInterval(bodyScrollTimer);
+						bodyScrollTimer = null;
+					}
+					bodyScrolled = true;
+					hostCallbacks.setExtraBool("bodyScrolled", true);
+					bodyScrollTimer = window.setInterval('bodyScrolled = false; hostCallbacks.setExtraBool("bodyScrolled", false); clearInterval(bodyScrollTimer); bodyScrollTimer = null;', 300);
+				});
+                                      
+                document.documentElement.addEventListener('touchend', function (e) {
+                        if (!bodyScrolled && !bodyMoved && !bodySleeped) {
+                        var elm = e.target;
+                        while (elm.tagName != 'BODY') {
+                            if (elm.className.indexOf('table-end-block') != -1)
+                                return;
+                            elm = elm.parentNode;
+                        }
+                        if (['IMG', 'A', 'BUTTON'].indexOf(e.target.tagName) === -1) {
+                            if (toggleMenu != null) {
+                                clearTimeout(toggleMenu);
+                                toggleMenu = null;
+                                return;
+                            }
+                            toggleMenu = window.setTimeout(function() {
+                                clearTimeout(toggleMenu);
+                                toggleMenu = null;
+                                window.location.href = 'bodytouched://' + e.target.tagName + '_' + e.target.className + '_' + e.target.id;
+                            }, 300);
+                            return;
+                        }
+                    }
+                }, true);
+            }, false);
+        </script>
+	</head>
+    
+	<body>
+        <div id="article_main" style="padding-top:20px;">
+            <div></div>
+            @@caption_body@@
+        </div>
+	</body>
+</html>

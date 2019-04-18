@@ -1,0 +1,277 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+body {
+    font-family:  "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.no_society_feeds_box {
+    padding: 20px;
+    max-width: 660px;
+    color: #333;
+    border-radius: 4px;
+    background-color: #e4eef8;
+    text-align: center;
+}
+
+div.centered_message_class {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    bottom: 50%;
+    margin: 0 10px;
+}
+
+.sections {
+    vertical-align: top;
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.iPad .sections {
+    margin-top: 6px;
+}
+
+.section {
+    
+}
+
+.sections-list .section {
+    border-left: 3px solid;
+    margin-bottom: 20px;
+}
+
+.iPad-s .sections-list .section {
+    margin-bottom: 50px;
+}
+
+.sections-list .section:last-child {
+    margin-bottom: 0;
+}
+
+/*.sections-right .section {
+    border-bottom: 3px solid #F2F2F2;
+}
+
+.sections-right .section:last-child {
+    border-bottom: none;
+}*/
+
+.sections-main {
+/*    border-top: 6px solid #F2F2F2;
+    border-left: 6px solid #F2F2F2;
+    border-right: 6px solid #F2F2F2;
+    border-bottom: 12px solid #F2F2F2;
+ 
+    border-right: 3px solid #F2F2F2;
+ */
+}
+
+.sections-right {
+/*
+    border-top: 6px solid #F2F2F2;
+    border-left: 3px solid #F2F2F2;
+    border-right: 6px solid #F2F2F2;
+    border-bottom: 12px solid #F2F2F2;
+*/
+}
+
+.sections .first-section {
+    display: table-caption;
+    vertical-align: top;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.sections .sections-main {
+    display: table-cell;
+    vertical-align: top;
+    width: 66%;
+    max-widht: 66%;
+    word-wrap: break-word;
+}
+
+.sections .sections-right {
+    display: table-cell;
+    vertical-align: top;
+    width: 33%;
+    max-widht: 33%;
+    word-wrap: break-word;
+}
+
+.section-title {
+    /*margin: 6px 6px 6px 0;
+    background: rgba(240,243,247,1);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(240,243,247,1)), color-stop(70%, rgba(240,243,247,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(left, rgba(240,243,247,1) 0%, rgba(240,243,247,1) 70%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(240,243,247,1) 0%, rgba(240,243,247,1) 70%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to right, rgba(240,243,247,1) 0%, rgba(240,243,247,1) 70%, rgba(255,255,255,1) 100%);*/
+    margin: 10px 0 0 0;
+    border-bottom: 1px solid;
+}
+
+.section-title-link {
+    padding: 2px 3px 12px 23px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.first-section .section-title-link {
+    font-weight: bold;
+}
+
+.section-body {
+    padding: 0 23px;
+}
+
+.first-section .sections-list .section .section-body .feed-item:not(:first-child) {
+    display: none;
+}
+
+.sections-main .sections-list .section:first-child .section-title {
+    display: none;
+}
+
+.sections-main .sections-list .section:first-child .section-body .feed-item:first-child {
+    display: none;
+}
+
+.feed-items {
+    margin: 0;
+}
+
+.feed-heading {
+	word-wrap: break-word;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+    height: 25px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0;
+    padding: 0px 0px 0px 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0.75;
+}
+
+.feed-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+.feed-item:last-child {
+    border-bottom: 0;
+}
+
+.feed-favorites {
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+}
+
+
+
+.feed-body {
+    /*line-height: 1.4;
+    font-family:  "Times New Roman", Times, Baskerville,Palatino, serif;*/
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.feed-title {
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*line-height: 110%;*/
+}
+
+.iPad .feed-title {
+    font-size: 13px;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*line-height: 110%;*/
+}
+
+.first-section .feed-title {
+    font-size: 16px;
+	margin: 0 0 15px 0;
+	font-weight: bold;
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/*line-height: 110%;*/
+}
+
+.iPhone .feed-item img {
+    float: left;
+    max-width: 100%;
+    margin: 0 10px 10px 10px;
+}
+
+.iPad .feed-item img, .iPad-s .feed-item img {
+    max-width: 150px;
+    margin-bottom: 5px;
+}
+
+.iPad .feed-item:nth-child(odd) img, .iPad-s .feed-item:nth-child(odd) img {
+    float: left;
+    margin-right: 15px;
+}
+
+.iPad .feed-item:nth-child(even) img, .iPad-s .feed-item:nth-child(even) img {
+    float: right;
+    margin-left: 15px;
+}
+
+.feed-description {
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+}
+
+.iPad .feed-description {
+    font-size: 12px;
+    color: #333;
+    overflow: hidden;
+}
+
+.first-section .feed-description {
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+}
+
+.feed-link {
+    margin: 7px 0;
+}
+
+.feed-link a {
+    text-decoration: none;
+}
+
+.society-logo {
+    padding: 0 0 20px 20px;
+    width: 114px;
+    height: 56px;
+    display:block;
+}

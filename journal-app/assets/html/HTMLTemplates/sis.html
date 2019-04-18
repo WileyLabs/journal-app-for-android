@@ -1,0 +1,67 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="@@!HTMLTemplates/smooth_scroll.js@@"></script>
+		<script type="text/javascript" src="@@!HTMLTemplates/utils.js@@"></script>
+		<script type="text/javascript">
+			
+			function onItemTouch() {
+				this.style.webkitAnimation = 'dehighlight 0.3s 1';
+				window.location.href = 'tappeditem://' + this.getAttribute('data-itemindex');
+			}
+
+			function onItemTouchStart() {
+				this.style.background = '#def';
+				this.style.webkitAnimation = 'highlight 0.3s 1';
+			}
+
+			function onItemTouchEnd() {
+				this.style.background = '#fff';
+			}
+
+			document.addEventListener('DOMContentLoaded', onDocumentReady, false);
+			
+			function onDocumentReady(event) {
+				var clName = 'si_item';
+				var items = document.getElementsByClassName(clName);
+				for (var i = 0; i < items.length; ++i) {
+					wwlToucher.onTouch(items[i], {
+						ontouch      : onItemTouch,
+						ontouchend   : onItemTouchEnd,
+						ontouchstart : onItemTouchStart
+					});
+				}
+			};
+			
+			function highlightElement(el_id) {
+				var elm = document.getElementById(el_id);
+				elm.style.webkitAnimation = 'highlight 0.3s 1';
+				window.setTimeout(function(){
+								  elm.style.webkitAnimation = 'dehighlight 0.3s 1';
+								  }, 300);
+			}
+			
+		</script>
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/sis.css@@" media="screen" />
+	</head>
+<body>
+	@@support_info_items@@
+</body>
+</html>

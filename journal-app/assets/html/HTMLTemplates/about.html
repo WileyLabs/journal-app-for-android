@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=100%,initial-scale=1.0">
+    <style type="text/css">
+        body
+        {
+            padding: 0;
+            margin: 0;
+            font-family: Helvetica Neue;
+            color: #333;
+        }
+        
+        .aboutContent {
+            font-size: 13px;
+            padding: 12px 50px 30px 50px;
+        }
+
+        .aboutContent div
+        {
+            margin-top: 15px;
+        }
+
+        .aboutBody
+        {
+            position: relative;
+        }
+
+        .logo_banner
+        {
+            background-color: #f7f8f9;
+            text-align: center;
+            padding: 35px 0 32px 0;
+        }
+
+            .logo_banner img
+            {
+                max-width: 100%;
+                height: auto;
+                width: 402px;
+            }
+
+
+        .aboutTitle
+        {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .additionalInfo
+        {
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+            .additionalInfo div
+            {
+                margin-top: 15px;
+            }
+
+        .infoSubTitle
+        {
+            font-weight: bold;
+        }
+
+        .masthead
+        {
+            color: #1271c9;
+        }
+
+        .sideLinks
+        {
+            margin: 0;
+            width: 100%;
+            display: table;
+        }
+
+        .sideLink
+        {
+            display: table-row;
+        }
+        
+        .sideLink div
+        {
+            height: 60px;
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 50px;
+            color: #1271c9;
+            display: table-cell;
+            border-bottom: solid 1px #e7e7e7;
+            vertical-align: middle;
+        }
+        
+        .sideLink:first-child div
+        {
+            border-top: 0;
+        }
+
+        .copyright
+        {
+            font-size: 11px;
+        }
+
+        .version
+        {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* iPhone */
+        @media only screen and (min-width : 320px) and (max-width : 600px)
+        {
+            .logo_banner
+            {
+                padding: 10px;
+            }
+
+            .aboutContent
+            {
+                padding: 8px;
+            }
+
+            .sideLinks {
+                padding: 0 8px;
+            }
+
+            .sideLink div
+            {
+                height: 50px;
+                font-size: 13px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .copyright, .version
+            {
+                text-align: center;
+            }
+
+            .copyright
+            {
+                margin-top: 15px;
+            }
+
+            .version
+            {
+                margin-top: 5px;
+                white-space: nowrap;
+            }
+        }
+
+        /* iPad */
+        @media only screen and (min-width : 480px) and (orientation : landscape)
+        {
+            .logo_banner
+            {
+                text-align: left;
+                padding-left: 50px;
+            }
+
+            .aboutContent
+            {
+                padding-right: 10px;
+                margin-right: 310px;
+            }
+
+            .sideLinks
+            {
+                width: 270px;
+                right: 20px;
+                top: 25px;
+                position: absolute;
+            }
+
+            .sideLink div {
+                font-size: 13px;
+                height: 45px;
+                padding-left: 10px;
+            }
+
+            .sideLink:first-child div
+            {
+                border-top: solid 1px #e7e7e7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo_banner">
+        <img src="@@!Images/About/logoBanner@2x.png@@" align="absmiddle" />
+    </div>
+    <div class="aboutPage">
+        <div class="aboutBody">
+            <div class="sideLinks">
+                <div class="sideLink">
+                    <div onclick="window.location.href='http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1521-3773'">
+                        Visit <i>Angewandte Chemie International Edition</i> on the web
+                    </div>
+                </div>
+                <div class="sideLink">
+                    <div onclick="window.location.href='feedback://'">
+                        Send us feedback about this app
+                    </div>
+                </div>
+                <div class="sideLink">
+                    <div onclick="window.location.href='privacypolicy://'">View our privacy policy</div>
+                </div>
+            </div>
+            <div class="aboutContent">
+                <p>
+                    <em>Angewandte Chemie, </em>with its excellent Impact Factor of 13.455 (2011) is
+                    maintaining its leading position among the general chemistry journals. It appears
+                    weekly in a highly optimized, reader-friendly format; new articles appear online
+                    almost every day. It is one of the prime chemistry journals in the world.
+                </p>
+                <p>
+                    Moreover, it is the only journal in the field delivering a stimulating mixture of
+                    Review Articles, Highlights and Communications weekly. The Reviews summarize the
+                    important results of recent research on topical subjects in all branches of chemistry,
+                    point to unresolved problems and discuss possible developments. The Highlights provide
+                    concise evaluations of current trends in chemical research. The Communications are
+                    critically selected and report on the latest research results, making the journal
+                    indispensable to the chemist who wants a way to stay well informed. Angewandte Chemie
+                    International Edition also regularly publishes Nobel lectures in chemistry and related
+                    fields.
+                </p>
+                <p><strong>Editor:</strong> Peter Golitz</p>
+                <p><strong>Deputy Editors:</strong> Neville Compton, Haymo Ross</p>
+                <p>
+                    <a href="http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1521-3773/homepage/2002_edbd.html">
+                        Full Masthead</a>
+                </p>
+                <div class="copyright">Copyright &copy; @@copyright_year_placeholder@@ WILEY-VCH Verlag GmbH
+                    & Co. KGaA, Weinheim </div>
+                    <div class="version">Version @@version_number@@</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

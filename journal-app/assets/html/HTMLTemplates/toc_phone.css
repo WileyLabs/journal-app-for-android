@@ -1,0 +1,257 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+body {
+	-webkit-text-size-adjust: none;
+    /*margin: 0px auto;*/
+	/*padding: 15px 10px 10px 10px;*/
+    margin:0;
+    padding: 0 0 10px 0;
+    /*max-width: 800px;*/
+}
+
+.article_class{
+margin: 13px 9px 16px 8px;
+    padding: 0px;
+}
+/* Article title with abstracts */
+p.article_title_class {
+	font-size: 23px;
+    font-size: 120%;
+	margin: 0 0 5px 0;
+	font-weight: bold;
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 130%;
+}
+
+.abstract {
+    -webkit-hyphens: manual;
+    word-wrap: break-word;
+}
+
+/* Article title without abstracts */
+.withoutAbstracts p.article_title_class {
+    font-size:90%;
+    margin:0 0 5px 0;
+    line-height:110%;
+}
+
+.article_meta_info_item_label {
+    font-family:  "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 0;
+	margin: 30px 0 0 0;
+	color: #222;
+}
+
+a.goto:link { color:#336699; text-decoration:none; font-weight:bold;  }
+a.goto:visited { color:#336699; text-decoration:none; font-weight:bold;  }
+a.goto:hover { color:#336699; text-decoration:none;  font-weight:bold; }
+a.goto:active { color:#336699; text-decoration:none; font-weight:bold;  }
+
+p.article_date_class{
+	margin:1.5em 0;
+	font-weight:bold;
+    font-size:70%;
+}
+
+    img.is_favorite_icon_class
+    {
+        margin: 0px 0px 8px 8px;
+    }
+
+hr.list_item_divider_class{
+    margin: 4px 0px 0px 0px;
+    padding:0px;
+}
+
+div.special_section_heading_class_iPad {
+    font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding:0px;
+	margin:0px;
+    font-size: 80%;
+    background-color:#dedede;
+}
+
+div.special_section_description_iPad {
+    padding:20px 20px 20px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+div.special_section_heading_class_iPhone {
+    font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
+    padding:0px;
+	margin:0px;
+    background-color:#dedede;
+}
+
+div.special_section_description_iPhone {
+    padding:10px 8px 8px 8px;
+    font-size: 70%;
+}
+
+div.list_heading_class_iPad {
+    font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding:0px;
+	margin:0px;
+    font-size: 80%;
+    background-color:#dedede;
+}
+
+div.list_heading_text_iPad {
+    padding:20px 20px 20px 20px;
+    margin: 0 auto;
+}
+
+div.list_heading_class_iPhone {
+    font-family:"Helvetica Neue Light", Helvetica, Arial, sans-serif;
+    padding:0px;
+	margin:0px;
+    background-color:#dedede;
+}
+
+div.list_heading_text_iPhone {
+    padding:10px 8px 8px 8px;
+    font-size: 70%;
+}
+
+div.special_section_no_articles_message {
+    font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 15px 5px 0 5px;
+}
+
+div.in_list_article_content_class{
+    padding: 0;
+	margin: 0;
+}
+
+.article_in_list_authors{
+    color:#444444;
+    font-size: 80%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-family:  "Times New Roman";
+}
+
+div.item_heading_class p
+{
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	font-weight:bold;
+}
+
+div.authors_in_list
+{
+	word-wrap:break-word;
+    margin: 0px;
+}
+
+.darkTheme div.section_heading_class, div.first_section_heading_class {
+    opacity: 0.75;
+}
+
+div.section_heading_class, div.first_section_heading_class
+{
+	word-wrap:break-word;
+    color:#fff;
+    font-size:12pt;
+    line-height:25px;
+    font-weight: normal !important;
+    text-shadow: none !important;
+    font-weight:normal;
+	text-shadow: none !important;
+    background: -webkit-linear-gradient(top, #97cbff, #6ba0d6);
+	padding:0px 8px;
+    height: 25px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+div.first_section_heading_class
+{
+    margin:0px 0px 0px 0px;
+}
+
+p.section_heading_class
+{
+	margin: 0px;
+    padding: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+div.load_more_class
+{
+	display:none;
+	word-wrap:break-word;
+	text-align: center;
+}
+div.error_class
+{
+	display:none;
+	word-wrap:break-word;
+	text-align: center;
+}
+div.loading_class
+{
+	display:block;
+	word-wrap:break-word;
+	text-align: center;
+}
+
+#loading_process {
+    margin-top: 10px;
+    height: 32px;
+    text-align: center;
+}
+
+#no_articles_element center {
+    margin: 0 10px;
+}
+
+div.centered_message_class, #no_articles_element {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+
+div.centered_message_class {
+    bottom: 60%;
+}
+
+#no_articles_element {
+    bottom: 45%;
+}
+
+centered_message_class center, #no_articles_element center {
+    margin: 0 10px;
+}
+
+#get_automatic_updates
+{
+    overflow: hidden;
+}
+
+.box
+{
+    font-size: 11px;
+}

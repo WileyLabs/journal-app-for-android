@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AdUnitID</key>
+	<string></string>
+	<key>appFeedbackEmail</key>
+	<string>feedback@email.com</string>
+	<key>appFeedbackSubject</key>
+	<string>App Feedback</string>
+	<key>appPrefix</key>
+	<string>FOSS</string>
+	<key>authorizeCallbackURL</key>
+	<string>callbackUrl</string>
+	<key>consumerKey</key>
+	<string>JAS2011</string>
+	<key>enableContentUpdatesSubscription</key>
+	<true/>
+	<key>enableSubscription</key>
+	<true/>
+	<key>freeSubscriptionNameAppStore</key>
+	<string>FreeContentUpdates</string>
+	<key>freeSubscriptionNameDev</key>
+	<string>TestFreeSubscription</string>
+	<key>getHelpURL</key>
+	<string>http://gethelp.url</string>
+	<key>isShowAbstractsByDefault</key>
+	<true/>
+	<key>isShowGraphicalAbstract</key>
+	<true/>
+	<key>journalCopyright</key>
+	<string>Copyright</string>
+	<key>journalDOI</key>
+	<string>journalDOI</string>
+	<key>journalHasDarkBackground</key>
+	<integer>0</integer>
+	<key>journalHasNoTOCForIssues</key>
+	<false/>
+	<key>journalHasNoTextAbstracts</key>
+	<false/>
+	<key>journalName</key>
+	<string>Journal Name</string>
+	<key>loginSteps</key>
+	<string></string>
+	<key>mainColor</key>
+	<string>25709A</string>
+	<key>paidSubscriptionNameAppSotre</key>
+	<string>sub.name</string>
+	<key>paidSubscriptionNameDev</key>
+	<string>TestPaidSubscription1</string>
+	<key>secretKey</key>
+	<string>008277D085B4D4E104FFB5E4068247B4C61536CE0A4F6D0BE774CA8276053567</string>
+	<key>pubKey</key>
+    <string>111</string>
+	<key>showCovers</key>
+	<true/>
+</dict>
+</plist>

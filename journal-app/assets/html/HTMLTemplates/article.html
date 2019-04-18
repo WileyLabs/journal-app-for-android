@@ -1,0 +1,509 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+		<script type="text/javascript" src="@@!HTMLTemplates/jquery-1.8.3.min.js@@"></script>
+		<script type="text/javascript" src="@@!HTMLTemplates/smooth_scroll.js@@"></script>
+		<script type="text/javascript" src="@@!HTMLTemplates/utils.js@@"></script>
+        <script type="text/javascript" src="@@!HTMLTemplates/jquery.scrollTo.js@@"></script>
+		<script type="text/javascript">
+
+            function link(url){
+                alert("url is "+url);
+            }
+			
+			document.documentElement.style.webkitTouchCallout = "none";
+			
+			function onAuthorsTouchStart(elm) {
+				if (@@authors_affiliation_not_exists@@) {
+					return;
+                }
+				elm.style.color="#3e9bf2";
+			}
+			
+			function onAuthorsTouchEnd(elm) {
+				if (@@authors_affiliation_not_exists@@) {
+					return;
+                }
+				elm.style.color = "@@authors_list_color@@";
+			}
+			
+			bodyMoved = false;
+			bodySleeped = false;
+			bodyScrolled = false;
+			
+			menuVisible = false;
+			
+			bodyScrollTimer = null;
+			bodySleepedTimer = null;
+			
+        
+            document.addEventListener('DOMContentLoaded', function () {
+            	wwlToucher.onTouch('favorite_icon', {
+            		ontouch : function(){
+            			window.location.href = "favoriteaction://";
+            		}
+            	});
+                                      
+            	var accessButtons = document.getElementsByClassName('access_button');
+            	for (var i = 0; i < accessButtons.length; ++i)
+            	{
+					wwlToucher.onTouch(accessButtons[i], {
+						ontouch : function(){
+							window.location.href = "getaccess://";
+						}});
+				}
+			}, false);
+
+			document.addEventListener('DOMContentLoaded', function () {
+				document.documentElement.addEventListener('touchend', function (e) {
+                    if (!menuVisible && !bodyMoved && !bodySleeped && !bodyScrolled) {
+						var elm = e.target;
+						while (elm.tagName != 'BODY') {
+                            if (elm.tagName == 'A' || elm.__wwlOnTouch !== undefined)
+								return;
+							if (elm.className.indexOf('touchable_element') != -1)
+								return;
+							if (elm.tagName == 'DIV' && (elm.className == 'table' || elm.className == 'imageTable' || elm.className == 'tableGroup') && elm.id) {
+								e.preventDefault();
+								e.stopPropagation();
+								window.location.href = 'openfig://' + elm.id;
+								return;
+							}
+                            if (elm.id.indexOf('article_authors_list_') === 0) {
+                                if (@@authors_affiliation_not_exists@@) {
+                                    return;
+                                }
+                                e.preventDefault();
+                                e.stopPropagation();
+                                elm.style.color = "@@authors_list_color@@";
+                                window.location.href = "openauthors://article_authors_list_top";
+                                return;
+                            }
+							elm = elm.parentNode;
+						}
+                        if (['IMG', 'A', 'BUTTON'].indexOf(e.target.tagName) === -1 && e.target.id.indexOf('article_authors_list_') === -1) {
+							e.preventDefault();
+							e.stopPropagation();
+							window.location.href = 'bodytouched://' + e.target.tagName + '_' + e.target.className + '_' + e.target.id;
+							return;
+						}
+					}
+				}, true);
+			}, false);
+			
+			document.addEventListener('DOMContentLoaded', function () {
+				document.documentElement.addEventListener('touchstart', function (e) {
+					bodyMoved = false;
+					bodySleeped = false;
+					if (bodySleepedTimer) {
+						clearInterval(bodySleepedTimer);
+						bodySleepedTimer = null;
+					}
+					bodySleepedTimer = window.setInterval('window.bodySleeped = true; clearInterval(bodySleepedTimer); bodySleepedTimer = null;', 500);
+				}, true);
+			}, false);
+			
+			document.addEventListener('DOMContentLoaded', function () {
+				wwlToucher.onTouch('loading_error_message_div', {
+					ontouch : function(){
+						window.location.href = "refresh://";
+					}
+				});
+
+				wwlToucher.onTouch('offline_div', {
+					ontouch : function(){
+						window.location.href = "refresh://";
+					}
+				});
+
+				document.documentElement.addEventListener('touchmove', function (e) {
+					bodyMoved = true;
+				}, true);
+			}, false);
+			
+			document.addEventListener('DOMContentLoaded', function () {
+				document.addEventListener('scroll', function (e) {
+					if (bodyScrollTimer) {
+						clearInterval(bodyScrollTimer);
+						bodyScrollTimer = null;
+					}
+					bodyScrolled = true;
+					hostCallbacks.setExtraBool("bodyScrolled", true);
+					bodyScrollTimer = window.setInterval('bodyScrolled = false; hostCallbacks.setExtraBool("bodyScrolled", false); clearInterval(bodyScrollTimer); bodyScrollTimer = null;', 300);
+				});
+				$(".table").scroll( function() {
+					if (bodyScrollTimer) {
+						clearInterval(bodyScrollTimer);
+						bodyScrollTimer = null;
+					}
+					bodyScrolled = true;
+					hostCallbacks.setExtraBool("bodyScrolled", true);
+					bodyScrollTimer = window.setInterval('bodyScrolled = false; hostCallbacks.setExtraBool("bodyScrolled", false); clearInterval(bodyScrollTimer); bodyScrollTimer = null;', 300);
+				});
+			});
+
+//            document.addEventListener('DOMContentLoaded', convertVideoLinks);
+//            document.addEventListener('DOMContentLoaded', convertAnchorsToLinks);
+//            document.addEventListener('DOMContentLoaded', recalcTablesWidth);
+//            document.addEventListener('DOMContentLoaded', changeLargeEquationLayout);
+//            document.addEventListener('DOMContentLoaded', loadSections);
+
+            document.addEventListener('DOMContentLoaded', domContentLoadedFunctions);
+
+            function domContentLoadedFunctions() {
+                try {
+                    convertAnchorsToLinks();
+                } catch (err){}
+                try {
+                    recalcTablesWidth();
+                } catch (err){}
+                try {
+                    loadSections();
+                } catch (err){}
+                try {
+                    changeLargeEquationLayout();
+                } catch (err){}
+                try {
+                    convertVideoLinks();
+                } catch (err){}
+            }
+        
+            function convertAnchorsToLinks() {
+                var figures = document.getElementsByClassName('figureLink');
+                for (var i = 0; i < figures.length; ++i) {
+                    figures[i].onclick = scrollToFigure;
+                }
+                var tables = document.getElementsByClassName('tableLink');
+                for (var i = 0; i < tables.length; ++i) {
+                    tables[i].onclick = scrollToFigure;
+                }
+            }
+            
+            function convertVideoLinks() {
+                var elms = document.getElementsByTagName('a');
+                for (var i = 0; i < elms.length; ++i) {
+                    if (elms[i].innerHTML == 'Watch') {
+                        elms[i].onclick = function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.location.href = 'openvideo://' + e.target.href.substr(7);
+                        };
+                    }
+                }
+            }
+
+			function showArticleFullContent(display) {
+				var articleContent = document.getElementById('article_full_content_div');
+				articleContent.style.display = display;
+				recalcTablesWidth();
+                
+                // Highlight abstract block in full article view
+                if (display === 'block') {
+                    $('#article_abstract_block').addClass('highlighted_abstract');
+                } else {
+                    $('#article_abstract_block').removeClass('highlighted_abstract');
+                }
+			}
+        
+            function loadSections() {
+                window.location.href = 'sections://load_sections';
+            }
+            
+            function isBiographySectionExists() {
+                return $('#biography-section').length > 0; 
+            }
+
+            function loadSectionsTitles() {
+                var sections = '';
+                var headers = $('.section > .headingCont');
+                headers.each(function(index){
+                	var section = $.trim($(this).text());
+                    sections += section + (index == headers.length - 1 ? '' : '|');
+
+                });
+                return sections;
+            }
+
+            function loadSectionsRects() {
+                var sections = '';
+                var headers = $('.section > .headingCont');
+                headers.each(function(index){
+                	var section = getElementAbsRect(this);
+                    sections += section + (index == headers.length - 1 ? '' : '|');
+
+                });
+                return sections;
+            }
+
+            function changeLargeEquationLayout() {
+                var isPhone = hostCallbacks.isPhone();
+                if (isPhone) {
+                    if (document.getElementsByClassName('eqWrapper').length == 0) {
+                        $('.equation').wrap('<div class="eqWrapper" />');
+                    }
+                    $(".eqWrapper").scroll( function() {
+                        if (bodyScrollTimer) {
+                            clearInterval(bodyScrollTimer);
+                            bodyScrollTimer = null;
+                        }
+                        bodyScrolled = true;
+                        hostCallbacks.setExtraBool("bodyScrolled", true);
+                        bodyScrollTimer = window.setInterval('bodyScrolled = false; hostCallbacks.setExtraBool("bodyScrolled", false); clearInterval(bodyScrollTimer); bodyScrollTimer = null;', 300);
+                    });
+                    var equations = document.getElementsByClassName('eqWrapper');
+                    for (var n = 0; n < equations.length; ++n) {
+                        var equation = equations[n];
+                        
+                        var eqs = equation.getElementsByClassName('equation');
+                        var eq = eqs[0];
+                        
+                        var initialArticleViewWidth = parseInt($('#article_main').css('min-width'));
+                        var widthOfArrowBlock = 30;
+                        var diff = eq.offsetWidth - initialArticleViewWidth;
+                        
+                        if (eq.scrollWidth > 0 && eq.scrollWidth > eq.offsetWidth + diff && eq.getElementsByClassName('eq-end-block').length == 0) {
+                            var rightOffset = eq.offsetWidth - eq.scrollWidth - diff;
+                            var endBlock = document.createElement('div');
+                            var endArrow = document.createElement('div');
+                            
+                            endBlock.setAttribute('class', 'eq-end-block');
+                            endBlock.style.right = rightOffset + 'px';
+                            endBlock.style.width = widthOfArrowBlock + 'px';
+                            
+                            endArrow.setAttribute('class', 'eq-end-arrow');
+                            endArrow.innerHTML = "&laquo;";
+                            
+                            wwlToucher.onTouch(endBlock, {
+                                               ontouch: scrollEqLeft
+                                               });
+                            
+                            endBlock.appendChild(endArrow);
+                            eq.appendChild(endBlock);
+                        }
+                    }
+                }
+            }
+            
+            function scrollEqLeft() {
+                var $elm = $(this);
+                var equation = $elm.parents('div.eqWrapper');
+                equation.animate({
+                              scrollLeft: 0
+                              }, 200);
+            }
+            
+            function touchTable(e) {
+                this.arrowRight.style.right = '-' + this.scrollLeft + 'px';
+                this.arrowLeft.style.left = this.scrollLeft + 'px';
+                
+                this.arrowRight.style.display = this.scrollWidth - this.clientWidth - this.scrollLeft < 25 ? 'none' : 'block';
+                this.arrowLeft.style.display = this.scrollLeft < 5 ? 'none' : 'block';
+            }
+            
+			function scrollToFigure(event) {
+				var elm = document.getElementById(this.href.substr(this.href.indexOf('#') + 1));
+				if (elm) {
+					event.preventDefault();
+					event.stopPropagation();
+					window.location.href = 'scrolltofig://' + elm.id;
+				}
+			}
+
+			function highlightElement(element_id) {
+				$('#' + element_id).addClass('highlight');
+			}
+
+			function dehighlightElement(element_id) {
+				$('#' + element_id).removeClass('highlight');
+			}
+        </script>
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/global.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/article.css@@" media="screen" />
+        <link rel="stylesheet" type="text/css" href="@@!HTML/target.css@@" media="screen" />
+        <style type="text/css">
+            
+        	div.table table thead th, div.table table tbody td {
+                white-space:nowrap;
+            }
+            
+            div.table table thead th[colspan], div.table table tbody td[colspan] {
+                white-space: normal;
+            }
+            
+			#article_main
+            {
+                font-size: @@font_size@@px;
+            }
+
+            /* (portrait) */
+            @media only screen and (orientation : portrait) {
+                #article_main
+                {
+                    width: @@min_content_width_port@@px;
+                    min-width: @@min_content_width_port@@px;
+                    max-width: @@max_content_width_port@@px;
+                }
+
+            }
+
+            /* (landscape) */
+            @media only screen and (orientation : landscape) {
+                #article_main
+                {
+                    width: @@min_content_width_land@@px;
+                    min-width: @@min_content_width_land@@px;
+                    max-width: @@max_content_width_land@@px;
+                }
+
+            }
+
+            @media only screen and (min-width : 505px) and (orientation : portrait) {
+                .article_section_info_logo {
+                    width: @@min_content_width_port@@px;
+                }
+            }
+
+            @media only screen and (min-width : 505px) and (orientation : landscape) {
+                .article_section_info_logo {
+                    width: @@min_content_width_land@@px;
+                }
+
+                .table_cell_element {
+                    display: table-cell;
+                }
+            }
+
+        </style>
+	</head>
+	<body>
+		<div id="topspace" style="width: 100%; height: 0px;"></div>
+        <div id="article_section_info" style="display: @@article_section_display@@">
+            <div class="article_section_info_logo">
+                <img id="acie_article_top_logo" src="@@!Images/ArticleLogo/article_top_logo.png@@" align="middle" width="159" height="53" />
+            </div>
+        </div>
+        <div class="article_body">
+		<table class="main_table" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td class="firstColumn">&nbsp;</td>
+				<td id="article_main">
+					<div id="article_title" style="position:relative;">
+						<!--div class="touchable_element article_favorite_icon iPhone">
+                            <image src="@@favorite_icon_path@@" id="@@favorite_icon_iphone@@" width="28px" height="28px" />
+						</div-->
+                        
+						<div class="article_section_info_class" style="line-height:normal; margin-bottom:7px; @@header_display@@">
+							<span class="level1_heding_class">@@article_section@@</span>
+							<span calss="heading_divider_class" style="display:@@_heading_divider_display_placeholder_@@"> | </span>
+							<span class="level2_heding_class">@@article_subsection@@</span>
+						</div>
+                        
+						<div class="touchable_element article_favorite_icon iPad">
+                            <image src="@@favorite_icon_path@@" id="@@favorite_icon_ipad@@" width="28px" height="28px" />
+						</div>
+						@@article_title@@
+                    </div>
+					<div id="article_top_meta">
+						<div style="display:@@article_authors_display@@;">
+							<div id="article_authors_list_top"
+								class="article_meta_info_item_value"
+								style="width:auto; color:@@authors_list_color@@;"
+								ontouchstart="onAuthorsTouchStart(this);"
+								ontouchend="onAuthorsTouchEnd(this);">
+								@@article_authors_top@@
+							</div>
+							<hr />
+						</div>
+					</div>
+                    <div style="display: @@article_note_display@@;">
+                        @@article_note@@
+                    </div>
+                    <div id="article_abstract_block" style="display:@@article_abstract_block_display@@">
+                        @@article_abstract_thumbnail@@
+                        <div id="article_abstract_div">@@article_abstract@@</div>
+      					<div style="margin:0px; padding0px; width:100%; height:0px; clear:both;"></div>
+                    </div>
+					<div style="margin:0px; padding0px; width:100%; height:0px; clear:both;"></div>
+					<hr id="article_full_text_delim" style="display: @@article_full_text_delim_display@@;"/>
+                    
+					<div id="access_denied" class="access_denied box" style="display:@@access_denied_display@@">
+                        <div class="box_icon">
+                            <img src="@@!Graphics/Shared/ArticleList/big_lock_icon@2x.png@@" width="22" height="28" />
+						</div>
+                        <div class="box_title" style="padding-right: 0">
+							The full text of this article is available to subscribers only.
+						</div>
+                        <div id="get_access_button" class="box_buttons access_button touchable_element table_cell_element">
+                            <div class="box_button">Get Access</div>
+                        </div>
+					</div>
+
+                    <div id="access_denied_not_subscribed" class="access_denied box" style="display:@@access_denied_not_subscribed_display@@">
+                        <div class="box_icon">
+                            <img src="@@!Graphics/Shared/ArticleList/big_lock_icon@2x.png@@" width="22" height="28" />
+                        </div>
+                        <div class="box_title">
+                            You are logged in to Wiley Online Library, but you do not have access to this article.
+                        </div>
+                        <div class="box">
+                            <div class="box_message">
+                                In order to view this article, you will need to ensure that your subscription to <i>@@journal_name@@</i> is valid.
+                            </div>
+                            <div class="box_button">
+                                <div class="access_button touchable_element" style="min-width: 100px;">Get Help with Access</div>
+                            </div>
+                        </div>
+					</div>
+					
+					<div id="offline_div" class="touchable_element" style="display:@@offline_div_display@@;">
+						<center>
+							<div class="no_internet_connection_box">
+								<img src="@@!Graphics/Shared/warn_sign@2x.png@@" height="33px" width="40px" style="margin-bottom:15px;" />
+								<div class="no_internet_connection_title">No Internet Connection</div>
+								<div>An internet connection is required to view this article. Please connect and tap here to refresh.</div>
+							</div>
+						</center>
+					</div>
+
+					<div id="loading_div">
+					</div>
+                    
+                    <div id="loading_error_message_div" class="touchable_element" style="display:@@loading_error_message_display@@">
+						<center>
+							<div class="no_internet_connection_box">
+								<img src="@@!Graphics/Shared/warn_sign@2x.png@@" height="33px" width="40px" />
+								<div id="loading_error_message_text_div"></div>
+								<div>Tap here to refresh.</div>
+							</div>
+						</center>
+                    </div>
+					
+					<div id="article_full_content_div" style="display:@@article_full_content_div_display@@">
+                        <div id="article_full_text_div">@@article_full_text@@</div>
+                    </div>
+				</td>
+				<td class="lastColumn">&nbsp;</td>
+			</tr>
+		</table>
+        </div>
+	</body>
+</html>

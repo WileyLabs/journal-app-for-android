@@ -1,0 +1,83 @@
+<!--
+  Journal App for Android
+  Copyright (C) 2019 John Wiley & Sons, Inc.
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/css/global.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/css/article_view.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="@@!HTMLTemplates/article.css@@" media="screen" />
+    <script type="text/javascript" src="@@!HTMLTemplates/jquery-1.8.3.min.js@@"></script>
+    <script type="text/javascript" src="@@!HTMLTemplates/smooth_scroll.js@@"></script>
+    <script type="text/javascript" src="@@!HTMLTemplates/utils.js@@"></script>
+    <script type="text/javascript">
+			function highlightElement(element_id) {
+				$('#' + element_id).addClass('highlight');
+			}
+
+			function dehighlightElement(element_id) {
+				$('#' + element_id).removeClass('highlight');
+			}
+        </script>
+
+</head>
+<body>
+<div class="body">
+    <div class="header">
+        <div class="logo">
+            <img src="file:///android_asset/img/article_top_logo.png"/>
+        </div>
+        <div class="headings">
+            <span class="first">@@_first_heading_@@</span>
+            <span class="separator">|</span>
+            <span class="second">@@_second_heading_@@</span>
+        </div>
+        <a href="FAVOURITE_DOI=@@_doi_@@">
+            <div class="favorite">
+                <img src="file:///android_asset/img/favorite_normal.png">
+            </div>
+        </a>
+
+        <div class="title">@@_title_@@</div>
+        <div class="authors">@@_authors_@@</div>
+        <hr/>
+    </div>
+    <div class="content">
+        @@_abstract_@@
+        @@_content_@@
+    </div>
+    <div id="access_denied" class="access_denied box" style="display:@@_access_denied_not_subscribed_display_@@">
+        <div class="box_icon">
+            <img src="file:///android_asset/img/big_lock_icon.png" width="22" height="28"/>
+        </div>
+        <div class="box_title" style="padding-right: 0">
+            The full text of this article is available to subscribers only.
+        </div>
+        <div class="box_buttons access_button touchable_element">
+            <a style="color: inherit; text-decoration: none;" href="getAccess">
+                <div class="box_button">Get Access</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        @@_copyright_@@
+    </div>
+</div>
+</body>
+</html>

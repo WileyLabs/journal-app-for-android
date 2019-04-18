@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/abs__screen_action_bar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/issue_toc_sections"
+                android:name="com.wiley.android.journalApp.fragment.issue.IssueTocSectionsFragment7inch"
+                android:layout_width="@dimen/issue_section_panel_width"
+                android:layout_height="match_parent" />
+
+            <include layout="@layout/issue_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/issue_toc_dimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/dimmable_back" />
+
+    <com.wiley.android.journalApp.components.popup.PopupHost
+        android:id="@+id/issue_toc_popup_host"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/issue_toc_popup_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.wiley.android.journalApp.components.popup.PopupHost>
+</FrameLayout>

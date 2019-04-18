@@ -1,0 +1,47 @@
+/*  Journal App for Android
+ *  Copyright (C) 2019 John Wiley & Sons, Inc.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+* {
+    -webkit-user-select: none;
+}
+
+body {
+    background: #f5f6f6;
+    margin: 0px;
+    padding: 0px 5px;
+    font: bold 13px Helvetica;
+}
+
+.si_item {
+    width: 100%;
+    height: 44px;
+    max-width: 240px;
+    max-height: 44px;
+    background: #fff;
+    padding: 5px 5px;
+    margin: 5px 0px;
+    box-shadow: 1px 1px 3px 1px #ddd;
+}
+
+@-webkit-keyframes highlight {
+    from {background: #fff;}
+    to {background: #def;}
+}
+
+@-webkit-keyframes dehighlight {
+    from {background: #def;}
+    to {background: #fff;}
+}

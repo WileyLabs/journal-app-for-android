@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/frag_center_bar_article_list"
+        android:layout_width="@dimen/article_center_menu_content_width"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/article_searcher_fragment"
+            android:name="com.wiley.android.journalApp.components.search.ArticleSearcher"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/article_searcher" />
+
+        <ListView
+            android:id="@id/android:list"
+            android:layout_below="@+id/article_searcher_fragment"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/article_center_menu_placeholder"
+            android:layout_width="wrap_content"
+            android:background="@drawable/article_center_menu_placeholder_back"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</LinearLayout>
