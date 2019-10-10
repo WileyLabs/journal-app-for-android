@@ -100,6 +100,7 @@ public class TPSLoginFragment extends AbstractScreenFragment implements View.OnC
     private LoginState mState = LoginState.None;
     private String mUrl;
     private int pageLoadingState;
+    private boolean timeoutExpired;
 
     @Inject
     private DownloadManager downloadManager;
@@ -197,9 +198,15 @@ public class TPSLoginFragment extends AbstractScreenFragment implements View.OnC
     public void updateUi() {
         final TPSSiteMO site = getAccessDialogFragment().getSelectedSite();
 
+        /*
+         *   Ios implementation in TPSAuthLoginViewController updateStateForSite
+         *       if (_currTPSSite.formUrl == nil || _currTPSSite.loginScript == nil || _currTPSSite.responseScript == nil) {
+         *           _isSelectedNonTPSSociety = YES;
+         *       }
+         */
         mIsSelectedNonTPSSociety = TextUtils.isEmpty(site.getFormUrl())
-                || TextUtils.isEmpty(site.getLoginScript())
-                || TextUtils.isEmpty(site.getResponseScript());
+                || site.getLoginScript() == null
+                || site.getResponseScript() == null;
 
         final TextView siteName = findView(R.id.get_access_tps_site_name);
         siteName.setText(site.getTPSName());
@@ -562,39 +569,53 @@ public class TPSLoginFragment extends AbstractScreenFragment implements View.OnC
         final String jsInjectLoginScript = "var func = " + site.getLoginScript() + ";";
         final String jsExecLoginScript = format("return func('%s', '%s')", login, password);
 
+        timeoutExpired = false;
+        final Handler errorTimeoutHandler = new Handler();
+        final Runnable errorTimeoutCallback = new Runnable() {
+            @Override
+            public void run() {
+                timeoutExpired = true;
+                onJsResult(RESULT_UNKNOWN_ERROR);
+            }
+        };
+        errorTimeoutHandler.postDelayed(errorTimeoutCallback, 3 * 60 * 1000);
+
         final int state = pageLoadingState;
         mHiddenWebView.executeJavaScriptAndGetResult(jsInjectLoginScript, jsExecLoginScript, new CustomWebView.JavaScriptExecutionCallback() {
             @Override
             public void onJavaScriptResult(String result) {
-                if (RESULT_OK.equals(result)) {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Cancel waiting for result - most likely wrong login and/or password
-                            if (state == pageLoadingState) {
-                                onJsResult(RESULT_INVALID_LOGIN_PASS);
+                if (!timeoutExpired) {
+                    errorTimeoutHandler.removeCallbacks(errorTimeoutCallback);
+                    if (RESULT_OK.equals(result)) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Cancel waiting for result - most likely wrong login and/or password
+                                if (state == pageLoadingState) {
+                                    onJsResult(RESULT_INVALID_LOGIN_PASS);
+                                }
                             }
-                        }
-                    }, 5000);
-                } else if (RESULT_INVALID_FORM.equalsIgnoreCase(result)) {
+                        }, 15000);
+                    } else if (RESULT_INVALID_FORM.equalsIgnoreCase(result)) {
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (state == pageLoadingState) {
-                                onJsResult(RESULT_INVALID_FORM);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (state == pageLoadingState) {
+                                    onJsResult(RESULT_INVALID_FORM);
+                                }
                             }
-                        }
-                    }, 2000);
-                } else {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (state == pageLoadingState) {
-                                onJsResult(RESULT_UNKNOWN_ERROR);
+                        }, 2000);
+                    } else {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (state == pageLoadingState) {
+                                    onJsResult(RESULT_UNKNOWN_ERROR);
+                                }
                             }
-                        }
-                    }, 2000);
+                        }, 2000);
+                    }
                 }
             }
         });
@@ -608,11 +629,25 @@ public class TPSLoginFragment extends AbstractScreenFragment implements View.OnC
         final String jsInjectCheckScript = "var func = " + site.getResponseScript() + ";";
         final String jsExecCheckScript = "return func();";
 
+        timeoutExpired = false;
+        final Handler errorTimeoutHandler = new Handler();
+        final Runnable errorTimeoutCallback = new Runnable() {
+            @Override
+            public void run() {
+                timeoutExpired = true;
+                onJsResult(RESULT_UNKNOWN_ERROR);
+            }
+        };
+        errorTimeoutHandler.postDelayed(errorTimeoutCallback, 3 * 60 * 1000);
+
         mHiddenWebView.executeJavaScriptAndGetResult(jsInjectCheckScript, jsExecCheckScript, new CustomWebView.JavaScriptExecutionCallback() {
             @Override
             public void onJavaScriptResult(String result) {
-                Logger.d(TAG, "check result " + result);
-                onJsResult(result);
+                if (!timeoutExpired) {
+                    errorTimeoutHandler.removeCallbacks(errorTimeoutCallback);
+                    Logger.d(TAG, "check result " + result);
+                    onJsResult(result);
+                }
             }
         });
     }

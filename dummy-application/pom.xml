@@ -15,12 +15,13 @@
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <groupId>com.simpligility.maven.plugins</groupId>
                 <artifactId>android-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
                     <assetsDirectory>${project.basedir}/../journal-app/assets</assetsDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/../native-libs</nativeLibrariesDirectory>
+                    <androidManifestFile>AndroidManifest.xml</androidManifestFile>
                 </configuration>
             </plugin>
         </plugins>
@@ -35,7 +36,7 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.android</groupId>
+            <groupId>android</groupId>
             <artifactId>android</artifactId>
             <scope>provided</scope>
         </dependency>

@@ -920,7 +920,10 @@ public class MainActivity extends JournalActivity {
 
         Fragment fragment = getFragmentByClass(GetAccessDialogFragment.class);
         if (DeviceUtils.isPhone(this) || isJournalShown()) {
-            showFragment(fragment, null);
+            final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction
+                    .show(fragment)
+                    .commitAllowingStateLoss();
         }
         journalFragmentsStack.push(fragment);
     }

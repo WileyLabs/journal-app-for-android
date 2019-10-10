@@ -19,7 +19,10 @@ package com.wiley.android.journalApp.authorization;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Message;
+import android.webkit.JavascriptInterface;
+import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -162,7 +165,16 @@ public class OAuthHelper {
                 final String javaScriptUrl = "%s(function() { var username = " +
                         "document.getElementById('username').value; return %s;})()";
 
-                webView.loadUrl(format(javaScriptUrl, "javascript:", "userInfo.saveUserLogin(username)"));
+                if (Build.VERSION.SDK_INT >= 19) {
+                    webView.evaluateJavascript(format(javaScriptUrl, "", "username"), new ValueCallback<String>() {
+                        @Override
+                        public void onReceiveValue(final String userLogin) {
+                            setUserLogin(userLogin);
+                        }
+                    });
+                } else {
+                    webView.loadUrl(format(javaScriptUrl, "javascript:", "userInfo.saveUserLogin(username)"));
+                }
             }
 
             super.onLoadResource(view, url);
@@ -601,6 +613,7 @@ public class OAuthHelper {
         UserInfoJavaScriptInterface() {
         }
 
+        @JavascriptInterface
         public void saveUserLogin(String userLogin) {
             setUserLogin(userLogin);
         }

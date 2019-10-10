@@ -111,7 +111,7 @@ public class FigureImageFragment extends FigureFragment {
             captionView.setVisibility(View.GONE);
         } else {
             hasCaption = true;
-            captionView.setVisibility(getHost().isFullscreen() ? View.GONE : View.VISIBLE);
+            captionView.setVisibility(getHost_().isFullscreen() ? View.GONE : View.VISIBLE);
             caption = ArticleHtmlUtils.expandLinksInFigureCaption(caption, figure, theme.isJournalHasNoReferenceNumbers());
             String html = templates.useAssetsTemplate(getActivity(), DeviceUtils.isTablet(getActivity()) ? "figure_caption_ipad" : "figure_caption_iphone")
                     .putParam("caption_body", caption)
@@ -138,7 +138,7 @@ public class FigureImageFragment extends FigureFragment {
             } else if (url.startsWith("openfig")) {
                 Uri uri = Uri.parse(url);
                 String figureShortCaption = uri.getHost();
-                getHost().openFigureByShortCaption(figureShortCaption);
+                getHost_().openFigureByShortCaption(figureShortCaption);
                 return true;
             } else {
                 return super.shouldOverrideUrlLoading(view, url);
@@ -149,7 +149,7 @@ public class FigureImageFragment extends FigureFragment {
     private PhotoViewAttacher.OnViewTapListener photoViewOnTapListener = new PhotoViewAttacher.OnViewTapListener() {
         @Override
         public void onViewTap(View view, float x, float y) {
-            getHost().toggleUiFullscreen();
+            getHost_().toggleUiFullscreen();
         }
     };
 

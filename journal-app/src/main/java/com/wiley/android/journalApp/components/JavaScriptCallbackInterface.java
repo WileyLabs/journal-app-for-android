@@ -17,6 +17,7 @@
 package com.wiley.android.journalApp.components;
 
 import android.os.Bundle;
+import android.webkit.JavascriptInterface;
 
 import com.wiley.android.journalApp.utils.DeviceUtils;
 import com.wiley.android.journalApp.utils.IdUtils;
@@ -26,16 +27,20 @@ class JavaScriptCallbackInterface {
     private static final String TAG = JavaScriptCallbackInterface.class.getSimpleName();
     private CustomWebView customWebView;
     private final boolean isPhone;
+    private String nextBodyInnerHtml = null;
+    private Bundle extras = new Bundle();
 
-    public JavaScriptCallbackInterface(final CustomWebView customWebView) {
+    JavaScriptCallbackInterface(final CustomWebView customWebView) {
         this.customWebView = customWebView;
         this.isPhone = DeviceUtils.isPhone(customWebView.getContext());
     }
 
+    @JavascriptInterface
     public void handleJavascriptErrors(final String error) {
         Logger.s(TAG, "javaScript error: " + error);
     }
 
+    @JavascriptInterface
     public void onResult(final String handlerId, final String result) {
         customWebView.post(new Runnable() {
             @Override
@@ -45,52 +50,54 @@ class JavaScriptCallbackInterface {
         });
     }
 
-    protected String nextBodyInnerHtml = null;
-
+    @JavascriptInterface
     public String getNextBodyInnerHtml() {
         return nextBodyInnerHtml;
     }
 
-    protected void setNextBodyInnerHtml(final String html) {
+    void setNextBodyInnerHtml(final String html) {
         this.nextBodyInnerHtml = html;
     }
-
-
-    private Bundle extras = new Bundle();
 
     protected Bundle getExtras() {
         return extras;
     }
 
-    public void setExtraString(String name, String value) {
-        extras.putString(name, value);
-    }
-
+    @JavascriptInterface
     public void setExtraInt(String name, int value) {
         extras.putInt(name, value);
     }
 
+    @JavascriptInterface
     public void setExtraBool(String name, boolean value) {
         extras.putBoolean(name, value);
     }
 
+    @JavascriptInterface
     public boolean isTablet() {
         return !isPhone;
     }
 
+    @JavascriptInterface
     public boolean isPhone() {
         return isPhone;
     }
 
+    @JavascriptInterface
     public String pushTempData(String data) {
         String name = String.format("tempData%d", IdUtils.generateIntId());
         setExtraString(name, data);
         return name;
     }
 
+    @JavascriptInterface
     public String popTempData(String name) {
         String data = extras.getString(name);
         extras.remove(name);
         return data;
+    }
+
+    private void setExtraString(String name, String value) {
+        extras.putString(name, value);
     }
 }

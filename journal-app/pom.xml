@@ -15,65 +15,29 @@
     <properties>
         <maven.build.timestamp.format>MMdd</maven.build.timestamp.format>
         <buildNumber>${maven.build.timestamp}</buildNumber>
+        <play-services.version>11.0.4</play-services.version>
     </properties>
 
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <groupId>com.simpligility.maven.plugins</groupId>
                 <artifactId>android-maven-plugin</artifactId>
                 <configuration>
                     <nativeLibrariesDirectory>${project.basedir}/libs</nativeLibrariesDirectory>
                     <proguard>
                         <skip>false</skip>
                     </proguard>
+                    <assetsDirectory>assets/</assetsDirectory>
+                    <resourceDirectory>res/</resourceDirectory>
+                    <androidManifestFile>AndroidManifest.xml</androidManifestFile>
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>actionbarsherlock</artifactId>
-            <version>${project.version}</version>
-            <type>aar</type>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>journal-data-provider</artifactId>
-            <version>${project.version}</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>journal-data-provider</artifactId>
-            <version>${project.version}</version>
-            <type>test-jar</type>
-            <optional>true</optional>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>ca.juliusdavies</groupId>
-            <artifactId>not-yet-commons-ssl</artifactId>
-            <version>0.3.11</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -83,6 +47,14 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>journal-data-provider</artifactId>
+            <version>${project.version}</version>
+            <type>test-jar</type>
+            <optional>true</optional>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -99,6 +71,38 @@
             <groupId>com.squareup</groupId>
             <artifactId>fest-android</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>actionbarsherlock</artifactId>
+            <version>${project.version}</version>
+            <type>aar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>journal-data-provider</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>android</groupId>
+            <artifactId>android</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>ca.juliusdavies</groupId>
+            <artifactId>not-yet-commons-ssl</artifactId>
+            <version>0.3.11</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.roboguice</groupId>
@@ -120,10 +124,6 @@
             <type>aar</type>
         </dependency>
         <dependency>
-            <groupId>android.support</groupId>
-            <artifactId>compatibility-v4</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.nineoldandroids</groupId>
             <artifactId>library</artifactId>
             <version>2.4.0</version>
@@ -139,6 +139,12 @@
             <version>1.0.2</version>
             <type>apklib</type>
         </dependency>
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>multidex</artifactId>
+            <version>1.0.1</version>
+            <type>aar</type>
+        </dependency>
 <!--
         <dependency>
             <groupId>com.google</groupId>
@@ -148,18 +154,26 @@
         <dependency>
             <groupId>com.google.android.gms</groupId>
             <artifactId>play-services-base</artifactId>
+            <version>${play-services.version}</version>
+            <type>aar</type>
         </dependency>
         <dependency>
             <groupId>com.google.android.gms</groupId>
             <artifactId>play-services-ads</artifactId>
+            <version>${play-services.version}</version>
+            <type>aar</type>
         </dependency>
         <dependency>
             <groupId>com.google.android.gms</groupId>
             <artifactId>play-services-drive</artifactId>
+            <version>${play-services.version}</version>
+            <type>aar</type>
         </dependency>
         <dependency>
             <groupId>com.google.android.gms</groupId>
             <artifactId>play-services-gcm</artifactId>
+            <version>${play-services.version}</version>
+            <type>aar</type>
         </dependency>
 
         <dependency>

@@ -90,10 +90,10 @@ public class FigureTableFragment extends FigureFragment {
             } else if (url.startsWith("openfig")) {
                 Uri uri = Uri.parse(url);
                 String figureShortCaption = uri.getHost();
-                getHost().openFigureByShortCaption(figureShortCaption);
+                getHost_().openFigureByShortCaption(figureShortCaption);
                 return true;
             } else if (url.startsWith("bodytouched")) {
-                getHost().toggleUiFullscreen();
+                getHost_().toggleUiFullscreen();
                 return true;
             } else {
                 return super.shouldOverrideUrlLoading(view, url);

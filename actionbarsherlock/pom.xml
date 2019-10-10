@@ -14,14 +14,24 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.android</groupId>
+      <groupId>android</groupId>
       <artifactId>android</artifactId>
       <scope>provided</scope>
     </dependency>
-      <dependency>
-          <groupId>android.support</groupId>
-          <artifactId>compatibility-v4</artifactId>
-      </dependency>
+    <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>support-core-ui</artifactId>
+      <version>25.3.1</version>
+      <type>aar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>support-fragment</artifactId>
+      <version>25.3.1</version>
+      <type>aar</type>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -29,9 +39,15 @@
 
     <plugins>
       <plugin>
-        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+        <groupId>com.simpligility.maven.plugins</groupId>
         <artifactId>android-maven-plugin</artifactId>
         <extensions>true</extensions>
+        <configuration>
+          <resourceDirectory>
+            res/
+          </resourceDirectory>
+          <androidManifestFile>AndroidManifest.xml</androidManifestFile>
+        </configuration>
       </plugin>
 
       <plugin>

@@ -37,13 +37,13 @@ public class PopupFragment extends JournalFragment {
         }
     }
 
-    public PopupHost getHost() {
+    public PopupHost getHost_() {
         JournalActivity journalActivity = getJournalActivity();
         return journalActivity != null ? (PopupHost) journalActivity.findViewById(popupHostId) : null;
     }
 
     public void hideSelf() {
-        PopupHost host = getHost();
+        PopupHost host = getHost_();
         if (host != null) {
             host.hide();
         }

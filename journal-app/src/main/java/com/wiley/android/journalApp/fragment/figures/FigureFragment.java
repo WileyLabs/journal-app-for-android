@@ -34,7 +34,7 @@ public class FigureFragment extends JournalFragment {
         boolean isFullscreen();
     }
 
-    public Host getHost() {
+    public Host getHost_() {
         return (Host) ((Fragment) this).getParentFragment();
     }
 
@@ -51,7 +51,7 @@ public class FigureFragment extends JournalFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.figure = getHost().getFigure(figureIndex);
+        this.figure = getHost_().getFigure(figureIndex);
     }
 
     public void onUiFullscreenChanged(boolean fullscreen) {

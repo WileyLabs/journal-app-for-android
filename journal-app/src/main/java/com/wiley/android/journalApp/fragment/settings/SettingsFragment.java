@@ -59,6 +59,7 @@ import android.widget.TextView;
 
 import com.google.inject.Inject;
 import com.wiley.android.journalApp.R;
+import android.webkit.JavascriptInterface;
 import com.wiley.android.journalApp.activity.AlertDialogActivity;
 import com.wiley.android.journalApp.activity.UpdateOperationActivity;
 import com.wiley.android.journalApp.authorization.Authorizer;
@@ -753,6 +754,7 @@ public class SettingsFragment extends BaseTabFragment {
         });
 
         fontSizeWebView.addJavascriptInterface(new CustomWebView.JavaScriptExecutionCallback() {
+            @JavascriptInterface
             @Override
             public void onJavaScriptResult(String result) {
                 UIUtils.refreshWebView(fontSizeWebView, getActivity());

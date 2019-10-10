@@ -139,7 +139,7 @@ public class ArticleViewContent extends JournalFragment {
         if (!isArticleShowed() || isArticleLoading())
             showProgress();
 
-        getHost().onArticleViewContentReady(this);
+        getHost_().onArticleViewContentReady(this);
         articleComponent.onStart();
     }
 
@@ -220,7 +220,7 @@ public class ArticleViewContent extends JournalFragment {
         }, 200);
     }
 
-    protected Host getHost() {
+    protected Host getHost_() {
         return (Host) articleComponentHost;
     }
 
