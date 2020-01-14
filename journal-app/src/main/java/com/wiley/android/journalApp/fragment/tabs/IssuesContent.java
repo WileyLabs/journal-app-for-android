@@ -16,32 +16,23 @@
  */
 package com.wiley.android.journalApp.fragment.tabs;
 
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.TypedValue;
+import android.support.v4.util.LongSparseArray;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.codewaves.stickyheadergrid.StickyHeaderGridAdapter;
+import com.codewaves.stickyheadergrid.StickyHeaderGridLayoutManager;
 import com.google.inject.Inject;
-import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
-import com.tonicartos.widget.stickygridheaders.StickyGridHeadersBaseAdapter;
-import com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView;
 import com.wiley.android.journalApp.R;
 import com.wiley.android.journalApp.activity.JournalMainFragment;
-import com.wiley.android.journalApp.authorization.Authorizer;
 import com.wiley.android.journalApp.base.MainActivity;
 import com.wiley.android.journalApp.components.IssueView;
 import com.wiley.android.journalApp.controller.ConnectionController;
@@ -51,7 +42,6 @@ import com.wiley.android.journalApp.error.ErrorManager;
 import com.wiley.android.journalApp.notification.IssueDownloadProgressProcessor;
 import com.wiley.android.journalApp.utils.Action;
 import com.wiley.android.journalApp.utils.IdUtils;
-import com.wiley.wol.client.android.data.http.ResourceManager;
 import com.wiley.wol.client.android.data.manager.ImportManager;
 import com.wiley.wol.client.android.data.service.ArticleService;
 import com.wiley.wol.client.android.data.service.IssueService;
@@ -59,35 +49,17 @@ import com.wiley.wol.client.android.data.utils.GANHelper;
 import com.wiley.wol.client.android.domain.DOI;
 import com.wiley.wol.client.android.domain.entity.IssueMO;
 import com.wiley.wol.client.android.error.AppErrorCode;
-import com.wiley.wol.client.android.inject.InjectCachePath;
 import com.wiley.wol.client.android.journalApp.theme.ColorUtils;
 import com.wiley.wol.client.android.journalApp.theme.Theme;
 import com.wiley.wol.client.android.log.Logger;
 import com.wiley.wol.client.android.notification.NotificationCenter;
 import com.wiley.wol.client.android.notification.NotificationProcessor;
-import com.wiley.wol.client.android.settings.Settings;
 import com.wiley.wol.client.android.utils.NetUtils;
 
-import java.util.ArrayList;
-import java.util.EmptyStackException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 import static com.wiley.android.journalApp.error.ErrorButton.withTitleAndListener;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_DOWNLOAD_CANCEL;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_DOWNLOAD_ERROR;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_DOWNLOAD_PROGRESS;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_DOWNLOAD_SUCCESS;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_FAVORITES_COUNT_CHANGED;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_LIST_ERROR;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_LIST_NEED_UPDATE;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_LIST_NOT_MODIFIED;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_LIST_UPDATED;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_REMOVED;
-import static com.wiley.wol.client.android.notification.EventList.ISSUE_TOC_UPDATE_SUCCESS;
-import static com.wiley.wol.client.android.notification.EventList.NETWORK_STATE_CHANGED;
+import static com.wiley.wol.client.android.notification.EventList.*;
 import static com.wiley.wol.client.android.notification.NotificationCenter.ERROR;
 import static com.wiley.wol.client.android.settings.Settings.DOWNLOAD_ISSUE;
 
@@ -105,15 +77,6 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
     @Inject
     private ErrorManager errorManager;
     @Inject
-    private ResourceManager resourceManager;
-    @Inject
-    private Settings settings;
-    @Inject
-    @InjectCachePath
-    private String rootPath;
-    @Inject
-    private Authorizer authorizer;
-    @Inject
     private ImageLoaderHelper imageLoader;
     @Inject
     private LayoutInflater inflater;
@@ -128,15 +91,13 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
 
     private boolean showCovers;
     private boolean isOnline;
-
-    private View mProgress;
     private List<IssueMO> currentIssues = null;
     private final List<ListItem> gridItems = new ArrayList<>();
+    private List<GridSectionData> gridData = new ArrayList<>();
     private final IssuesStickyGridAdapter gridAdapter = new IssuesStickyGridAdapter();
     private int yearSeparatorColor;
-
-    private StickyGridHeadersGridView issuesGridView;
-    private ViewGroup freeSampleOverlayView;
+    private int numOfIssuesPerLine = 4;
+    private RecyclerView issuesGridView;
     private final Stack<IssueView> issueViews = new Stack<>();
 
     private final ActionMode.Callback mEditActionCallback = new ActionMode.Callback() {
@@ -425,14 +386,13 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         issuesGridView = findView(R.id.issues_grid_view);
 
         prepareIssueViews();
 
-        mProgress = findView(R.id.progress);
+        final View mProgress = findView(R.id.progress);
         mProgress.setVisibility(View.GONE);
-        freeSampleOverlayView = findView(R.id.free_sample_container);
-        freeSampleOverlayView.setTag(freeSampleOverlayView.findViewById(R.id.free_sample_issue_view));
 
         findView(R.id.error_layout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -464,65 +424,29 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
 
     private void setupGridView() {
         final boolean showCover = theme.isShowCovers();
-        final int numOfIssuesPerLine = getResources().getInteger(showCover
+        numOfIssuesPerLine = getResources().getInteger(showCover
                 ? R.integer.num_of_issues_per_line
                 : R.integer.num_of_issues_per_line_no_cover);
-        issuesGridView.setNumColumns(numOfIssuesPerLine);
+
+        setGridLayoutManager();
         issuesGridView.setAdapter(gridAdapter);
-        issuesGridView.setOnScrollListener(new PauseOnScrollListener(imageLoader.getLoader(), false, true, new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {}
+    }
 
+    private void setGridLayoutManager() {
+        final StickyHeaderGridLayoutManager layoutManager = new StickyHeaderGridLayoutManager(numOfIssuesPerLine);
+        layoutManager.setHeaderBottomOverlapMargin(getResources().getDimensionPixelSize(R.dimen.header_shadow_size));
+        layoutManager.setSpanSizeLookup(new StickyHeaderGridLayoutManager.SpanSizeLookup() {
             @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                updateFreeSampleViewPosition();
+            public int getSpanSize(int section, int position) {
+                if (section == 0 && position == 0 && findFreeSample(currentIssues) != null) {
+                    return numOfIssuesPerLine;
+                } else {
+                    return 1;
+                }
             }
-        }));
-    }
+        });
 
-    /*
-    * This moves free sample view along with fake transparent view in the gridview
-    * if the fake view is scrolled out of the screen, the free sample view should disappear too.
-    */
-    private void updateFreeSampleViewPosition() {
-        ViewGroup cont = findFakeViewContainer();
-
-        if (cont == null) {
-            // the zero child is not a fake view container
-            freeSampleOverlayView.setTop(-9999);
-            freeSampleOverlayView.setVisibility(View.INVISIBLE);
-            return;
-        }
-
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) freeSampleOverlayView.getLayoutParams();
-        lp.setMargins(lp.leftMargin, cont.getTop(), lp.rightMargin, lp.bottomMargin);
-        freeSampleOverlayView.setLayoutParams(lp);
-
-        freeSampleOverlayView.setVisibility(View.VISIBLE);
-    }
-
-    private ViewGroup findFakeViewContainer() {
-        View view = issuesGridView.getChildAt(0);
-        if (view == null || !(view instanceof ViewGroup)) {
-            return null;
-        }
-
-        ViewGroup viewGroup = (ViewGroup) view; // a container for the fake view container
-        view = viewGroup.getChildAt(0); // fake view container itself
-
-        if (view == null) {
-            return null;
-        }
-
-        // the fake view container holds the fake view as a tag
-        view = view.getTag() instanceof View ? (View) view.getTag() : null;
-
-        if (view == null || view.getId() != R.id.issue_fake_list_item) {
-            // the zero child is not the fake view container
-            return null;
-        }
-
-        return viewGroup;
+        issuesGridView.setLayoutManager(layoutManager);
     }
 
     private void onNetworkStateChanged(final boolean available) {
@@ -646,36 +570,52 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
             gridItems.add(fakeItem);
         }
 
-        updateFreeSample(fakeItem);
-
         for (final IssueMO each : currentIssues) {
             gridItems.add(new IssueListItem(each));
         }
 
-        gridAdapter.notifyDataSetChanged();
+        gridData = getGridData();
+
+        gridAdapter.notifyAllSectionsDataSetChanged();
     }
 
-    private void  updateFreeSample(ListItem fakeItem) {
-        if (fakeItem == null || fakeItem.issue == null) {
-            freeSampleOverlayView.setVisibility(View.INVISIBLE);
-        } else {
-            final IssueView issueView = (IssueView) freeSampleOverlayView.getTag();
+    private List<GridSectionData> getGridData() {
+        final LongSparseArray<GridSectionData> mapping = new LongSparseArray<>();
+        final List<GridSectionData> headers = new ArrayList<>();
 
-            issueView.setTag(fakeItem.id);
-            issueView.setHost(IssuesContent.this);
-            issueView.fillBy(fakeItem.issue);
-            issueView.setDownloadCancelClickListener(mIssueDownloadCancelClickListener);
-            issueView.setEditListener(mEditListener);
-
-            if (fakeItem.currentProgress != -1) {
-                issueView.onDownloadProgress(fakeItem.currentProgress, fakeItem.totalProgress);
+        for (final ListItem item : gridItems) {
+            long headerId = item.getHeaderId();
+            GridSectionData gridSectionData = mapping.get(headerId);
+            if (gridSectionData == null) {
+                gridSectionData = new GridSectionData();
+                headers.add(gridSectionData);
             }
-
-            issueView.onNetworkStateChanged(isOnline);
-            issueView.updateUiState();
-
-            updateFreeSampleViewPosition();
+            gridSectionData.addItem(item);
+            gridSectionData.incrementCount();
+            mapping.put(headerId, gridSectionData);
         }
+
+        return headers;
+    }
+
+    private View updateFreeSample(ListItem listItem) {
+        final View view = inflater.inflate(R.layout.issues_free_sample_list_item, issuesGridView, false);
+        final IssueView issueView = (IssueView) view.findViewById(R.id.free_sample_issue_view);
+
+        issueView.setTag(listItem.id);
+        issueView.setHost(IssuesContent.this);
+        issueView.fillBy(listItem.issue);
+        issueView.setDownloadCancelClickListener(mIssueDownloadCancelClickListener);
+        issueView.setEditListener(mEditListener);
+
+        if (listItem.currentProgress != -1) {
+            issueView.onDownloadProgress(listItem.currentProgress, listItem.totalProgress);
+        }
+
+        issueView.onNetworkStateChanged(isOnline);
+        issueView.updateUiState();
+
+        return view;
     }
 
     private void updateIssue(IssueMO issue) {
@@ -708,39 +648,10 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
         return null;
     }
 
-    private Handler hideProgressHandler = new Handler();
-
     private void showProgress() {
-        hideProgressHandler.removeCallbacksAndMessages(null);
-        mProgress.clearAnimation();
-        mProgress.setAlpha(1.0f);
-        mProgress.setVisibility(View.VISIBLE);
     }
 
     private void hideProgress() {
-        hideProgressHandler.removeCallbacksAndMessages(null);
-        hideProgressHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
-                fadeOut.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        mProgress.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-                fadeOut.setDuration(500);
-                mProgress.startAnimation(fadeOut);
-            }
-        }, 200);
     }
 
     @Override
@@ -799,13 +710,6 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
     }
 
     private void withIssueViewDo(final Action<IssueView> action, final DOI doi) {
-        if (null != findFreeSample(currentIssues)) {
-            final IssueView freeIssueView = (IssueView) freeSampleOverlayView.getTag();
-            if (freeIssueView.getDOI().equals(doi)) {
-                action.run(freeIssueView);
-            }
-        }
-
         int childCount = issuesGridView.getChildCount();
         for (int i = 0; i < childCount; i++) {
             final IssueView iv = findIssueViewAt(issuesGridView.getChildAt(i));
@@ -833,46 +737,16 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
         return null;
     }
 
-    private class IssuesStickyGridAdapter extends BaseAdapter implements StickyGridHeadersBaseAdapter {
+    private class IssuesStickyGridAdapter extends StickyHeaderGridAdapter {
 
-        private List<HeaderData> headers = new ArrayList<>();
-
-        public IssuesStickyGridAdapter() {
-            headers = generateHeaderList();
+        @Override
+        public int getSectionCount() {
+            return gridData.size();
         }
 
         @Override
-        public int getCountForHeader(int header) {
-            return headers.get(header).getCount();
-        }
-
-        @Override
-        public int getNumHeaders() {
-            return headers.size();
-        }
-
-        @Override
-        public View getHeaderView(int position, View convertView, ViewGroup parent) {
-
-            ListItem item = gridItems.get(headers.get(position).getRefPosition());
-
-            if (item instanceof DummyListItem) {
-                return getFreeSampleHeaderView((DummyListItem) item, convertView instanceof LinearLayout ? convertView : null, parent);
-            } else if (item instanceof IssueListItem) {
-                return getPubYearHeaderView((IssueListItem) item, convertView instanceof TextView ? convertView : null, parent);
-            } else {
-                throw new RuntimeException("Unable to create header view. Unknown list item type " + item);
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return gridItems.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return gridItems.get(position);
+        public int getSectionItemCount(int section) {
+            return gridData.get(section).count;
         }
 
         @Override
@@ -881,109 +755,84 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            return gridItems.get(position).getView(convertView, parent);
+        public HeaderViewHolder onCreateHeaderViewHolder(final ViewGroup parent, final int headerType) {
+            final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.issue_list_header_container, parent, false);
+            return new IssuesHeaderViewHolder(view);
         }
 
         @Override
-        public int getItemViewType(int position) {
-            return gridItems.get(position).getViewType();
+        public ItemViewHolder onCreateItemViewHolder(final ViewGroup parent, final int itemType) {
+            final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.issue_list_item_container, parent, false);
+            return new IssuesItemViewHolder(view);
         }
 
         @Override
-        public int getViewTypeCount() {
-            return 2;
-        }
+        public void onBindHeaderViewHolder(final HeaderViewHolder viewHolder, final int section) {
 
-        private View getFreeSampleHeaderView(DummyListItem item, View convertView, ViewGroup parent) {
-            ViewGroup view;
+            ListItem item = gridData.get(section).items.get(0);
 
-            if (convertView != null && convertView.getId() == R.id.issue_fake_list_item) {
-                view = (ViewGroup) convertView;
+            final View headerView;
+            final IssuesHeaderViewHolder issueHeaderViewHolder = (IssuesHeaderViewHolder) viewHolder;
+            if (item instanceof DummyListItem) {
+                 headerView = getFreeSampleHeaderView(issueHeaderViewHolder.layout);
+            } else if (item instanceof IssueListItem) {
+                headerView = getPubYearHeaderView((IssueListItem) item, issueHeaderViewHolder.layout);
             } else {
-                view = (ViewGroup) inflater.inflate(R.layout.issues_fake_list_item, parent, false);
-                View stubView = view.getChildAt(0);
-                ViewGroup.LayoutParams lp = stubView.getLayoutParams();
-                lp.height = freeSampleOverlayView.getMeasuredHeight();
-                stubView.setLayoutParams(lp);
+                throw new RuntimeException("Unable to create header view. Unknown list item type " + item);
             }
 
-            updateFreeSample(item);
-            return view;
+            issueHeaderViewHolder.layout.removeAllViews();
+            issueHeaderViewHolder.layout.addView(headerView);
         }
 
-        private View getPubYearHeaderView(IssueListItem item, View convertView, ViewGroup parent) {
-            TextView yearView = (TextView) convertView;
-            if (yearView == null) {
-                yearView = (TextView) inflater.inflate(R.layout.issues_year_list_item, parent, false);
-            }
+        @Override
+        public void onBindItemViewHolder(final ItemViewHolder viewHolder, final int section, final int offset) {
+            final IssuesItemViewHolder issuesItemViewHolder = (IssuesItemViewHolder) viewHolder;
+            final ListItem listItem = gridData.get(section).items.get(offset);
 
+            final View itemView;
+            if (section == 0 && offset == 0 && listItem.issue.isSampleIssue()) {
+                itemView = updateFreeSample(listItem);
+                final ViewGroup.LayoutParams layoutParams = issuesItemViewHolder.layout.getLayoutParams();
+                layoutParams.width = RecyclerView.LayoutParams.MATCH_PARENT;
+            } else {
+                itemView = listItem.getView(issuesItemViewHolder.layout);
+            }
+            issuesItemViewHolder.layout.removeAllViews();
+            issuesItemViewHolder.layout.addView(itemView);
+        }
+
+        private View getFreeSampleHeaderView(ViewGroup parent) {
+            return inflater.inflate(R.layout.issues_fake_list_item, parent, false);
+        }
+
+        private View getPubYearHeaderView(IssueListItem item, ViewGroup parent) {
+            TextView yearView = (TextView) inflater.inflate(R.layout.issues_year_list_item, parent, false);
             yearView.setBackgroundColor(yearSeparatorColor);
             yearView.setText(item.publicationYear);
-
-            final TypedValue typedValue = new TypedValue();
-            getActivity().getTheme().resolveAttribute(R.attr.list_article_header_title_color, typedValue, true);
-            int color = typedValue.data;
-            yearView.setTextColor(color);
-
             return yearView;
         }
-
-        private List<HeaderData> generateHeaderList() {
-            Map<Long, HeaderData> mapping = new HashMap<>();
-            List<HeaderData> headers = new ArrayList<>();
-
-            for (int i = 0; i < gridItems.size(); i++) {
-                long headerId = gridItems.get(i).getHeaderId();
-                HeaderData headerData = mapping.get(headerId);
-                if (headerData == null) {
-                    headerData = new HeaderData(i);
-                    headers.add(headerData);
-                }
-                headerData.incrementCount();
-                mapping.put(headerId, headerData);
-            }
-
-            return headers;
-        }
-
-        @Override
-        public void notifyDataSetChanged() {
-            headers = generateHeaderList();
-            super.notifyDataSetChanged();
-        }
-
-        @Override
-        public void notifyDataSetInvalidated() {
-            headers = generateHeaderList();
-            super.notifyDataSetInvalidated();
-        }
-
-        private class HeaderData {
-            private int mCount;
-            private int mRefPosition;
-
-            public HeaderData(int refPosition) {
-                mRefPosition = refPosition;
-                mCount = 0;
-            }
-
-            public int getCount() {
-                return mCount;
-            }
-
-            public int getRefPosition() {
-                return mRefPosition;
-            }
-
-            public void incrementCount() {
-                mCount++;
-            }
-        }
-
     }
 
-    private abstract class ListItem {
+    public static class IssuesHeaderViewHolder extends StickyHeaderGridAdapter.HeaderViewHolder {
+        FrameLayout layout;
+
+        IssuesHeaderViewHolder(View itemView) {
+            super(itemView);
+            layout = (FrameLayout) itemView.findViewById(R.id.item_container);
+        }
+    }
+
+    public static class IssuesItemViewHolder extends StickyHeaderGridAdapter.ItemViewHolder {
+        FrameLayout layout;
+
+        IssuesItemViewHolder(View itemView) {
+            super(itemView);
+            layout = (FrameLayout) itemView.findViewById(R.id.item_container);
+        }
+    }
+
+    private abstract static class ListItem {
 
         IssueMO issue;
         DOI associatedDoi;
@@ -998,9 +847,8 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
             this.id = IdUtils.generateIntId();
         }
 
-        abstract View getView(View convertView, ViewGroup parent);
+        abstract View getView(ViewGroup parent);
         abstract long getHeaderId();
-        abstract int getViewType();
         abstract boolean isEditable();
         long getDownloadedSize() { return downloadedSize; }
         void setDownloadedSize(long downloadedSize) { this.downloadedSize = downloadedSize; }
@@ -1015,25 +863,18 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
 
         String publicationYear;
 
-        public IssueListItem(IssueMO issue) {
+        IssueListItem(IssueMO issue) {
             super(issue);
             this.publicationYear = issue.getCoverYear();
         }
 
         @Override
-        public View getView(View convertView, ViewGroup parent) {
-            if (!(convertView instanceof IssueView)) {
-                convertView = null;
-            }
-
-            IssueView issueView = (IssueView) convertView;
-
-            if (issueView == null) {
-                try {
-                    issueView = issueViews.pop();
-                } catch (EmptyStackException e) {
-                    issueView = (IssueView) inflater.inflate(showCovers ? R.layout.issue : R.layout.issue_no_cover, parent, false);
-                }
+        public View getView(ViewGroup parent) {
+            IssueView issueView;
+            try {
+                issueView = issueViews.pop();
+            } catch (EmptyStackException e) {
+                issueView = (IssueView) inflater.inflate(showCovers ? R.layout.issue : R.layout.issue_no_cover, parent, false);
             }
 
             issueView.setTag(id);
@@ -1061,11 +902,6 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
         }
 
         @Override
-        public int getViewType() {
-            return 0;
-        }
-
-        @Override
         boolean isEditable() {
             return issue.isLocal();
         }
@@ -1073,13 +909,13 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
 
     private class DummyListItem extends ListItem {
 
-        public DummyListItem(IssueMO freeSample) {
+        DummyListItem(IssueMO freeSample) {
             super(freeSample);
         }
 
         @Override
-        public View getView(View convertView, ViewGroup parent) {
-            return convertView == null ? new View(getActivity()) : convertView;
+        public View getView(ViewGroup parent) {
+            return new View(getActivity());
         }
 
         @Override
@@ -1088,13 +924,26 @@ public class IssuesContent extends BaseTabFragment implements IssueView.IssueVie
         }
 
         @Override
-        public int getViewType() {
-            return 1;
-        }
-
-        @Override
         boolean isEditable() {
             return false;
+        }
+    }
+
+    private class GridSectionData {
+        private int count;
+        private List<ListItem> items;
+
+        GridSectionData() {
+            items = new ArrayList<>();
+            count = 0;
+        }
+
+        void addItem(ListItem item) {
+            items.add(item);
+        }
+
+        void incrementCount() {
+            count++;
         }
     }
 }

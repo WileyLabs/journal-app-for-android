@@ -30,6 +30,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -54,7 +55,7 @@ import com.wiley.android.journalApp.utils.EmailSender;
 import com.wiley.android.journalApp.utils.IdUtils;
 import com.wiley.android.journalApp.utils.MathUtils;
 import com.wiley.android.journalApp.utils.UIUtils;
-import com.wiley.android.journalApp.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import com.wiley.wol.client.android.data.http.Resource;
 import com.wiley.wol.client.android.data.http.ResourceManager;
 import com.wiley.wol.client.android.data.service.ArticleService;
@@ -94,7 +95,7 @@ import static com.wiley.wol.client.android.notification.NotificationCenter.ERROR
 import static com.wiley.wol.client.android.notification.NotificationCenter.SETTING_NAME_KEY;
 import static java.lang.String.format;
 
-public abstract class ArticleRefComponent implements SwipeRefreshLayout.ScrollQualifier {
+public abstract class ArticleRefComponent implements SwipeRefreshLayout.OnChildScrollUpCallback {
     private static final String TAG = ArticleRefComponent.class.getSimpleName();
 
     private static final String BASE_TOC_URL = "app:toc";
@@ -268,7 +269,7 @@ public abstract class ArticleRefComponent implements SwipeRefreshLayout.ScrollQu
     protected boolean sendScrollNotifications = true;
 
     @Override
-    public boolean canScroll() {
+    public boolean canChildScrollUp(SwipeRefreshLayout parent, View child) {
         return webView.getScrollY() > 0;
     }
 

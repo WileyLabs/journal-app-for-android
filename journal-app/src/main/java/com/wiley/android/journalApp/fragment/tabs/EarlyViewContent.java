@@ -29,10 +29,9 @@ import com.wiley.android.journalApp.R;
 import com.wiley.android.journalApp.components.CustomWebView;
 import com.wiley.android.journalApp.components.EarlyViewComponent;
 import com.wiley.android.journalApp.error.ErrorManager;
-import com.wiley.android.journalApp.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import com.wiley.wol.client.android.data.service.ArticleService;
 import com.wiley.wol.client.android.data.utils.GANHelper;
-import com.wiley.wol.client.android.journalApp.theme.ColorUtils;
 import com.wiley.wol.client.android.log.Logger;
 import com.wiley.wol.client.android.notification.NotificationCenter;
 import com.wiley.wol.client.android.notification.NotificationProcessor;
@@ -115,14 +114,13 @@ public class EarlyViewContent extends BaseTabArticleComponentHostFragment implem
         this.articleRefComponent.onCreateHost();
 
         swipeLayout = findView(R.id.swipe_container);
+
         swipeLayout.setOnRefreshListener(this);
-        swipeLayout.setScrollQualifier(articleRefComponent);
-        int mainColor = theme.getMainColor();
-        int color1 = ColorUtils.modifyHsv(mainColor, 0.5f, 1.0f);
-        int color2 = ColorUtils.modifyHsv(mainColor, 0.75f, 1.0f);
-        int color3 = ColorUtils.modifyHsv(mainColor, 1.0f, 1.0f);
-        int color4 = ColorUtils.modifyHsv(mainColor, 1.0f, 0.75f);
-        swipeLayout.setColorSchemeWithColors(color1, color2, color3, color4);
+        if (articleRefComponent != null) {
+            swipeLayout.setOnChildScrollUpCallback(articleRefComponent);
+        }
+
+        swipeLayout.setColorSchemeResources(R.color.green_swipe, R.color.red_swipe, R.color.blue_swipe, R.color.orange_swipe);
 
         progress.setVisibility(View.GONE);
     }

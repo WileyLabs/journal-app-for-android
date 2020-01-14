@@ -36,7 +36,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.speech.RecognizerIntent;
-import android.support.v4.view.KeyEventCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.text.Editable;
 import android.text.InputType;
@@ -943,7 +942,7 @@ public class SearchView extends LinearLayout implements CollapsibleActionView {
 
             // If there is text in the query box, handle enter, and action keys
             // The search key is handled by the dialog's onKeyDown().
-            if (!mQueryTextView.isEmpty() && KeyEventCompat.hasNoModifiers(event)) {
+            if (!mQueryTextView.isEmpty() && event.hasNoModifiers()) {
                 if (event.getAction() == KeyEvent.ACTION_UP) {
                     if (keyCode == KeyEvent.KEYCODE_ENTER) {
                         v.cancelLongPress();
@@ -980,7 +979,7 @@ public class SearchView extends LinearLayout implements CollapsibleActionView {
         if (mSuggestionsAdapter == null) {
             return false;
         }
-        if (event.getAction() == KeyEvent.ACTION_DOWN && KeyEventCompat.hasNoModifiers(event)) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN && event.hasNoModifiers()) {
             // First, check for enter or search (both of which we'll treat as a
             // "click")
             if (keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_SEARCH

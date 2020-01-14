@@ -22,7 +22,7 @@
         <android.plugin.version>4.5.0</android.plugin.version>
 
         <emulator.avd><!-- Set it in your settings.xml --></emulator.avd>
-        <sdk_version>27</sdk_version>
+        <sdk_version>28</sdk_version>
 
         <junit4>4.12</junit4>
     </properties>

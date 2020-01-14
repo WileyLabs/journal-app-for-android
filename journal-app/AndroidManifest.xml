@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="0.1"
           package="com.wiley.android.journalApp">
 
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27"/>
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -32,9 +32,17 @@
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.front" android:required="false" />
 
-    <application android:icon="@drawable/application_icon" android:label="@string/app_name"
-                 android:name="com.wiley.android.journalApp.MainApplication" android:theme="@style/AppBaseTheme"
-                 android:debuggable="false" android:allowBackup="false">
+    <application
+        android:name="com.wiley.android.journalApp.MainApplication"
+        android:allowBackup="false"
+        android:debuggable="false"
+        android:icon="@drawable/application_icon"
+        android:label="@string/app_name"
+        android:resizeableActivity="false"
+        android:theme="@style/AppBaseTheme"
+        android:usesCleartextTraffic="true">
+
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <meta-data android:name="com.google.android.gms.version"
                    android:value="@integer/google_play_services_version"/>

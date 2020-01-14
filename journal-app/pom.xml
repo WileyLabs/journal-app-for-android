@@ -181,9 +181,22 @@
             <artifactId>bugsense</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.tonicartos</groupId>
-            <artifactId>stickygridheaders</artifactId>
-            <version>1.0.1</version>
+            <groupId>com.android.support</groupId>
+            <artifactId>support-compat</artifactId>
+            <version>28.0.0</version>
+            <type>aar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>recyclerview-v7</artifactId>
+            <version>28.0.0</version>
+            <type>aar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.codewaves.stickyheadergrid</groupId>
+            <artifactId>stickyheadergrid</artifactId>
+            <version>0.9.7</version>
+            <type>aar</type>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>

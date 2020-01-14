@@ -72,5 +72,5 @@
 
     <dimen name="global_search_menu_button_height">44dp</dimen>
     <dimen name="global_search_menu_button_text_size">13sp</dimen>
-
+    <dimen name="header_shadow_size">5dp</dimen>
 </resources>
