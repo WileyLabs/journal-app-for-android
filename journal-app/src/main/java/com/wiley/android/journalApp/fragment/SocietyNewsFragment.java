@@ -48,12 +48,11 @@ import com.wiley.android.journalApp.fragment.announcement.AnnouncementFragment;
 import com.wiley.android.journalApp.progress.ProgressHandler;
 import com.wiley.android.journalApp.utils.ActionBarUtils;
 import com.wiley.android.journalApp.utils.DeviceUtils;
-import com.wiley.android.journalApp.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import com.wiley.android.journalApp.widget.TouchRefreshLayout;
 import com.wiley.wol.client.android.data.http.UpdateManager;
 import com.wiley.wol.client.android.data.service.AnnouncementService;
 import com.wiley.wol.client.android.error.AppErrorCode;
-import com.wiley.wol.client.android.journalApp.theme.ColorUtils;
 import com.wiley.wol.client.android.log.Logger;
 import com.wiley.wol.client.android.notification.EventList;
 import com.wiley.wol.client.android.notification.NotificationCenter;
@@ -362,12 +361,8 @@ public class SocietyNewsFragment extends JournalFragment implements HomePageHost
                     updateManager.updateHomePageFeeds();
                 }
             });
-            int mainColor = theme.getMainColor();
-            int color1 = ColorUtils.modifyHsv(mainColor, 0.5f, 1.0f);
-            int color2 = ColorUtils.modifyHsv(mainColor, 0.75f, 1.0f);
-            int color3 = ColorUtils.modifyHsv(mainColor, 1.0f, 1.0f);
-            int color4 = ColorUtils.modifyHsv(mainColor, 1.0f, 0.75f);
-            swipeLayout.setColorSchemeWithColors(color1, color2, color3, color4);
+
+            swipeLayout.setColorSchemeResources(R.color.green_swipe, R.color.red_swipe, R.color.blue_swipe, R.color.orange_swipe);
 
             // feature: quick link menu
             if (DeviceUtils.isPhone(getJournalActivity())) {
