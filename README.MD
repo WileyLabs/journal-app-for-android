@@ -1,4 +1,6 @@
 # Journal App for Android
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FWileyLabs%2Fjournal-app-for-android.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FWileyLabs%2Fjournal-app-for-android?ref=badge_shield)
+
 
 ## Installation Instructions
 
@@ -36,3 +38,6 @@ adb install dummy-application/target/dummy-application.apk
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FWileyLabs%2Fjournal-app-for-android.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FWileyLabs%2Fjournal-app-for-android?ref=badge_large)
