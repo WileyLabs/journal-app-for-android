@@ -1,4 +1,4 @@
-# Journal App for Android
+# UNMAINTAINED: Journal App for Android
 
 ## Installation Instructions
 
